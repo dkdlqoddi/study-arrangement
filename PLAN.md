@@ -19,7 +19,7 @@
 | 비공개(private/) | 전체판 100파트, 강의노트 11파트, 슬라이드 18, 받아쓰기 38파트, 논문과제 8파트, R 코드 2, 공통 2 + 목차·README·INDEX·manifest. `.gitignore`의 `private/`로 제외 |
 | 변환 내역 | 요약본 7건(24파트, 2차시는 요약본 없음) · 전체판 8건(100파트) · 강의노트 8건(11파트) · 슬라이드 18건 · 받아쓰기 26건(38파트) · 논문과제 6건(8파트) · R 코드 2건 · OCR 약 170쪽 |
 | 파일 크기 한도 | 파일당 **12,000 tokens**(o200k_base) 이하로 분할 → ChatGPT 웹 브라우징이 한 번에 읽는 범위 안 |
-| GitHub | 원격 저장소는 PUBLIC·빈 상태. 로컬에도 커밋 없음 → **첫 커밋부터 `.gitignore` 적용됨** |
+| GitHub | PUBLIC. 2026-10-24 첫 커밋 `e647d76`(공개 파일 74개) main에 푸시 완료. raw URL 접근 확인(HTTP 200) |
 | 로컬 환경 | WSL2 Ubuntu 22.04, Python 3.10, sudo 없음(pip --user 사용) |
 
 ## 3. 저장소 구조
@@ -99,20 +99,20 @@
 
 ### 5.2 GitHub 반영
 
-- [ ] 첫 커밋 전 확인: `python3 tools/check_links.py` 가 깨진 링크 0·한도 초과 0을 보고하고, `git status --short | grep -v '^??'` 가 비어 있고, `git check-ignore -v machine_learning_for_health_science/ISLR_1stEd.pdf` 가 `.gitignore` 규칙을 가리키는지 확인.
-- [ ] 커밋·푸시:
+- [x] 첫 커밋 전 확인(2026-10-24): `check_links.py` 깨진 링크 0·비공개 누출 0·한도 초과 0, 스테이징된 74개 파일에 원본 형식·private·실명 없음, 원본 폴더는 `.gitignore`로 제외됨을 확인.
+- [x] 커밋·푸시 완료 — `e647d76 Add ML for Health Science study summaries (weeks 1-8, public scope)` → `origin/main`. 다음부터는 같은 방식으로:
   ```bash
   git add .gitignore README.md INDEX.md TOPICS.md PLAN.md llms.txt tools/ docs/   # private/ 는 .gitignore 로 자동 제외
   git status --short | grep -c '^A'   # 74개여야 함
   git commit -m "Add ML for Health Science study summaries (weeks 1-8, public scope)"
   git push -u origin main
   ```
-- [ ] 푸시 후 raw URL 확인: `curl -sI https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/INDEX.md | head -1` → `200`.
+- [x] 푸시 후 raw URL 확인: `INDEX.md`, `docs/compiled/glossary_part01.md` 모두 HTTP 200 (2026-10-24).
 - [ ] ChatGPT에서 테스트: README의 "ChatGPT 질문 템플릿"대로 `docs/compiled/glossary_part01.md`와 한 주차 요약본 URL을 주고 답이 나오는지, 긴 파트 파일이 잘리지 않는지 확인. 잘리면 `--max-tokens 8000`으로 재생성.
 
 ### 5.3 다음 주차(9차시~) 추가 절차
 
-1. 원본 폴더 `machine_learning_for_health_science/YYYYMMDD/`에 자료를 넣는다(학습자료 PDF, 강의노트 PDF, 슬라이드 PDF, 받아쓰기 txt).
+1. 원본 폴더 `machine_learning_for_health_science/YYYYMMDD/`에 자료를 넣는다(학습자료 PDF, 강의노트 PDF, 슬라이드 PDF, 받아쓰기 txt). 새로 등장하는 사람 이름이 있으면 `private/redact.json`에 추가한다(이 파일이 없으면 치환이 안 되므로 다른 PC에서는 먼저 만든다).
 2. `tools/convert_sources.py`의 `WEEKS` 목록에 항목을 추가한다(n, folder, date, slug, title, topics, summary_pdf, full_pdf, notes, slides, reuse, skip). 다른 주차에 이미 있는 슬라이드는 `slides`가 아니라 `reuse`에 적는다.
 3. `python3 tools/convert_sources.py --only week09` 로 해당 주차만 변환한다. 요약본은 `docs/`, 나머지는 `private/`로 자동 분리되고 인덱스·모아보기·llms.txt가 갱신된다. 끝나면 `python3 tools/check_links.py`(깨진 링크 0, 비공개 누출 0, 한도 초과 0 확인).
 4. `TOPICS.md`에 새 키워드 행을 추가하고, 5.1 점검 후 커밋·푸시한다.
@@ -139,7 +139,7 @@
 | 제목 표기 | 각 문서 첫 줄에 `#` 한국어 제목, 그 아래 원본 경로·변환 방식·생성일·주의 문구 | 출처 추적 |
 | 중복 처리 | md5가 같은 원본은 처음 등장한 주차에서만 변환, 다른 주차는 README의 '다른 주차에서 이미 변환된 자료' 표로 링크 | 저장소 크기·검색 중복 방지 |
 | 공개 범위 | `PUBLIC_CATEGORIES = {study_guide_summary, compiled}` 만 `docs/`, 나머지는 `private/docs/`(동일 구조, git 제외). 공개 문서는 비공개 경로를 링크하지 않음(`check_links.py`가 검사) | 교수님 노트 원문·녹음·슬라이드·동료 자료의 저작권·개인정보 |
-| 이름 치환 | `REDACT` 목록(동료 학생, 발표자)을 본문·파일명·manifest에 적용. 띄어쓰기 복원으로 갈라진 이름도 정규식으로 잡음 | 공개 저장소에 실명이 남지 않도록 |
+| 이름 치환 | 치환 목록은 공개 소스에 두지 않고 **`private/redact.json`**(git 제외, 형식 `[["이름", "[발표자]"], …]`)에서 읽어 본문·파일명·manifest에 적용. 띄어쓰기 복원으로 갈라진 이름도 정규식으로 잡음. 실명이 든 원본 파일명은 `WEEKS`에 글롭(`*`)으로 적음 | 공개 저장소(소스 포함)에 실명이 남지 않도록 |
 | 제외 | 녹음(wma/m4a), 칠판 사진, 교재·논문 원문 PDF, `.fablize/`, pptx 초안·템플릿, 다른 과목 노트 | 용량·저작권·중복 |
 | 변환 불가 표시 | 이미지 전용 페이지는 `_(이미지 기반 페이지 → OCR …)_`, 전체판의 슬라이드 그림은 `_[그림/슬라이드 이미지 — 원본 PDF p.N 참고]_` | 어디가 누락됐는지 알 수 있게 |
 
