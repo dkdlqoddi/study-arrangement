@@ -802,6 +802,22 @@
    },
    "public": true,
    "index": "docs/compiled/checklists.md"
+  },
+  {
+   "category": "compiled",
+   "title": "핵심 수식 정리 (LaTeX)",
+   "files": [
+    {
+     "path": "docs/compiled/formulas.md",
+     "tokens": 5227,
+     "chars": 9431
+    }
+   ],
+   "source": "tools/content/formulas.md",
+   "method": "manual",
+   "note": "수업에서 다룬 핵심 수식을 LaTeX로 정리하고 어느 차시 요약본 절에 나오는지 표시. AI 정리본(교수님 말씀 아님).",
+   "stats": {},
+   "public": true
   }
  ]
 }

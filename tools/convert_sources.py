@@ -802,6 +802,12 @@ COMPILED = [
 ]
 HEADING_RE = re.compile(r"^(#{2,4})\s+(.*)$")
 
+# 손으로 작성해 tools/content/ 에 두는 공개 모아보기 문서: (파일명, 제목, 원본 경로, 설명)
+MANUAL_COMPILED = [
+    ("formulas.md", "핵심 수식 정리 (LaTeX)", "tools/content/formulas.md",
+     "수업에서 다룬 핵심 수식을 LaTeX로 정리하고 어느 차시 요약본 절에 나오는지 표시. AI 정리본(교수님 말씀 아님)."),
+]
+
 
 def _strip_part_header(text: str) -> str:
     idx = text.find("\n---\n")
@@ -867,6 +873,16 @@ def compile_sections(weeks: list[dict], max_tokens: int) -> list[dict]:
                           max_tokens=max_tokens, extra_meta=f"{found_weeks}개 차시")
         entries.append(dict(category="compiled", title=title, files=files, source="각 차시 학습자료", method="compiled",
                             note=desc, stats={"weeks": found_weeks}, public=True))
+    for fname, title, src_rel, desc in MANUAL_COMPILED:
+        src = ROOT / src_rel
+        if not src.exists():
+            print("경고: 수동 모아보기 원본 없음", src_rel)
+            continue
+        body = src.read_text(encoding="utf-8").strip() + "\n"
+        body = re.sub(r"^(#{1,5})\s", lambda m: "#" * (len(m.group(1)) + 1) + " ", body, flags=re.M)
+        files = write_doc(body, cdir / fname, title, src_rel, "manual", "../INDEX.md", max_tokens=max_tokens)
+        entries.append(dict(category="compiled", title=title, files=files, source=src_rel, method="manual",
+                            note=desc, stats={}, public=True))
     return entries
 
 
@@ -913,6 +929,9 @@ def write_week_readme(w: dict):
            f"> 원본 폴더 `machine_learning_for_health_science/{w['folder']}/` ({w['src_bytes']/1e6:,.0f} MB, 사진 {w['photos']}장, 녹음 {w['audio']}개) · 변환 생성일 {TODAY} · [전체 인덱스(비공개)](../../INDEX.md) · [공개 README](../../../{wdir}/README.md)", "",
            "## 이번 차시 키워드", "", kw, "", "## 변환된 문서 (공개 + 비공개)", ""]
     out += _entries_table(w["entries"], pdir)
+    photos_readme = PRIV_OUT / w["slug"] / "photos" / "README.md"
+    if photos_readme.exists():
+        out += ["", f"## 칠판 사진", "", f"[photos/README.md](photos/README.md) — 썸네일 {w['photos']}장, 촬영 시각, AI 판서 설명 (`python3 tools/photos.py`로 생성)"]
     if w.get("reuse"):
         out += ["", "## 다른 주차에서 이미 변환된 자료 (이 폴더에도 같은 원본이 있음)", "", "| 원본 | 변환 문서 |", "|---|---|"]
         for name, target in w["reuse"]:
@@ -923,7 +942,10 @@ def write_week_readme(w: dict):
     if w["audio"]:
         out.append(f"| 녹음 파일 {w['audio']}개 (.wma/.m4a) | 용량·저작권. 내용은 `transcripts/` 받아쓰기로 대체 |")
     if w["photos"]:
-        out.append(f"| 칠판 사진 {w['photos']}장 (Quick Share/*.jpg) | 손글씨 사진은 OCR 신뢰도가 낮아 보류. 전체판 학습자료가 촬영 시각 기준으로 사진을 배치했으므로 원본 PDF 참고 |")
+        if photos_readme.exists():
+            out.append(f"| 칠판 사진 {w['photos']}장 (Quick Share/*.jpg) | 원본 대신 [photos/README.md](photos/README.md)에 1280px 썸네일·촬영 시각·AI 판서 설명을 둠(비공개) |")
+        else:
+            out.append(f"| 칠판 사진 {w['photos']}장 (Quick Share/*.jpg) | `python3 tools/photos.py`로 썸네일·설명 표를 만들 수 있음(비공개) |")
     for name, why in w.get("skip", []):
         out.append(f"| `{name}` | {why} |")
     out.append("| `.fablize/` | 학습자료 생성 도구의 작업 기록(goals.json, ledger.jsonl) — 학습 내용 아님 |")
@@ -1081,6 +1103,8 @@ def _build_hub(weeks: list[dict], compiled: list[dict], max_len: int) -> str:
         "| 교수님이 강조한 것, 시험·평가 관련 발언 | 2절 「교수님이 강조한 포인트 모음」 |",
         "| 공부했는지 자가 점검 | 2절 「셀프 체크리스트 모음」 |",
         "| 학기 흐름, 어느 차시에 무엇을 배웠나 | 2절 「전 차시 강의 개요 모음」 |",
+        "| 수식, 공식, 유도 과정(LaTeX) | 2절 「핵심 수식 정리 (LaTeX)」 → 더 자세한 설명은 표에 적힌 차시 요약본 절 |",
+        "| 키워드는 아는데 어느 차시인지 모를 때 | 키워드 색인 파일 " + RAW_BASE + "llms-topics.txt (키워드 → 차시·절·URL 표) |",
         "| 특정 개념의 자세한 설명·유도·예시·교재 쪽수 | 3절 색인에서 절 제목이 맞는 차시 요약본 파트 |",
         "| 특정 차시 전체 내용 | 3절 해당 차시의 모든 파트를 순서대로 |",
         "",
@@ -1094,6 +1118,14 @@ def _build_hub(weeks: list[dict], compiled: list[dict], max_len: int) -> str:
             cov = coverage[k - 1]
             tag = f"({k}/{len(e['files'])}) " if len(e["files"]) > 1 else ""
             out.append(f"  - {tag}{cov + ' → ' if cov else ''}{RAW_BASE}{f['path']}")
+            heads = []
+            for h in _hub_headings(f["path"], max_len):
+                h2 = re.sub(r"^\d+[-.]?\d*\.?\s*", "", h)  # 차시마다 반복되는 번호 제거
+                h2 = re.sub(r"\s*\([^()]*\)\s*$", "", h2).strip()  # 차시마다 조금씩 다른 괄호 설명 제거 후 중복 제거
+                if h2 and h2 not in heads:
+                    heads.append(h2)
+            if heads and len(heads) <= 10:
+                out.append("    절: " + " · ".join(heads[:8]))
     out += ["", "## 3. 차시별 요약본 색인", ""]
     for w in weeks:
         pub = [e for e in w["entries"] if e.get("public") and e["category"] == "study_guide_summary"]
@@ -1125,6 +1157,60 @@ def _build_hub(weeks: list[dict], compiled: list[dict], max_len: int) -> str:
     return "\n".join(out)
 
 
+def _resolve_section(stub_or_file: str, section: str | None) -> str | None:
+    """study_guide_summary.md(목차) 와 '§2.3' 같은 절 표기를 실제 파트 파일 경로로 바꾼다."""
+    p = ROOT / stub_or_file
+    if not p.exists():
+        return None
+    parts = sorted(p.parent.glob(p.stem + "_part*.md")) or [p]
+    if section:
+        num = section.split("–")[0].split("-")[0].strip()
+        pat = re.compile(r"^#{2,4}\s+" + re.escape(num) + (r"(?!\d)" if "." in num else r"\.(?!\d)"))
+        for part in parts:
+            if any(pat.match(ln) for ln in part.read_text(encoding="utf-8").splitlines()):
+                return rel(part)
+    return rel(parts[0])
+
+
+def write_topics_ai(max_tokens: int):
+    """TOPICS.md 를 AI용(절대 raw URL, 파트 단위 링크)으로 변환해 llms-topics.txt 로 저장."""
+    src = ROOT / "TOPICS.md"
+    if not src.exists():
+        return []
+    text = src.read_text(encoding="utf-8")
+    link_re = re.compile(r"\[([^\]]+)\]\(([^)\s]+)\)")
+
+    def sub(m):
+        label, target = m.group(1), m.group(2)
+        if target.startswith(("http://", "https://")):
+            return m.group(0)
+        target = target.split("#")[0]
+        if target in ("llms.txt", "INDEX.md", "TOPICS.md", "README.md"):
+            return f"{label} ({RAW_BASE}{target})"
+        if not (ROOT / target).exists():
+            return f"{label} (비공개)"
+        sec = re.search(r"§\s*([\d.]+(?:[–-][\d.]+)?)", label)
+        resolved = _resolve_section(target, sec.group(1) if sec else None) if target.endswith(".md") else target
+        return f"{label} ({RAW_BASE}{resolved})"
+
+    body = link_re.sub(sub, text)
+    body = re.sub(r"^# .*$", "# 키워드 색인 (AI용) — 보건학을 위한 기계학습 2026-2", body, count=1, flags=re.M)
+    intro = (f"> AI 어시스턴트용: 키워드 행을 찾아 괄호 안 raw URL을 열어 읽고 답하세요. '§2.3'은 그 문서의 2.3절입니다. "
+             f"'(비공개)' 자료는 열 수 없습니다. 허브: {RAW_BASE}llms.txt · 생성 {TODAY}\n")
+    body = re.sub(r"^> .*?\n", intro, body, count=1, flags=re.M | re.S)
+    parts = split_md(body, max_tokens - HEADER_RESERVE)
+    written = []
+    for k, part in enumerate(parts, 1):
+        name = "llms-topics.txt" if len(parts) == 1 else f"llms-topics-{k}.txt"
+        head = part if k == 1 else f"# 키워드 색인 (AI용) ({k}/{len(parts)})\n\n{intro}\n" + part
+        if len(parts) > 1 and k == 1:
+            head = re.sub(r"^# (.*)$", r"# \1 (1/%d)" % len(parts), head, count=1, flags=re.M)
+        (ROOT / name).write_text(scrub_pii(head), encoding="utf-8")
+        written.append(name)
+    print(f"키워드 색인(AI용): {', '.join(written)} ({', '.join(f'{tokens((ROOT / n).read_text(encoding=chr(117)+chr(116)+chr(102)+chr(45)+chr(56))):,}' for n in written)} tokens)")
+    return written
+
+
 def write_llms_txt(weeks: list[dict], compiled: list[dict]):
     """llms.txt = 단일 진입 URL 허브. 허브 자체가 HUB_BUDGET_TOKENS 안에 들도록 절 제목 길이를 조절."""
     text = ""
@@ -1145,13 +1231,15 @@ def cleanup_trees(weeks: list[dict], common: list[dict], compiled: list[dict]):
         expected.update(f["path"] for f in e["files"])
         if e.get("index"):
             expected.add(e["index"])
-    keep_names = {"README.md", "manifest.json", "week_manifest.json", "INDEX.md"}
+    keep_names = {"README.md", "manifest.json", "week_manifest.json", "INDEX.md", "captions.json"}
     removed = 0
     for root in (OUT, PRIV_OUT):
         if not root.exists():
             continue
         for f in list(root.rglob("*")):
-            if f.is_file() and rel(f) not in expected and f.name not in keep_names:
+            if "photos" in f.relative_to(root).parts:
+                continue  # 칠판 사진 썸네일·캡션(tools/photos.py 가 관리)
+            if f.is_file() and f.suffix == ".md" and rel(f) not in expected and f.name not in keep_names:
                 f.unlink()
                 removed += 1
         for d in sorted((p for p in root.rglob("*") if p.is_dir()), key=lambda p: -len(p.parts)):
@@ -1233,6 +1321,7 @@ def main():
         write_week_readme(w)
     write_index(weeks, common, compiled)
     write_llms_txt(weeks, compiled)
+    write_topics_ai(args.max_tokens)
     cleanup_trees(weeks, common, compiled)
     rescrub_all()
 

@@ -22,6 +22,8 @@
 | 교수님이 강조한 것, 시험·평가 관련 발언 | 2절 「교수님이 강조한 포인트 모음」 |
 | 공부했는지 자가 점검 | 2절 「셀프 체크리스트 모음」 |
 | 학기 흐름, 어느 차시에 무엇을 배웠나 | 2절 「전 차시 강의 개요 모음」 |
+| 수식, 공식, 유도 과정(LaTeX) | 2절 「핵심 수식 정리 (LaTeX)」 → 더 자세한 설명은 표에 적힌 차시 요약본 절 |
+| 키워드는 아는데 어느 차시인지 모를 때 | 키워드 색인 파일 https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/llms-topics.txt (키워드 → 차시·절·URL 표) |
 | 특정 개념의 자세한 설명·유도·예시·교재 쪽수 | 3절 색인에서 절 제목이 맞는 차시 요약본 파트 |
 | 특정 차시 전체 내용 | 3절 해당 차시의 모든 파트를 순서대로 |
 
@@ -29,31 +31,55 @@
 
 - **전 차시 강의 개요 모음** — 각 차시 학습자료의 '강의 개요' 절만 모았습니다. 학기 흐름을 한눈에 볼 때.
   - (1/2) 1·2·3·4·5·6·7차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/overviews_part01.md
+    절: 강의 개요
   - (2/2) 8차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/overviews_part02.md
+    절: 강의 개요 · 시험·과제 공지 · 이 요약본의 구성
 - **핵심 개념 한 장 요약표 모음** — 질문/한 줄 답/출처 형식의 요약표. 시험 직전 복습용.
   - (1/3) 2·4·5차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/summary_tables_part01.md
+    절: 핵심 개념 한 장 요약표
   - (2/3) 6·7차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/summary_tables_part02.md
+    절: 핵심 개념 한 장 요약표
   - (3/3) 8차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/summary_tables_part03.md
+    절: 핵심 개념 한 장 요약표
 - **용어 정리 모음 (학기 용어집)** — 각 차시의 용어 정리 절을 모은 학기 용어집.
   - (1/2) 1·2·3·4·5·6차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/glossary_part01.md
+    절: 용어 정리
   - (2/2) 7·8차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/glossary_part02.md
+    절: 용어 정리
 - **교수님이 강조한 포인트 모음** — 녹음·강의노트에서 교수님이 반복·강조한 내용(시험 관련 발언 포함).
   - (1/5) 1·2·3·4·5·6차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/key_points_part01.md
+    절: 교수님이 강조한 포인트 · 수업 운영·평가 관련 · 학술적 강조점 · 반복·강조한 개념 · 학생에게 던진 질문 · 집에서 해 보라고 한 연습 · 시험·평가·과제 관련 발언 · 집에서 해 보라고 한 것
   - (2/5) 6·7차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/key_points_part02.md
+    절: 시험·평가·과제 관련 발언 · 강의 1 (이진 분류기 성능, 녹음1) — 반복·강조한 개념 · 논문발표·강의 2 (부트스트랩, 녹음2) — 반복·강조한 개념 · 강의 3 (부트스트랩 마무리·교차검증, 녹음3) — 반복·강조한 개념 · 교수님이 강조한 포인트 · 강의 1 (교차검증, 녹음1) — 반복·강조한 개념
   - (3/5) 7·8차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/key_points_part03.md
+    절: 강의 2 (모델 선택, 녹음2) — 반복·강조한 개념 · 녹음3 (발표·강의 3 축소 방법) — 반복·강조한 개념 · 교수님이 강조한 포인트
   - (4/5) 8차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/key_points_part04.md
+    절: 시험·평가·과제·AI 사용 관련 발언 · 강의 1 (녹음1: 모형 선택 복습 → AIC·BIC 유도 → 축소 제약) — 반복·강조한 개념
   - (5/5) 8차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/key_points_part05.md
+    절: 강의 2 (녹음2: 능형 해 경로·척도·AI 경고·sparse/dense·elastic net·bridge) — 반… · 강의 3 (녹음3: soft thresholding·elastic net·generalized/fused lasso…
 - **예상 시험 문제와 모범 답안 모음** — 객관식·단답·서술형 예상문제와 답. 근거 출처 표시 [노트]/[녹음]/[교재]/[추가].
   - (1/7) 1·2·3차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_questions_part01.md
+    절: 예상 시험 문제와 모범 답안 · 객관식 · 단답형 · 서술형
   - (2/7) 3·4·5차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_questions_part02.md
+    절: 서술형 · 예상 시험 문제와 모범 답안 · 객관식 · 단답형
   - (3/7) 5·6차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_questions_part03.md
+    절: 단답형 · 서술형 · 예상 시험 문제와 모범 답안 · 객관식
   - (4/7) 6·7차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_questions_part04.md
+    절: 서술형 · 예상 시험 문제와 모범 답안 · 객관식 · 단답형
   - (5/7) 7·8차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_questions_part05.md
+    절: 서술형 · 예상 시험 문제와 모범 답안
   - (6/7) 8차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_questions_part06.md
+    절: 객관식 · 단답형
   - (7/7) 8차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_questions_part07.md
+    절: 서술형 · 실습형
 - **셀프 체크리스트 모음** — ☐ 항목으로 된 자가 점검표.
   - (1/2) 1·2·3·4·5·6차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/checklists_part01.md
+    절: 셀프 체크리스트
   - (2/2) 7·8차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/checklists_part02.md
+    절: 셀프 체크리스트
+- **핵심 수식 정리 (LaTeX)** — 수업에서 다룬 핵심 수식을 LaTeX로 정리하고 어느 차시 요약본 절에 나오는지 표시. AI 정리본(교수님 말씀 아님).
+  - https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/formulas.md
+    절: 통계적 학습의 틀 · Bias–Variance 분해 · 분류의 기초 · 선형회귀 · 로지스틱 회귀 · 판별분석과 다변량 정규분포 · 이진 분류기의 성능 · Bootstrap과 교차검증
 
 ## 3. 차시별 요약본 색인
 

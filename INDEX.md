@@ -1,6 +1,6 @@
 # 전체 문서 인덱스 — 보건학을 위한 기계학습 (2026-2)
 
-> 자동 생성 2026-10-25 (`python3 tools/convert_sources.py --index-only`) · 공개 문서 48개 · 총 420,605 tokens · 파일 하나는 최대 12,000 tokens(ChatGPT 웹에서 한 번에 읽히는 크기) · 공개 범위: 시험대비 학습자료 **요약본**과 **모아보기**만 (전체판·강의노트·슬라이드·받아쓰기·논문과제는 비공개)
+> 자동 생성 2026-10-25 (`python3 tools/convert_sources.py --index-only`) · 공개 문서 49개 · 총 425,832 tokens · 파일 하나는 최대 12,000 tokens(ChatGPT 웹에서 한 번에 읽히는 크기) · 공개 범위: 시험대비 학습자료 **요약본**과 **모아보기**만 (전체판·강의노트·슬라이드·받아쓰기·논문과제는 비공개)
 
 > **ChatGPT에는 URL 하나만**: `https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/llms.txt` 를 주면 그 안의 색인을 보고 알맞은 문서를 찾아 읽습니다(README의 질문 템플릿 참고).
 
@@ -14,6 +14,7 @@
 | **교수님이 강조한 포인트 모음** | 녹음·강의노트에서 교수님이 반복·강조한 내용(시험 관련 발언 포함). | [목차](docs/compiled/key_points.md) · [1부](docs/compiled/key_points_part01.md) · [2부](docs/compiled/key_points_part02.md) · [3부](docs/compiled/key_points_part03.md) · [4부](docs/compiled/key_points_part04.md) · [5부](docs/compiled/key_points_part05.md) |
 | **예상 시험 문제와 모범 답안 모음** | 객관식·단답·서술형 예상문제와 답. 근거 출처 표시 [노트]/[녹음]/[교재]/[추가]. | [목차](docs/compiled/exam_questions.md) · [1부](docs/compiled/exam_questions_part01.md) · [2부](docs/compiled/exam_questions_part02.md) · [3부](docs/compiled/exam_questions_part03.md) · [4부](docs/compiled/exam_questions_part04.md) · [5부](docs/compiled/exam_questions_part05.md) · [6부](docs/compiled/exam_questions_part06.md) · [7부](docs/compiled/exam_questions_part07.md) |
 | **셀프 체크리스트 모음** | ☐ 항목으로 된 자가 점검표. | [목차](docs/compiled/checklists.md) · [1부](docs/compiled/checklists_part01.md) · [2부](docs/compiled/checklists_part02.md) |
+| **핵심 수식 정리 (LaTeX)** | 수업에서 다룬 핵심 수식을 LaTeX로 정리하고 어느 차시 요약본 절에 나오는지 표시. AI 정리본(교수님 말씀 아님). | [formulas.md](docs/compiled/formulas.md) |
 
 ## 1. 주차별 요약본
 

@@ -15,7 +15,7 @@
 | P5 | **2차시 요약본 작성·공개**: 전체판(비공개)에서 요약본 Markdown 작성(42,511자, 7절) → 변환(3파트) → 모아보기·허브·TOPICS 반영 | ✅ 완료 | 2026-10-25 | 공개 문서 44→48개 |
 | P6 | ChatGPT 실사용 검증(허브 URL + 질문) | ✅ 완료 | 2026-10-25 | 사용자 확인: 정상 동작 |
 | P7 | 9차시 이후 주차 추가 | ⏳ 대기 | — | 수업 진행에 따라 반복(절차 6.4). 현재 남은 유일한 필수 작업 |
-| P8 | 품질 개선(선택) | ⏳ 대기 | — | 6.5 우선순위 순 |
+| P8 | 품질 개선: 허브 보강, AI용 키워드 색인, 핵심 수식 정리, 칠판 사진 117장 설명, 단위 테스트 | ✅ 완료 | 2026-10-25 | 받아쓰기 교정본 1건만 보류(6.5) |
 
 범례: ✅ 완료 · 🔄 진행 · ⏳ 대기 · ❌ 보류/취소
 
@@ -33,10 +33,10 @@
 | 항목 | 값 |
 |---|---|
 | 원본 | 8개 주차 폴더 + 공통 5개 파일, 267개 파일, 1.5 GB |
-| 변환 결과 | Markdown 227개(주차 문서 204 + 모아보기 21 + 공통 2), 약 188만 tokens, 가장 큰 파일 11,826 tokens |
-| 공개(`docs/`) | 요약본(8차시, 27파트) + 모아보기(21파트) = 48개 문서 + 목차 파일 + 주차 README 8 + manifest. 2차시 요약본은 전체판에서 작성한 Markdown 원본(3파트) |
-| 비공개(`private/`) | 전체판 100파트, 강의노트 11파트, 슬라이드 18, 받아쓰기 38파트, 논문과제 8파트, R 코드 2, 공통 2 + 목차·README·INDEX·manifest·redact.json |
-| 허브 | `llms.txt` 8,129 tokens(한도 10,000). 모아보기 21파트(차시 범위 표기) + 요약본 파트 27개의 절 제목 색인 |
+| 변환 결과 | Markdown 228개(주차 문서 204 + 모아보기 22 + 공통 2), 약 189만 tokens, 가장 큰 파일 11,826 tokens |
+| 공개(`docs/`) | 요약본(8차시, 27파트) + 모아보기(22파트, 핵심 수식 정리 포함) = 49개 문서 + 목차 파일 + 주차 README 8 + manifest. 2차시 요약본은 전체판에서 작성한 Markdown 원본(3파트) |
+| 비공개(`private/`) | 전체판 100파트, 강의노트 11파트, 슬라이드 18, 받아쓰기 38파트, 논문과제 8파트, R 코드 2, 공통 2 + 칠판 사진 썸네일 117장(10 MB)과 AI 판서 설명 + 목차·README·INDEX·manifest·redact.json |
+| 허브 | `llms.txt` 8,997 tokens(한도 10,000): 모아보기 22파트(차시 범위·절 제목) + 요약본 27파트의 절 제목 색인. 보조 색인 `llms-topics.txt` 6,718 tokens(키워드 → 절이 든 파트 raw URL) |
 | GitHub | PUBLIC. 2026-10-24 `e647d76`(공개 74개) · `ac46e7f`(계획) · 2026-10-25 `fd35c16`(허브 재구축 + 2차시 요약본, 공개 문서 48개). raw llms.txt HTTP 200 확인 |
 | 로컬 환경 | WSL2 Ubuntu 22.04, Python 3.10, sudo 없음(pip --user) |
 
@@ -45,6 +45,7 @@
 ```
 .
 ├── llms.txt             ★ ChatGPT용 단일 진입 허브(자동 생성): 사용 규칙, 질문 유형별 안내, 모아보기 목록, 차시별 절(§) 색인 + raw URL
+├── llms-topics.txt      허브가 참조하는 AI용 키워드 색인(TOPICS.md를 절대 raw URL·파트 단위로 변환, 자동 생성)
 ├── README.md            사람용 시작점: 빠른 탐색 방법 표, 주차 요약, ChatGPT 사용법(허브 템플릿), 공개 범위
 ├── INDEX.md             공개 문서 인덱스 (자동 생성, GitHub 상대 링크)
 ├── TOPICS.md            주제·키워드 → 문서 매핑 (비공개 자료는 '(비공개)'로 표시)
@@ -54,9 +55,13 @@
 │   ├── convert_sources.py   원본 → 변환 + 공개/비공개 분리 + 허브·인덱스 생성 파이프라인
 │   ├── pdfmd.py             PDF → Markdown (제목 복원·표·OCR·띄어쓰기 복원)
 │   ├── check_links.py       깨진 링크·비공개 경로 누출·토큰 한도·manifest 누락 점검
+│   ├── photos.py            칠판 사진 썸네일·촬영 시각·캡션 표 생성(비공개)
+│   ├── run_tests.sh         단위 테스트 실행(ROS pytest 플러그인 충돌 회피)
+│   ├── tests/test_pipeline.py   단위 테스트 11개(줄 합치기·표 필터·분할·치환·허브 제목·절 해석)
+│   ├── content/formulas.md  손으로 작성한 핵심 수식 정리(공개 모아보기로 복사됨)
 │   └── requirements.txt
 ├── docs/                ← 공개 (GitHub)
-│   ├── compiled/            모아보기 6종(용어집·예상문제·강조 포인트·체크리스트·요약표·강의 개요) + 목차 파일
+│   ├── compiled/            모아보기 7종(용어집·예상문제·강조 포인트·체크리스트·요약표·강의 개요·핵심 수식 정리) + 목차 파일
 │   ├── weekNN_YYYYMMDD/
 │   │   ├── README.md                 주차 인덱스 (키워드, 공개 문서 표, 비공개 자료 건수)
 │   │   ├── study_guide_summary.md    여러 부일 때 목차(각 부의 절 제목 + raw URL)
@@ -65,7 +70,7 @@
 ├── private/             ← 비공개, git 제외
 │   ├── INDEX.md, manifest.json       전체(공개+비공개) 인덱스·목록
 │   ├── redact.json                   실명 치환 목록 [["이름","[발표자]"],…] (다른 PC에서는 먼저 만들 것)
-│   └── docs/common/, docs/weekNN_YYYYMMDD/{README.md, week_manifest.json, study_guide_full/, lecture_notes*.md, slides/, transcripts/, code/, paper_assignment/}
+│   └── docs/common/, docs/weekNN_YYYYMMDD/{README.md, week_manifest.json, study_guide_full/, lecture_notes*.md, slides/, transcripts/, code/, paper_assignment/, photos/(썸네일·captions.json·README.md)}
 └── machine_learning_for_health_science/   원본 — git 제외 (2차시 요약본 Markdown 원본도 이 폴더의 20260909/에 둠)
 ```
 
@@ -94,7 +99,8 @@
 - 2026-10-25 · 허브 재설계: `llms.txt`를 질문 유형별 안내 + 모아보기 + 차시별 절 색인 구조로 재생성(7.7K tokens). README 사용법을 "URL 하나 + 질문"으로 개정. 파이프라인에 Markdown 요약본 원본(`summary_md`) 지원 추가.
 - 2026-10-25 · 2차시 요약본 작성 완료(전체판 6파트 기반, 7절 42,511자; 발표자·시험 언급 등 전체판에 없는 항목은 '기록 없음'으로 명시) → `summary_md`로 변환(3파트) → 모아보기 6종·허브·TOPICS·README 반영. 공개 문서 48개.
 - 2026-10-25 · 버그 수정: 재치환 단계가 `private/redact.json`까지 치환해 목록을 망가뜨리던 문제(해당 파일 제외) — 비공개 2차시 문서에 잠깐 남았던 이름 재치환 완료.
-- 2026-10-25 · 사용자 검증: 허브 URL 하나로 ChatGPT 정상 동작 확인, 공개 문서 내용 공개 확정. P1~P6 완료. 남은 필수 작업은 9차시 이후 주차 추가(P7)만.
+- 2026-10-25 · 사용자 검증: 허브 URL 하나로 ChatGPT 정상 동작 확인, 공개 문서 내용 공개 확정. P1~P6 완료.
+- 2026-10-25 · P8 품질 개선: 허브에 모아보기 파트별 절 제목 추가(중복·괄호 정리, 8,997 tokens), AI용 키워드 색인 `llms-topics.txt`(§ → 해당 파트 raw URL 해석), 핵심 수식 정리 `docs/compiled/formulas.md`(10개 주제, LaTeX, 차시 § 표기), 칠판 사진 117장 썸네일+EXIF 시각+AI 판서 설명(`tools/photos.py`, 에이전트 3개가 captions.json 작성), 단위 테스트 11개. 정리 단계가 썸네일을 지우던 문제 수정(photos/ 보존).
 
 ## 6. 해야 할 작업
 
@@ -126,16 +132,18 @@
 
 1. 원본 폴더 `machine_learning_for_health_science/YYYYMMDD/`에 자료를 넣는다(학습자료 PDF, 강의노트 PDF, 슬라이드 PDF, 받아쓰기 txt). 새 사람 이름이 있으면 `private/redact.json`에 추가한다(다른 PC에서는 이 파일을 먼저 만든다).
 2. `tools/convert_sources.py`의 `WEEKS`에 항목을 추가한다(n, folder, date, slug, title, topics, summary_pdf 또는 summary_md, full_pdf, notes, slides, reuse, skip). 다른 주차에 이미 있는 슬라이드는 `reuse`에 적는다. 실명이 든 원본 파일명은 글롭(`*`)으로 적는다.
-3. `python3 tools/convert_sources.py --only week09` → 요약본은 `docs/`, 나머지는 `private/`로 자동 분리되고 허브·인덱스·모아보기가 갱신된다. 이어서 `python3 tools/check_links.py`.
+3. `python3 tools/convert_sources.py --only week09` → 요약본은 `docs/`, 나머지는 `private/`로 자동 분리되고 허브·인덱스·모아보기·키워드 색인이 갱신된다. 이어서 `python3 tools/check_links.py`, `tools/run_tests.sh`.
+   칠판 사진이 있으면 `python3 tools/photos.py`로 썸네일 표를 만들고, AI에게 사진을 보고 `photos/captions.json`을 채우게 한 뒤 `python3 tools/photos.py --render-only`.
 4. `TOPICS.md`에 새 키워드 행을 추가하고, 6.1을 점검한 뒤 커밋·푸시한다.
 
-### 6.5 품질 개선 (선택, 우선순위 순)
+### 6.5 품질 개선 — 완료 (2026-10-25)
 
-- [ ] 허브 색인에 모아보기 문서의 차시별 절 제목까지 넣기(현재는 차시 번호만) — 허브 토큰 예산(10K) 안에서 가능한지 확인.
-- [ ] TOPICS.md를 허브처럼 절대 raw URL 버전으로도 제공(ChatGPT가 키워드 표를 직접 쓰게).
-- [ ] 칠판 사진 117장: 썸네일 + 촬영 시각 또는 설명문 생성(비공개).
-- [ ] 받아쓰기 교정본(비공개), 수식 LaTeX 정리(`formulas.md`).
-- [ ] 변환 스크립트 단위 테스트(표 필터·분할·허브 예산).
+- [x] 허브 색인에 모아보기 문서의 절 제목 추가(차시마다 다른 번호·괄호를 지우고 중복 제거) — 허브 8,997 tokens로 예산(10K) 안.
+- [x] TOPICS.md의 AI용 버전 `llms-topics.txt` — 상대 링크를 절대 raw URL로, '§2.3' 같은 절 표기는 그 절이 들어 있는 파트 파일로 해석. 허브 1절에서 안내.
+- [x] 핵심 수식 정리 `docs/compiled/formulas.md` — 통계적 학습의 틀부터 축소법까지 10개 주제, LaTeX + 변수 뜻 + 차시 §. 원본은 `tools/content/formulas.md`(수동 작성, `MANUAL_COMPILED`로 등록).
+- [x] 칠판 사진 117장 — `tools/photos.py`가 1280px 썸네일과 EXIF 촬영 시각 표를 만들고, AI가 사진을 보고 쓴 판서 설명(`captions.json`)을 표에 넣음. `private/docs/weekNN_*/photos/README.md`(비공개). 손글씨 판독 오류 가능, 가려진 부분은 "(판독 어려움)" 표기.
+- [x] 단위 테스트 11개 `tools/tests/test_pipeline.py` — `tools/run_tests.sh`로 실행(이 PC의 ROS pytest 플러그인 충돌을 피하려고 `PYTEST_DISABLE_PLUGIN_AUTOLOAD=1`).
+- [ ] ❌ 보류: 받아쓰기 교정본 — 26개 파일 약 110만 자를 LLM으로 교정하는 비용이 크고, 요약본·전체판에 녹음 인용이 이미 정리되어 효용이 낮음. 특정 녹음이 필요해지면 그 파일만 교정.
 
 ## 7. 변환 규칙
 
@@ -156,7 +164,9 @@
 - 수식: 텍스트 추출·OCR 모두 수식 기호가 깨진다. 정확한 수식은 원본 PDF.
 - 요약본은 AI 2차 자료다. 교수님 발언은 [노트]/[녹음] 라벨로 구분되지만, 받아쓰기 오류가 요약에 섞일 수 있다.
 - ChatGPT 브라우징은 비결정적이다. 허브를 따라가지 않는 경우가 있으면 6.3의 대안을 쓴다.
-- 비공개 자료(전체판·받아쓰기)는 URL로 쓸 수 없다. 필요하면 ChatGPT Projects에 파일로 올린다.
+- 비공개 자료(전체판·받아쓰기·칠판 사진)는 URL로 쓸 수 없다. 필요하면 ChatGPT Projects에 파일로 올린다.
+- 칠판 사진 설명은 AI가 손글씨를 읽은 것이라 기호·첨자 오독이 있을 수 있다. 가려지거나 흐린 부분은 "(판독 어려움)"으로 표시했다.
+- 핵심 수식 정리는 표준 교재 표기를 따른 AI 정리본이며, 수업에서 쓴 표기와 다를 수 있다. 차시 §를 따라가 원문을 확인한다.
 
 ## 9. 변경 이력
 
@@ -166,3 +176,4 @@
 | 2026-10-24 | 공개 범위를 요약본+모아보기로 축소, private/ 분리, 이름 치환, 첫 푸시 |
 | 2026-10-25 | 트래커 도입. 단일 URL 허브 재설계(P4), 2차시 요약본 작성·공개(P5) 완료 — 커밋 `fd35c16` |
 | 2026-10-25 | 사용자 검증 반영: P6 완료, 공개 내용 확정, 확정 결정 목록 추가 |
+| 2026-10-25 | P8 완료: 허브 보강, llms-topics.txt, formulas.md, 사진 117장 설명, 테스트 11개. 받아쓰기 교정본은 보류 |
