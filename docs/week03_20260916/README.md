@@ -6,6 +6,10 @@
 
 `모델 정확도 평가 복습` · `Double descent(Belkin 2019)` · `선형회귀의 두 관점` · `likelihood` · `추론·변수선택·R²·KNN 비교` · `제곱오차 → 경사하강 → 신경망(One Idea, Many Models)` · `분류 문제의 정의와 risk` · `선형회귀 vs 로지스틱 회귀(link)` · `MLE → cross-entropy, 0-1 loss와 surrogate` · `다변량 정규분포 보충 덱`
 
+## 시험 포인트 (2026-10-28 중간고사)
+
+선형회귀 두 관점(true model vs projection) · 우도와 MLE = OLS, Fisher 정보 · 경사하강 → 신경망 · 0-1 손실 → cross-entropy(surrogate) — 문항별 답안 핵심은 [예상 시험 질문](../compiled/exam_predictions.md), 보낼 프롬프트는 [프롬프트 북](../compiled/prompt_book.md), 자기 채점은 [채점표](../compiled/rubric.md).
+
 ## 공개 문서 (시험대비 학습자료 요약본)
 
 | 유형 | 문서 | 파트 | 분량(tokens) | 원본 | 비고 |

@@ -7,12 +7,38 @@
 - 학습자료·받아쓰기·OCR은 자동 생성물이므로 오류가 있을 수 있습니다. 문서 머리의 ⚠️ 주의 문구를 확인하세요.
 - **ChatGPT에는 URL 하나만 주면 됩니다.** `llms.txt`가 질문 유형별 안내와 차시별 절 색인을 담은 허브라서, ChatGPT가 알맞은 문서를 스스로 찾아 읽습니다(아래 "ChatGPT에서 쓰는 법").
 
+## 시험 대비 — 2026-10-28(수) 중간고사
+
+범위는 "라쏘까지, 라쏘하고 릿지까지"(1~8차시), AI 사용 허용(ChatGPT Edu 기본), 해답지에 **AI 사용 리포트** 제출 — 원문은 [8차시 요약본 §1·§5-0](docs/week08_20261022/study_guide_summary.md), 최종은 ETL 공지. 시험용으로 만든 문서 세 개가 `llms.txt` 맨 위 「★ 시험 모드」와 모아보기 맨 앞에 있습니다.
+
+| 문서 | 내용 | 언제 |
+|---|---|---|
+| [예상 시험 질문 Top 42](docs/compiled/exam_predictions.md) | 등급(A/B/C)별 예상 질문 42개 + 답안 핵심(채점 포인트)·흔한 실수·근거 차시 §·프롬프트 번호, 유형별 답안 틀, 3일 공부 순서, 자주 여는 URL | 공부할 때, 시험 중 문제를 받았을 때 |
+| [시험용 프롬프트 북](docs/compiled/prompt_book.md) | 세션 설정 P0, 유형별 템플릿 P1~P9, 질문별 한 줄 프롬프트 Q1~Q42, 능형·라쏘 CV 코드 프롬프트(교수님 점검 항목 내장), AI 사용 리포트 템플릿, 문제 상황 대처 | 시험 시작 직후 P0, 이후 복붙 |
+| [채점표·모의고사](docs/compiled/rubric.md) | 10점 채점 기준·감점 항목, ChatGPT 답 신뢰도 점검, 모의고사 A(이론 100점)·B(AI 실습 50점), 채점 프롬프트 | 연습 답안 채점, AI 답 검증 |
+
+시험 시작 직후 ChatGPT에 한 번 보내는 **세션 설정 프롬프트(P0)**:
+
+```
+너는 서울대 보건대학원 「보건학을 위한 기계학습」 중간고사(2026-10-28) 보조야. 먼저 아래 허브 문서를 끝까지 읽고, 질문마다 허브의 규칙대로 알맞은 문서(raw URL)를 열어 끝까지 읽은 뒤 답해.
+허브: https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/llms.txt
+답변 규칙
+1. 한국어. 순서는 결론 → 근거(식·유도·숫자) → 수업에서 강조한 표현(교수님 말 인용) → 출처("N차시 요약본 §x.y").
+2. 자료에 없는 내용은 "자료에 없음"이라고 말하고, 일반 지식으로 보충하면 문장 앞에 [일반]을 붙여.
+3. 유도 문제는 가정 → 식 → 단계별 전개 → 결과 → 극한·특수 경우 검산 순서로, 계산 문제는 중간값까지 보여 줘.
+4. 능형·라쏘 코드를 쓸 때는 (a) 방법(라쏘/능형/α) 명시·고정 (b) 로그 간격의 넓은 λ 격자 (c) CV 곡선 출력, 최솟값이 격자 끝이면 범위를 넓혀 재실행 (d) 설명변수 표준화 (e) 고른 λ로 전체 자료 재적합 (f) seed 고정을 반드시 넣고, 출력 끝에 이 항목들을 확인했다고 적어.
+5. 내가 "채점:"으로 시작하면 채점표 문서 https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/rubric.md 의 기준으로 내 답을 10점 만점으로 채점하고 빠진 포인트를 알려 줘.
+준비됐으면 허브의 「시험 모드」 절을 3줄로 요약해 줘.
+```
+
+기계 채점: `python3 tools/eval_grade.py --template answers.md`로 틀을 만들어 답을 붙여 넣고 `python3 tools/eval_grade.py answers.md` (키워드 커버리지·출처 인용, 100점 환산). `--routing`은 허브만으로 30문항의 근거 파트를 찾을 수 있는지 점검합니다. 시험이 끝나면 `tools/convert_sources.py`의 `EXAM_MODE = None`으로 두고 `--index-only`를 돌리면 허브의 시험 블록이 빠집니다.
+
 ## 문서를 빨리 찾아가는 방법 (추천 순)
 
 | # | 방법 | 이런 때 쓴다 | 어떻게 | 예 |
 |---|---|---|---|---|
 | 1 | **허브 URL 하나로 질문** [llms.txt](llms.txt) | ChatGPT에 물을 때 (기본) | 아래 템플릿처럼 `llms.txt` raw URL과 질문만 보낸다. ChatGPT가 허브의 색인을 읽고 알맞은 문서를 열어 답한다 | "…/llms.txt 를 읽고 안내에 따라 자료를 찾아 답해줘. 질문: LOOCV 지름길 공식이 왜 성립해?" |
-| 2 | **모아보기** `docs/compiled/` | 시험 직전, 또는 개념 하나를 **학기 전체에서** 찾을 때 | [용어집](docs/compiled/glossary.md) · [예상문제](docs/compiled/exam_questions.md) · [교수님 강조 포인트](docs/compiled/key_points.md) · [체크리스트](docs/compiled/checklists.md) · [요약표](docs/compiled/summary_tables.md) · [강의 개요](docs/compiled/overviews.md) · [핵심 수식 정리(LaTeX)](docs/compiled/formulas.md) 중 하나를 연다 | ChatGPT에 `glossary.md` raw URL을 주고 "lasso와 ridge의 차이를 이 용어집 기준으로 설명해줘" |
+| 2 | **모아보기** `docs/compiled/` | 시험 직전, 또는 개념 하나를 **학기 전체에서** 찾을 때 | [용어집](docs/compiled/glossary.md) · [예상문제](docs/compiled/exam_questions.md) · [교수님 강조 포인트](docs/compiled/key_points.md) · [체크리스트](docs/compiled/checklists.md) · [요약표](docs/compiled/summary_tables.md) · [강의 개요](docs/compiled/overviews.md) · [핵심 수식 정리(LaTeX)](docs/compiled/formulas.md) · 시험용 [예상 질문](docs/compiled/exam_predictions.md)·[프롬프트 북](docs/compiled/prompt_book.md)·[채점표](docs/compiled/rubric.md) 중 하나를 연다 | ChatGPT에 `glossary.md` raw URL을 주고 "lasso와 ridge의 차이를 이 용어집 기준으로 설명해줘" |
 | 3 | **주제별 인덱스** [TOPICS.md](TOPICS.md) (AI용: [llms-topics.txt](llms-topics.txt)) | 키워드는 아는데 **몇 차시**인지 모를 때 | 키워드 행 → 차시·문서 링크. AI용 파일은 같은 표를 절(§)이 든 파트의 raw URL로 바꾼 것으로, 허브가 필요할 때 스스로 연다 | "ROC/AUC" → 4차시 요약본, `slides/binary_classifier_performance.md` |
 | 4 | **주차 인덱스** [INDEX.md](INDEX.md) → `docs/weekNN_*/README.md` | 특정 차시의 요약본을 볼 때 | 주차별 요약본 표에서 클릭. 여러 부로 나뉜 요약본은 `study_guide_summary.md` 목차 파일에서 절 위치를 확인 | 6차시 → 요약본 3부 |
 | 5 | **모아보기 문서 직접 지정** `docs/compiled/` | 허브를 거치지 않고 특정 모아보기 파트만 읽히고 싶을 때 | 해당 파트의 raw URL을 직접 준다 | 아래 템플릿 B |
@@ -60,7 +86,7 @@ https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week05_2
 - 여러 파트: "이 문서는 N부로 나뉘어 있어. 1부부터 차례로 모두 읽은 뒤 ○○ 관련 내용을 정리해줘. URL: …_part01.md, …_part02.md, …"
 - 시험 대비: "exam_questions_part01.md를 읽고 서술형 문제만 골라 하나씩 출제해줘. 내가 답하면 모범 답안과 비교해 채점해줘."
 
-주의: ChatGPT가 긴 페이지를 앞부분만 읽는 경우가 있어 파일 크기를 12,000 tokens 이하로, 허브(`llms.txt`)도 10,000 tokens 이하로 유지합니다. 그래도 잘리면 "문서의 뒷부분(○○ 절)을 다시 읽어줘"라고 요청하세요.
+주의: ChatGPT가 긴 페이지를 앞부분만 읽는 경우가 있어 파일 크기를 12,000 tokens 이하로, 허브(`llms.txt`)도 11,000 tokens 이하로 유지합니다(시험 모드 블록 포함). 그래도 잘리면 "문서의 뒷부분(○○ 절)을 다시 읽어줘"라고 요청하세요.
 
 ## 다시 생성하기
 
@@ -73,6 +99,7 @@ python3 tools/convert_sources.py --only week09  # 한 주차만
 python3 tools/convert_sources.py --index-only   # 인덱스·모아보기만 다시 생성
 python3 tools/check_links.py                    # 깨진 링크·토큰 한도 초과·비공개 누출 점검
 tools/run_tests.sh                              # 단위 테스트 (pytest)
+python3 tools/eval_grade.py --routing           # 허브 라우팅 점검 · answers.md 를 주면 답안 기계 채점
 python3 tools/photos.py                         # 칠판 사진 썸네일·설명 표 (비공개 private/)
 ```
 
@@ -82,7 +109,7 @@ python3 tools/photos.py                         # 칠판 사진 썸네일·설�
 
 ## 공개 범위와 출처
 
-- **공개**: 각 차시 시험대비 학습자료 **요약본**(`docs/weekNN_*/study_guide_summary*.md`)과 **모아보기**(`docs/compiled/`, 핵심 수식 정리 포함). 사람 이름(발표 학생 등)은 `[발표자]`, `[발표 학생]`으로 치환했습니다.
+- **공개**: 각 차시 시험대비 학습자료 **요약본**(`docs/weekNN_*/study_guide_summary*.md`)과 **모아보기**(`docs/compiled/`, 핵심 수식 정리·시험 대비 문서 3종 포함). 사람 이름(발표 학생 등)은 `[발표자]`, `[발표 학생]`으로 치환했습니다.
 - **비공개(로컬 `private/`, git 제외)**: 전체판, 강의노트, 교수님 슬라이드 텍스트, 녹음 받아쓰기, 논문읽기과제(Efron 발표·요약), R 코드, 학습자료 생성 프롬프트, 칠판 사진 썸네일과 AI 판서 설명. 동료 학생의 발표자료도 여기에만 있습니다.
 - 학습자료(요약본·전체판)는 수업 노트·녹음·슬라이드·교재를 바탕으로 AI 도구로 만든 2차 자료입니다. `추가 설명` 박스는 AI 보충(교수님 말씀 아님)입니다. 자동 생성물이므로 오류가 있을 수 있습니다.
 - 교재와 논문 원문은 저작권 때문에 포함하지 않았습니다. 공식 링크: ISLR 1판 <https://www.statlearning.com/> · Efron (2020) <https://doi.org/10.1111/insr.12409> · Shmueli (2010) <https://doi.org/10.1214/10-STS330> · Belkin et al. (2019) <https://doi.org/10.1073/pnas.1903070116>

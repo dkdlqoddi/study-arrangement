@@ -6,6 +6,10 @@
 
 `AIC·BIC 유도: KL 발산, tr(J⁻¹I) → p, Laplace 근사 → p·log n` · `제약 형태 ⟺ 벌점 형태(원과 마름모)` · `능형회귀 해·해 경로·표준화` · `1차원 능형 β̂ = y/(1+λ)` · `라쏘: sparse vs dense, oracle property` · `elastic net, 튜닝 파라미터 2개` · `bridge 벌점` · `soft thresholding` · `grouping effect, generalized·fused lasso` · `보건 응용과 LLM 시대의 메시지` · `시험장 점검표(AI로 능형·라쏘)` · `Chap7 Beyond Linearity 슬라이드(배포, 다음 차시)`
 
+## 시험 포인트 (2026-10-28 중간고사)
+
+1차원 라쏘 soft thresholding("풀어보세요") · 1차원 능형 MSE·λ* · 닫힌 해·척도 동변성·표준화 · λ는 CV(넓은 격자·U자) · sparse/dense · AIC·BIC 유도 큰 그림 · AI 점검표 — 문항별 답안 핵심은 [예상 시험 질문](../compiled/exam_predictions.md), 보낼 프롬프트는 [프롬프트 북](../compiled/prompt_book.md), 자기 채점은 [채점표](../compiled/rubric.md).
+
 ## 공개 문서 (시험대비 학습자료 요약본)
 
 | 유형 | 문서 | 파트 | 분량(tokens) | 원본 | 비고 |

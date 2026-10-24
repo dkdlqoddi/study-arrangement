@@ -51,7 +51,8 @@
    ],
    "photos": 0,
    "audio": 3,
-   "src_bytes": 26650323
+   "src_bytes": 26650323,
+   "exam_focus": "통계학 vs 기계학습(두 문화) · prediction vs inference · 제곱오차의 최적 예측자 E[Y|X] 유도 · parametric vs non-parametric · 차원의 저주 — 서술·비교형(C급)"
   },
   {
    "n": 2,
@@ -159,7 +160,8 @@
    ],
    "photos": 0,
    "audio": 3,
-   "src_bytes": 66968472
+   "src_bytes": 66968472,
+   "exam_focus": "편향–분산 분해 유도(\"연습 삼아서라도 꼭 해 보라\") · 훈련/검정 MSE와 과적합 · Bayes 분류기·Bayes 오류율 · \"문헌을 볼 때 loss function부터\""
   },
   {
    "n": 3,
@@ -217,7 +219,8 @@
    "skip": [],
    "photos": 16,
    "audio": 5,
-   "src_bytes": 88588543
+   "src_bytes": 88588543,
+   "exam_focus": "선형회귀 두 관점(true model vs projection) · 우도와 MLE = OLS, Fisher 정보 · 경사하강 → 신경망 · 0-1 손실 → cross-entropy(surrogate)"
   },
   {
    "n": 4,
@@ -288,7 +291,8 @@
    "skip": [],
    "photos": 29,
    "audio": 3,
-   "src_bytes": 246595131
+   "src_bytes": 246595131,
+   "exam_focus": "환자-대조군 로지스틱(선택지표 S 증명: 기울기 불변·절편 이동) · odds ratio·confounding · 판별분석의 출발(Bayes 정리로 뒤집기) · complete separation"
   },
   {
    "n": 5,
@@ -370,7 +374,8 @@
    ],
    "photos": 9,
    "audio": 6,
-   "src_bytes": 352758892
+   "src_bytes": 352758892,
+   "exam_focus": "LDA p=1 판별점수 유도(항 상쇄)·모수 추정(n−K) · 다변량 정규 밀도·\"외우라\"는 두 성질 · naive Bayes·Laplace 평활 · 정확도의 함정·ROC"
   },
   {
    "n": 6,
@@ -428,7 +433,8 @@
    "skip": [],
    "photos": 17,
    "audio": 3,
-   "src_bytes": 226278843
+   "src_bytes": 226278843,
+   "exam_focus": "AUC = c-통계량 증명(구분구적법) · 판별 vs 보정, AUC 한계(증분) · PPV와 유병률 계산 · 부트스트랩 원리·백분위 구간 · (1−1/n)ⁿ → 예측오차는 CV"
   },
   {
    "n": 7,
@@ -512,7 +518,8 @@
    ],
    "photos": 10,
    "audio": 3,
-   "src_bytes": 219286918
+   "src_bytes": 219286918,
+   "exam_focus": "올바른 CV vs 틀린 CV(V23 퀴즈, 정답 0.5) · LOOCV 지름길·K의 편향–분산 · AIC vs BIC 철학 · R² 금지·자코비안 함정 · 제약 ⟺ 벌점(라그랑지안)"
   },
   {
    "n": 8,
@@ -610,10 +617,65 @@
    ],
    "photos": 36,
    "audio": 3,
-   "src_bytes": 310545229
+   "src_bytes": 310545229,
+   "exam_focus": "1차원 라쏘 soft thresholding(\"풀어보세요\") · 1차원 능형 MSE·λ* · 닫힌 해·척도 동변성·표준화 · λ는 CV(넓은 격자·U자) · sparse/dense · AIC·BIC 유도 큰 그림 · AI 점검표"
   }
  ],
  "compiled": [
+  {
+   "category": "compiled",
+   "title": "예상 시험 질문 Top 42 (답안 핵심·근거·프롬프트)",
+   "files": [
+    {
+     "path": "docs/compiled/exam_predictions_part01.md",
+     "tokens": 11477,
+     "chars": 17806
+    },
+    {
+     "path": "docs/compiled/exam_predictions_part02.md",
+     "tokens": 9460,
+     "chars": 15507
+    }
+   ],
+   "source": "tools/content/exam_predictions.md",
+   "method": "manual",
+   "note": "2026-10-28 중간고사 대비. 등급(A/B/C)별 예상 질문 42개와 각 질문의 답안 핵심·흔한 실수·근거 차시 §·프롬프트 번호. 유형별 답안 틀, 3일 공부 순서, 자주 여는 URL. AI 정리본(교수님 말씀 아님).",
+   "stats": {},
+   "public": true,
+   "index": "docs/compiled/exam_predictions.md"
+  },
+  {
+   "category": "compiled",
+   "title": "시험용 프롬프트 북 (P0 세션 설정·유형별 템플릿·코드·AI 사용 리포트)",
+   "files": [
+    {
+     "path": "docs/compiled/prompt_book.md",
+     "tokens": 8357,
+     "chars": 14125
+    }
+   ],
+   "source": "tools/content/prompt_book.md",
+   "method": "manual",
+   "note": "ChatGPT에 그대로 붙여 넣는 프롬프트: 세션 설정 P0, 유형별 템플릿 P1~P9, 예상 질문별 한 줄 프롬프트 Q1~Q42, 능형·라쏘 CV 코드 프롬프트(교수님 점검 항목 내장), AI 사용 리포트 템플릿, 문제 상황 대처. AI 정리본.",
+   "stats": {},
+   "public": true
+  },
+  {
+   "category": "compiled",
+   "title": "답안 채점표와 모의고사 (평가 기준·AI 답 검증·모의고사 A/B)",
+   "files": [
+    {
+     "path": "docs/compiled/rubric.md",
+     "tokens": 4148,
+     "chars": 6740
+    }
+   ],
+   "source": "tools/content/rubric.md",
+   "method": "manual",
+   "note": "서술형 10점 채점 기준과 감점 항목, 유형별 체크리스트, ChatGPT 답변 신뢰도 점검, 모의고사 A(이론 100점)·B(AI 실습 50점)와 채점 포인트, 채점 프롬프트, 기계 채점 도구 안내. AI 정리본.",
+   "stats": {},
+   "public": true
+  },
   {
    "category": "compiled",
    "title": "전 차시 강의 개요 모음",

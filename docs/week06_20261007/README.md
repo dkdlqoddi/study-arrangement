@@ -6,6 +6,10 @@
 
 `ROC·AUC 복습` · `c-통계량, AUC = c-통계량 증명` · `discrimination vs calibration` · `AUC의 한계` · `민감도·특이도 vs PPV·NPV(유병률)` · `학습 손실 vs 평가지표` · `naive Bayes 재정리` · `부트스트랩 원리·알고리즘·신뢰구간` · `회귀에서의 부트스트랩, (1−1/n)ⁿ, OOB` · `교차검증 대원칙, 검증셋, k-fold, LOOCV`
 
+## 시험 포인트 (2026-10-28 중간고사)
+
+AUC = c-통계량 증명(구분구적법) · 판별 vs 보정, AUC 한계(증분) · PPV와 유병률 계산 · 부트스트랩 원리·백분위 구간 · (1−1/n)ⁿ → 예측오차는 CV — 문항별 답안 핵심은 [예상 시험 질문](../compiled/exam_predictions.md), 보낼 프롬프트는 [프롬프트 북](../compiled/prompt_book.md), 자기 채점은 [채점표](../compiled/rubric.md).
+
 ## 공개 문서 (시험대비 학습자료 요약본)
 
 | 유형 | 문서 | 파트 | 분량(tokens) | 원본 | 비고 |

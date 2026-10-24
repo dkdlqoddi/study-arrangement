@@ -111,6 +111,10 @@
 
 | 키워드 | 차시 | 어디에 |
 |---|---|---|
+| **중간고사(2026-10-28) 예상 질문 Top 42 — 답안 핵심·근거 §·프롬프트 번호** | 1~8 | docs/compiled/exam_predictions.md (https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_predictions_part01.md) |
+| **시험용 프롬프트 북 — P0 세션 설정, 유형별 템플릿, 능형·라쏘 CV 코드, AI 사용 리포트 템플릿** | 전체 | docs/compiled/prompt_book.md (https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/prompt_book.md) |
+| **채점표·모의고사 — 10점 기준, AI 답 검증, 모의고사 A/B, 채점 프롬프트** | 전체 | docs/compiled/rubric.md (https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/rubric.md) |
+| 시험 공지 원문(일시·장소·AI 사용 규칙·AI 사용 리포트), AI 사용 경고 | 8 | 요약본 §1 시험·과제 공지, §5-0 (https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week08_20261022/study_guide_summary_part01.md) |
 | 평가 방식(중간·기말·프로젝트), AI 도구 사용 보고 원칙, 필요한 수학 | 1 | 요약본 §1 수업 운영 메모 (https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week01_20260902/study_guide_summary.md) · Intro 슬라이드(강의계획서) (비공개) |
 | 수업 운영·평가 관련 발언(3차시) | 3 | 요약본 §4.1 (https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week03_20260916/study_guide_summary_part01.md) |
 | AI(LLM)로 능형·라쏘를 돌릴 때 — "시험 볼 때 주의하세요", 시험장 점검표 | 8 | 요약본 §2.7, §2.16 (https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week08_20261022/study_guide_summary_part01.md) |

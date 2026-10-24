@@ -6,6 +6,10 @@
 
 `f를 왜·어떻게 추정하나` · `parametric vs non-parametric` · `KNN과 차원의 저주` · `예측 정확도 vs 해석력` · `MSE, training vs test error` · `Bias-Variance trade-off` · `0-1 loss, Bayes classifier, KNN 분류` · `Efron(2020) Prediction·Estimation·Attribution 발표` · `Shmueli(2010) To Explain or to Predict? 동료 발표`
 
+## 시험 포인트 (2026-10-28 중간고사)
+
+편향–분산 분해 유도("연습 삼아서라도 꼭 해 보라") · 훈련/검정 MSE와 과적합 · Bayes 분류기·Bayes 오류율 · "문헌을 볼 때 loss function부터" — 문항별 답안 핵심은 [예상 시험 질문](../compiled/exam_predictions.md), 보낼 프롬프트는 [프롬프트 북](../compiled/prompt_book.md), 자기 채점은 [채점표](../compiled/rubric.md).
+
 ## 공개 문서 (시험대비 학습자료 요약본)
 
 | 유형 | 문서 | 파트 | 분량(tokens) | 원본 | 비고 |

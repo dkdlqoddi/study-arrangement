@@ -1,6 +1,6 @@
 # 주제별 찾기 — 키워드 → 어느 차시, 어느 문서
 
-> 각 차시 「시험대비 학습자료(요약본)」의 절 번호(§)를 기준으로 정리했습니다. 2차시 요약본은 전체판에서 새로 작성한 것(2026-10-25)입니다. 전체판·슬라이드·코드 등 **(비공개)** 표시 자료는 GitHub에 없고 로컬 `private/` 폴더에만 있습니다. ChatGPT에 물을 때는 [llms.txt](llms.txt) URL 하나만 주면 됩니다. 학기 전체를 한 파일로 보려면 [docs/compiled/](docs/compiled/)(용어집·예상문제·강조 포인트·체크리스트·요약표)를 쓰세요. 작성 2026-10-24.
+> 각 차시 「시험대비 학습자료(요약본)」의 절 번호(§)를 기준으로 정리했습니다. 2차시 요약본은 전체판에서 새로 작성한 것(2026-10-25)입니다. 전체판·슬라이드·코드 등 **(비공개)** 표시 자료는 GitHub에 없고 로컬 `private/` 폴더에만 있습니다. ChatGPT에 물을 때는 [llms.txt](llms.txt) URL 하나만 주면 됩니다. 2026-10-28 중간고사 대비 문서(예상 질문·프롬프트 북·채점표)는 8절 첫 세 행에 있습니다. 학기 전체를 한 파일로 보려면 [docs/compiled/](docs/compiled/)(용어집·예상문제·강조 포인트·체크리스트·요약표)를 쓰세요. 작성 2026-10-24.
 
 표기: `요약본 §2.3` = 해당 주차 `study_guide_summary.md`의 2.3절 · `전체판` = `study_guide_full/` · `S0xx/M0x/B0x/T0x/V0x/AB0x/OP0x` = 전체판의 슬라이드 번호(S=Ch.4, M=Ch.6 ModelSelection, B=Binary classifier, T=Bootstrap, V=CV, AB=AIC/BIC, OP=Other penalties)
 
@@ -111,6 +111,10 @@
 
 | 키워드 | 차시 | 어디에 |
 |---|---|---|
+| **중간고사(2026-10-28) 예상 질문 Top 42 — 답안 핵심·근거 §·프롬프트 번호** | 1~8 | [docs/compiled/exam_predictions.md](docs/compiled/exam_predictions.md) |
+| **시험용 프롬프트 북 — P0 세션 설정, 유형별 템플릿, 능형·라쏘 CV 코드, AI 사용 리포트 템플릿** | 전체 | [docs/compiled/prompt_book.md](docs/compiled/prompt_book.md) |
+| **채점표·모의고사 — 10점 기준, AI 답 검증, 모의고사 A/B, 채점 프롬프트** | 전체 | [docs/compiled/rubric.md](docs/compiled/rubric.md) |
+| 시험 공지 원문(일시·장소·AI 사용 규칙·AI 사용 리포트), AI 사용 경고 | 8 | [요약본 §1 시험·과제 공지, §5-0](docs/week08_20261022/study_guide_summary.md) |
 | 평가 방식(중간·기말·프로젝트), AI 도구 사용 보고 원칙, 필요한 수학 | 1 | [요약본 §1 수업 운영 메모](docs/week01_20260902/study_guide_summary.md) · Intro 슬라이드(강의계획서) (비공개) |
 | 수업 운영·평가 관련 발언(3차시) | 3 | [요약본 §4.1](docs/week03_20260916/study_guide_summary.md) |
 | AI(LLM)로 능형·라쏘를 돌릴 때 — "시험 볼 때 주의하세요", 시험장 점검표 | 8 | [요약본 §2.7, §2.16](docs/week08_20261022/study_guide_summary.md) |

@@ -6,6 +6,10 @@
 
 `판별분석: p(Y|X) ⇕ p(X|Y)` · `LDA p=1 판별점수·모수 추정` · `p>1 다변량 정규, GEE·mixed effect 언급` · `Multivariate Gaussian(밀도식, Σ, 기하)` · `naive Bayes, Laplace 평활` · `K=3 분류, Fisher 붓꽃` · `정확도의 함정, 오류 비용, 임계값` · `민감도·특이도, ROC, AUC`
 
+## 시험 포인트 (2026-10-28 중간고사)
+
+LDA p=1 판별점수 유도(항 상쇄)·모수 추정(n−K) · 다변량 정규 밀도·"외우라"는 두 성질 · naive Bayes·Laplace 평활 · 정확도의 함정·ROC — 문항별 답안 핵심은 [예상 시험 질문](../compiled/exam_predictions.md), 보낼 프롬프트는 [프롬프트 북](../compiled/prompt_book.md), 자기 채점은 [채점표](../compiled/rubric.md).
+
 ## 공개 문서 (시험대비 학습자료 요약본)
 
 | 유형 | 문서 | 파트 | 분량(tokens) | 원본 | 비고 |

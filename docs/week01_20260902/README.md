@@ -6,6 +6,10 @@
 
 `통계학 vs 기계학습(Two cultures)` · `supervised/unsupervised/reinforcement` · `f 추정, Prediction vs Inference` · `손실함수와 최적 예측자 E[Y|X]` · `Parametric vs Non-parametric` · `차원의 저주` · `유연성-해석력 trade-off` · `수업 운영(중간·기말, 팀 프로젝트, AI 도구 사용 보고)`
 
+## 시험 포인트 (2026-10-28 중간고사)
+
+통계학 vs 기계학습(두 문화) · prediction vs inference · 제곱오차의 최적 예측자 E[Y|X] 유도 · parametric vs non-parametric · 차원의 저주 — 서술·비교형(C급) — 문항별 답안 핵심은 [예상 시험 질문](../compiled/exam_predictions.md), 보낼 프롬프트는 [프롬프트 북](../compiled/prompt_book.md), 자기 채점은 [채점표](../compiled/rubric.md).
+
 ## 공개 문서 (시험대비 학습자료 요약본)
 
 | 유형 | 문서 | 파트 | 분량(tokens) | 원본 | 비고 |

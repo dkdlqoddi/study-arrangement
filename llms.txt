@@ -12,10 +12,24 @@
 
 > For AI assistants (English): this is a routing index. Pick the matching entries below, open their raw URLs, read fully, answer only from that text, and cite week/section. Each file is ≤12k tokens. Private materials (full guides, lecture notes, transcripts, slides) are not available here.
 
+## ★ 시험 모드 — 2026-10-28(수) 중간고사 (시험이 끝나면 이 절은 무시)
+
+- 시험: 범위 1~8차시("라쏘까지, 라쏘하고 릿지까지") · 221동(호실은 ETL) · 랩탑 지참 · AI 허용(ChatGPT Edu 기본) · 해답지에 AI 사용 리포트(프롬프트 2~3개·사용 방식·결과) · AI 미사용 감점 없음 · 원문 8차시 §1·§5-0
+
+- 먼저 열 문서:
+  - **예상 시험 질문 Top 42 (답안 핵심·근거·프롬프트)** — (1/2) https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_predictions_part01.md · (2/2) https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_predictions_part02.md
+  - **시험용 프롬프트 북 (P0 세션 설정·유형별 템플릿·코드·AI 사용 리포트)** — https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/prompt_book.md
+  - **답안 채점표와 모의고사 (평가 기준·AI 답 검증·모의고사 A/B)** — https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/rubric.md
+- 바로 열 요약본 파트: 시험 공지 원문 §5-0 https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week08_20261022/study_guide_summary_part03.md · 점검표 §2.16 https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week08_20261022/study_guide_summary_part02.md · 실습형 6-4 https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week08_20261022/study_guide_summary_part07.md
+
+- 시험 질문을 받으면 ① 「예상 시험 질문」에서 같은 Q의 **답안 핵심**을 빠짐없이 넣고 ② 근거 §의 요약본 파트를 열어 교수님 표현을 인용하며 ③ 코드 요청이면 점검 항목(★라쏘/능형 명시·고정 ★넓은 로그 λ 격자·U자 CV 곡선, 격자 끝이면 확대 ★표준화 ★고른 λ로 전체 재적합 ★seed)을 지키고 확인 결과를 끝에 적는다 ④ "채점:" 요청은 채점표 기준 10점 채점.
+
 ## 1. 질문 유형별 안내
 
 | 질문이 이런 경우 | 먼저 열 문서 |
 |---|---|
+| 시험 문제를 받았을 때, 예상 질문·답안 핵심·프롬프트·채점 기준 | ★ 시험 모드 절의 세 문서(예상 질문 → 프롬프트 북 → 채점표) |
+| AI로 능형·라쏘를 돌리는 코드·출력 해석 | 프롬프트 북 3절 + 8차시 요약본 §2.16 점검표, 6-4 실습형 |
 | 용어의 뜻·정의, 통계학↔기계학습 용어 대응 | 2절 「용어 정리 모음」 |
 | 개념을 한 줄로 복습, 여러 개념 비교, 질문/답 형식 | 2절 「핵심 개념 한 장 요약표 모음」 |
 | 시험 문제 연습, 예상문제, 모범답안, 채점 | 2절 「예상 시험 문제와 모범 답안 모음」 |
@@ -29,6 +43,13 @@
 
 ## 2. 모아보기 문서 (학기 전체)
 
+- **예상 시험 질문 Top 42 (답안 핵심·근거·프롬프트)** — 2026-10-28 중간고사 대비. 등급(A/B/C)별 예상 질문 42개와 각 질문의 답안 핵심·흔한 실수·근거 차시 §·프롬프트 번호. 유형별 답안 틀, 3일 공부 순서, 자주 여는 URL. AI 정리본(교수님 말씀 아님).
+  - (1/2) https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_predictions_part01.md
+  - (2/2) https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_predictions_part02.md
+- **시험용 프롬프트 북 (P0 세션 설정·유형별 템플릿·코드·AI 사용 리포트)** — ChatGPT에 그대로 붙여 넣는 프롬프트: 세션 설정 P0, 유형별 템플릿 P1~P9, 예상 질문별 한 줄 프롬프트 Q1~Q42, 능형·라쏘 CV 코드 프롬프트(교수님 점검 항목 내장), AI 사용 리포트 템플릿, 문제 상황 대처. AI 정리본.
+  - https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/prompt_book.md
+- **답안 채점표와 모의고사 (평가 기준·AI 답 검증·모의고사 A/B)** — 서술형 10점 채점 기준과 감점 항목, 유형별 체크리스트, ChatGPT 답변 신뢰도 점검, 모의고사 A(이론 100점)·B(AI 실습 50점)와 채점 포인트, 채점 프롬프트, 기계 채점 도구 안내. AI 정리본.
+  - https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/rubric.md
 - **전 차시 강의 개요 모음** — 각 차시 학습자료의 '강의 개요' 절만 모았습니다. 학기 흐름을 한눈에 볼 때.
   - (1/2) 1·2·3·4·5·6·7차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/overviews_part01.md
     절: 강의 개요
@@ -79,7 +100,6 @@
     절: 셀프 체크리스트
 - **핵심 수식 정리 (LaTeX)** — 수업에서 다룬 핵심 수식을 LaTeX로 정리하고 어느 차시 요약본 절에 나오는지 표시. AI 정리본(교수님 말씀 아님).
   - https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/formulas.md
-    절: 통계적 학습의 틀 · Bias–Variance 분해 · 분류의 기초 · 선형회귀 · 로지스틱 회귀 · 판별분석과 다변량 정규분포 · 이진 분류기의 성능 · Bootstrap과 교차검증
 
 ## 3. 차시별 요약본 색인
 

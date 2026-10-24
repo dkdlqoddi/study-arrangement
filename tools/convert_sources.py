@@ -62,6 +62,7 @@ WEEKS = [
         topics=["통계학 vs 기계학습(Two cultures)", "supervised/unsupervised/reinforcement", "f 추정, Prediction vs Inference",
                 "손실함수와 최적 예측자 E[Y|X]", "Parametric vs Non-parametric", "차원의 저주", "유연성-해석력 trade-off",
                 "수업 운영(중간·기말, 팀 프로젝트, AI 도구 사용 보고)"],
+        exam_focus="통계학 vs 기계학습(두 문화) · prediction vs inference · 제곱오차의 최적 예측자 E[Y|X] 유도 · parametric vs non-parametric · 차원의 저주 — 서술·비교형(C급)",
         summary_pdf="1차시 시험대비 학습자료.pdf", full_pdf="1차시 시험대비 학습자료(전체판).pdf",
         notes=[("1차시 강의노트.pdf", None)],
         slides=[("Intro (2).pdf", "intro_course_overview", "과목 소개 슬라이드(이미지 위주 → OCR)"),
@@ -76,6 +77,7 @@ WEEKS = [
         n=2, folder="20260909", date="2026-09-09", slug="week02_20260909",
         title="Chap2 Part I 복습(f 추정, parametric/non-parametric, KNN·차원의 저주) · Chap2 Part II(MSE, Bias-Variance, Bayes classifier) · Efron 논문 발표",
         topics=["f를 왜·어떻게 추정하나", "parametric vs non-parametric", "KNN과 차원의 저주", "예측 정확도 vs 해석력", "MSE, training vs test error", "Bias-Variance trade-off", "0-1 loss, Bayes classifier, KNN 분류", "Efron(2020) Prediction·Estimation·Attribution 발표", "Shmueli(2010) To Explain or to Predict? 동료 발표"],
+        exam_focus="편향–분산 분해 유도(\"연습 삼아서라도 꼭 해 보라\") · 훈련/검정 MSE와 과적합 · Bayes 분류기·Bayes 오류율 · \"문헌을 볼 때 loss function부터\"",
         summary_pdf=None, summary_md="2차시 시험대비 학습자료(요약본).md",  # 전체판에서 새로 작성한 Markdown 요약본
         full_pdf="2차시 시험대비 학습자료(전체판).pdf",
         notes=[("20260909.pdf", None)],
@@ -103,6 +105,7 @@ WEEKS = [
         n=3, folder="20260916", date="2026-09-16", slug="week03_20260916",
         title="Chap2 Part II 마무리 · Double descent 발표 · Chap3 Linear Regression(두 관점·likelihood·추론·변수선택·KNN 비교) · 회귀→경사하강→신경망 · Chap4 분류 시작(로지스틱, MLE·cross-entropy)",
         topics=["모델 정확도 평가 복습", "Double descent(Belkin 2019)", "선형회귀의 두 관점", "likelihood", "추론·변수선택·R²·KNN 비교", "제곱오차 → 경사하강 → 신경망(One Idea, Many Models)", "분류 문제의 정의와 risk", "선형회귀 vs 로지스틱 회귀(link)", "MLE → cross-entropy, 0-1 loss와 surrogate", "다변량 정규분포 보충 덱"],
+        exam_focus="선형회귀 두 관점(true model vs projection) · 우도와 MLE = OLS, Fisher 정보 · 경사하강 → 신경망 · 0-1 손실 → cross-entropy(surrogate)",
         summary_pdf="3차시 시험대비 학습자료.pdf", full_pdf="3차시 시험대비 학습자료(전체판).pdf",
         notes=[("20260916.pdf", None)],
         slides=[("Multivariate_Gaussian_Distribution.pdf", "multivariate_gaussian_distribution", "다변량 정규분포 보충"),
@@ -116,6 +119,7 @@ WEEKS = [
         n=4, folder="20260923", date="2026-09-23", slug="week04_20260923",
         title="로지스틱 회귀 심화(우도·경사법·Newton–Raphson·odds ratio·confounding·환자-대조군) · 다항 로지스틱 · 판별분석의 출발점 · TRIPOD/PROBAST 발표",
         topics=["로지스틱 회귀 모형과 링크 함수", "0-1 손실 → 우도 → −log 우도 → 경사법", "표준오차·z·p-value, Newton–Raphson", "odds ratio, confounding", "유병률 vs 환자 비율, 코호트 vs 환자-대조군", "환자-대조군 로지스틱 회귀(선택지표 S)", "다항 로지스틱(baseline category logit)", "판별분석의 출발점(Bayes 정리)", "complete separation", "TRIPOD·PROBAST 논문 발표"],
+        exam_focus="환자-대조군 로지스틱(선택지표 S 증명: 기울기 불변·절편 이동) · odds ratio·confounding · 판별분석의 출발(Bayes 정리로 뒤집기) · complete separation",
         summary_pdf="4차시 시험대비 학습자료.pdf", full_pdf="4차시 시험대비 학습자료(전체판).pdf",
         notes=[("20260923.pdf", None)],
         slides=[("Binary_Classifier_Performance.pdf", "binary_classifier_performance", "이진 분류기 성능 지표 (5~6차시 진행)")],
@@ -129,6 +133,7 @@ WEEKS = [
         n=5, folder="20260930", date="2026-09-30", slug="week05_20260930",
         title="판별분석(LDA, p=1 → p>1) · 다변량 정규분포 · Naive Bayes·Laplace 평활 · 이진 분류기 성능(정확도 함정·임계값·민감도·특이도·ROC·AUC)",
         topics=["판별분석: p(Y|X) ⇕ p(X|Y)", "LDA p=1 판별점수·모수 추정", "p>1 다변량 정규, GEE·mixed effect 언급", "Multivariate Gaussian(밀도식, Σ, 기하)", "naive Bayes, Laplace 평활", "K=3 분류, Fisher 붓꽃", "정확도의 함정, 오류 비용, 임계값", "민감도·특이도, ROC, AUC"],
+        exam_focus="LDA p=1 판별점수 유도(항 상쇄)·모수 추정(n−K) · 다변량 정규 밀도·\"외우라\"는 두 성질 · naive Bayes·Laplace 평활 · 정확도의 함정·ROC",
         summary_pdf="5차시 시험대비 학습자료.pdf", full_pdf="5차시 시험대비 학습자료(전체판).pdf",
         notes=[("20260930.pdf", None)],
         slides=[("CrossValidation.pdf", "cross_validation", "ISLR Ch.5 CV (5차시에 배포, 6~7차시에 진행 · 일부 페이지 OCR)"),
@@ -145,6 +150,7 @@ WEEKS = [
         n=6, folder="20261007", date="2026-10-07", slug="week06_20261007",
         title="분류기 성능 심화(c-통계량=AUC 증명·discrimination vs calibration·PPV/NPV) · Naive Bayes 재정리 · Bootstrap(원리·CI·회귀·OOB) · Cross-Validation 시작(검증셋·k-fold·LOOCV)",
         topics=["ROC·AUC 복습", "c-통계량, AUC = c-통계량 증명", "discrimination vs calibration", "AUC의 한계", "민감도·특이도 vs PPV·NPV(유병률)", "학습 손실 vs 평가지표", "naive Bayes 재정리", "부트스트랩 원리·알고리즘·신뢰구간", "회귀에서의 부트스트랩, (1−1/n)ⁿ, OOB", "교차검증 대원칙, 검증셋, k-fold, LOOCV"],
+        exam_focus="AUC = c-통계량 증명(구분구적법) · 판별 vs 보정, AUC 한계(증분) · PPV와 유병률 계산 · 부트스트랩 원리·백분위 구간 · (1−1/n)ⁿ → 예측오차는 CV",
         summary_pdf="6차시 시험대비 학습자료.pdf", full_pdf="6차시 시험대비 학습자료(전체판).pdf",
         notes=[("20261007.pdf", None)],
         slides=[("ModelSelection_Regularization.pdf", "model_selection_regularization", "ISLR Ch.6 (6차시 배포, 7~8차시 진행 · 이미지 위주 → OCR)"),
@@ -158,6 +164,7 @@ WEEKS = [
         n=7, folder="20261014", date="2026-10-14", slug="week07_20261014",
         title="Cross-Validation 완결(k-fold·LOOCV 지름길·1-SE 규칙·올바른 CV) · Model Selection(subset selection·Cp/AIC/BIC/adjR²·AIC vs BIC 철학) · 축소법 시작(능형회귀·라쏘)",
         topics=["CV의 목적·검증셋 접근", "k-fold CV 식", "LOOCV 지름길 공식(hᵢ), k의 편향–분산", "CV 곡선, 분류 문제의 CV, 1-SE 규칙", "올바른 CV vs 틀린 CV(p=5000, n=50)", "모형 선택 세 방법군, AIC vs BIC 철학", "best subset·forward·backward", "Cp·AIC·BIC·adjusted R²", "자코비안과 변환한 y의 AIC", "축소의 발상, 능형회귀(λ의 CV 선택)", "라쏘(ℓ1, 변수 선택)", "PCR·PLS(교재, 미진행)"],
+        exam_focus="올바른 CV vs 틀린 CV(V23 퀴즈, 정답 0.5) · LOOCV 지름길·K의 편향–분산 · AIC vs BIC 철학 · R² 금지·자코비안 함정 · 제약 ⟺ 벌점(라그랑지안)",
         summary_pdf="7차시 시험대비 학습자료.pdf", full_pdf="7차시 시험대비 학습자료(전체판).pdf",
         notes=[("20261014.pdf", None)],
         slides=[],
@@ -170,6 +177,7 @@ WEEKS = [
         n=8, folder="20261022", date="2026-10-21", slug="week08_20261022",
         title="AIC·BIC 유도(KL 발산·Laplace 근사) · 능형회귀·라쏘 심화(해 경로·표준화·sparse·oracle·soft thresholding) · elastic net·bridge·fused lasso · LLM으로 능형·라쏘 돌릴 때 시험 주의 (Ch7 자료 배포)",
         topics=["AIC·BIC 유도: KL 발산, tr(J⁻¹I) → p, Laplace 근사 → p·log n", "제약 형태 ⟺ 벌점 형태(원과 마름모)", "능형회귀 해·해 경로·표준화", "1차원 능형 β̂ = y/(1+λ)", "라쏘: sparse vs dense, oracle property", "elastic net, 튜닝 파라미터 2개", "bridge 벌점", "soft thresholding", "grouping effect, generalized·fused lasso", "보건 응용과 LLM 시대의 메시지", "시험장 점검표(AI로 능형·라쏘)", "Chap7 Beyond Linearity 슬라이드(배포, 다음 차시)"],
+        exam_focus="1차원 라쏘 soft thresholding(\"풀어보세요\") · 1차원 능형 MSE·λ* · 닫힌 해·척도 동변성·표준화 · λ는 CV(넓은 격자·U자) · sparse/dense · AIC·BIC 유도 큰 그림 · AI 점검표",
         summary_pdf="8차시 시험대비 학습자료.pdf", full_pdf="8차시 시험대비 학습자료(전체판).pdf",
         # 20261022_강의노트.pdf 는 1~8차시 누적 노트북 → 8차시(2026-10-21) 부분만 추출
         notes=[("20261022_강의노트.pdf", {"start_marker": "2026년10월21일", "label": "누적 노트북 중 8차시 부분"})],
@@ -802,10 +810,17 @@ COMPILED = [
 ]
 HEADING_RE = re.compile(r"^(#{2,4})\s+(.*)$")
 
-# 손으로 작성해 tools/content/ 에 두는 공개 모아보기 문서: (파일명, 제목, 원본 경로, 설명)
+# 손으로 작성해 tools/content/ 에 두는 공개 모아보기 문서: (파일명, 제목, 원본 경로, 설명, 앞에 둘지)
+#   front=True 인 문서는 모아보기 목록(허브 2절·INDEX)의 맨 앞에 놓인다 — 시험 직전에 먼저 열 문서.
 MANUAL_COMPILED = [
+    ("exam_predictions.md", "예상 시험 질문 Top 42 (답안 핵심·근거·프롬프트)", "tools/content/exam_predictions.md",
+     "2026-10-28 중간고사 대비. 등급(A/B/C)별 예상 질문 42개와 각 질문의 답안 핵심·흔한 실수·근거 차시 §·프롬프트 번호. 유형별 답안 틀, 3일 공부 순서, 자주 여는 URL. AI 정리본(교수님 말씀 아님).", True),
+    ("prompt_book.md", "시험용 프롬프트 북 (P0 세션 설정·유형별 템플릿·코드·AI 사용 리포트)", "tools/content/prompt_book.md",
+     "ChatGPT에 그대로 붙여 넣는 프롬프트: 세션 설정 P0, 유형별 템플릿 P1~P9, 예상 질문별 한 줄 프롬프트 Q1~Q42, 능형·라쏘 CV 코드 프롬프트(교수님 점검 항목 내장), AI 사용 리포트 템플릿, 문제 상황 대처. AI 정리본.", True),
+    ("rubric.md", "답안 채점표와 모의고사 (평가 기준·AI 답 검증·모의고사 A/B)", "tools/content/rubric.md",
+     "서술형 10점 채점 기준과 감점 항목, 유형별 체크리스트, ChatGPT 답변 신뢰도 점검, 모의고사 A(이론 100점)·B(AI 실습 50점)와 채점 포인트, 채점 프롬프트, 기계 채점 도구 안내. AI 정리본.", True),
     ("formulas.md", "핵심 수식 정리 (LaTeX)", "tools/content/formulas.md",
-     "수업에서 다룬 핵심 수식을 LaTeX로 정리하고 어느 차시 요약본 절에 나오는지 표시. AI 정리본(교수님 말씀 아님)."),
+     "수업에서 다룬 핵심 수식을 LaTeX로 정리하고 어느 차시 요약본 절에 나오는지 표시. AI 정리본(교수님 말씀 아님).", False),
 ]
 
 
@@ -873,17 +888,27 @@ def compile_sections(weeks: list[dict], max_tokens: int) -> list[dict]:
                           max_tokens=max_tokens, extra_meta=f"{found_weeks}개 차시")
         entries.append(dict(category="compiled", title=title, files=files, source="각 차시 학습자료", method="compiled",
                             note=desc, stats={"weeks": found_weeks}, public=True))
-    for fname, title, src_rel, desc in MANUAL_COMPILED:
+    front = []
+    for fname, title, src_rel, desc, is_front in MANUAL_COMPILED:
         src = ROOT / src_rel
         if not src.exists():
             print("경고: 수동 모아보기 원본 없음", src_rel)
             continue
         body = src.read_text(encoding="utf-8").strip() + "\n"
-        body = re.sub(r"^(#{1,5})\s", lambda m: "#" * (len(m.group(1)) + 1) + " ", body, flags=re.M)
+        # 코드 블록 안의 '#'(주석·마크다운 예시)은 제목이 아니므로 건드리지 않고 제목 단계만 한 단계 내린다
+        out_lines, in_code = [], False
+        for ln in body.splitlines(keepends=True):
+            if ln.lstrip().startswith("```"):
+                in_code = not in_code
+            elif not in_code:
+                ln = re.sub(r"^(#{1,5})\s", lambda m: "#" * (len(m.group(1)) + 1) + " ", ln)
+            out_lines.append(ln)
+        body = "".join(out_lines)
         files = write_doc(body, cdir / fname, title, src_rel, "manual", "../INDEX.md", max_tokens=max_tokens)
-        entries.append(dict(category="compiled", title=title, files=files, source=src_rel, method="manual",
-                            note=desc, stats={}, public=True))
-    return entries
+        entry = dict(category="compiled", title=title, files=files, source=src_rel, method="manual",
+                     note=desc, stats={}, public=True)
+        (front if is_front else entries).append(entry)
+    return front + entries
 
 
 # ---------------------------------------------------------------------------
@@ -911,7 +936,11 @@ def write_week_readme(w: dict):
     wdir = f"docs/{w['slug']}"
     out = [head, "",
            f"> 변환 생성일 {TODAY} · [전체 인덱스](../../INDEX.md) · [주제별 찾기](../../TOPICS.md) · [모아보기](../compiled/)", "",
-           "## 이번 차시 키워드", "", kw, "", "## 공개 문서 (시험대비 학습자료 요약본)", ""]
+           "## 이번 차시 키워드", "", kw, ""]
+    if w.get("exam_focus"):
+        out += ["## 시험 포인트 (2026-10-28 중간고사)", "",
+                w["exam_focus"] + " — 문항별 답안 핵심은 [예상 시험 질문](../compiled/exam_predictions.md), 보낼 프롬프트는 [프롬프트 북](../compiled/prompt_book.md), 자기 채점은 [채점표](../compiled/rubric.md).", ""]
+    out += ["## 공개 문서 (시험대비 학습자료 요약본)", ""]
     if pub:
         out += _entries_table(pub, wdir)
     else:
@@ -1036,8 +1065,24 @@ def write_index(weeks: list[dict], common: list[dict], compiled: list[dict]):
     (PRIV / "INDEX.md").write_text(scrub_pii("\n".join(out) + "\n"), encoding="utf-8")
 
 
-HUB_BUDGET_TOKENS = 10000   # 허브 파일 자체가 한 번에 읽히도록
-_TRAILING_REF = re.compile(r"\s*\([^()]*\d[^()]*\)\s*$")   # 끝의 (S22–S25, 칠판 18:37) 같은 참조 괄호
+HUB_BUDGET_TOKENS = 11000   # 허브 파일 자체가 한 번에 읽히도록(문서 한도 12,000보다 작게). 시험 모드 블록 때문에 10,000 → 11,000
+_TRAILING_REF = re.compile(r"\s*\([^()]*\d[^()]*\)\s*$")   # 끝의 (S22–S25, 칠판 18:37) 같은 참조 괴호
+
+# 시험 모드: 허브 맨 위에 붙는 블록. 시험이 끝나면 EXAM_MODE = None 으로 두고 --index-only 로 재생성하면 빠진다.
+#   docs  : MANUAL_COMPILED 의 파일명 → 허브에서 "먼저 열 문서"로 안내
+#   links : (저장소 경로, 설명) — 시험 공지 원문·점검표·실습형처럼 바로 열 요약본 파트
+EXAM_MODE = dict(
+    title="2026-10-28(수) 중간고사",
+    facts=("범위 1~8차시(\"라쏘까지, 라쏘하고 릿지까지\") · 221동(호실은 ETL) · 랩탑 지참 · AI 허용(ChatGPT Edu 기본) · "
+           "해답지에 AI 사용 리포트(프롬프트 2~3개·사용 방식·결과) · AI 미사용 감점 없음 · 원문 8차시 §1·§5-0"),
+    docs=["exam_predictions.md", "prompt_book.md", "rubric.md"],
+    rule=("시험 질문을 받으면 ① 「예상 시험 질문」에서 같은 Q의 **답안 핵심**을 빠짐없이 넣고 ② 근거 §의 요약본 파트를 열어 교수님 표현을 인용하며 "
+          "③ 코드 요청이면 점검 항목(★라쏘/능형 명시·고정 ★넓은 로그 λ 격자·U자 CV 곡선, 격자 끝이면 확대 ★표준화 ★고른 λ로 전체 재적합 ★seed)을 지키고 확인 결과를 끝에 적는다 "
+          "④ \"채점:\" 요청은 채점표 기준 10점 채점."),
+    links=[("docs/week08_20261022/study_guide_summary_part03.md", "시험 공지 원문 §5-0"),
+           ("docs/week08_20261022/study_guide_summary_part02.md", "점검표 §2.16"),
+           ("docs/week08_20261022/study_guide_summary_part07.md", "실습형 6-4")],
+)
 
 
 def _hub_headings(path: str, max_len: int) -> list[str]:
@@ -1093,10 +1138,28 @@ def _build_hub(weeks: list[dict], compiled: list[dict], max_len: int) -> str:
         "",
         "> For AI assistants (English): this is a routing index. Pick the matching entries below, open their raw URLs, read fully, answer only from that text, and cite week/section. Each file is ≤12k tokens. Private materials (full guides, lecture notes, transcripts, slides) are not available here.",
         "",
+    ]
+    if EXAM_MODE:
+        by_src = {Path(e["source"]).name: e for e in compiled if e.get("method") == "manual"}
+        out += [f"## ★ 시험 모드 — {EXAM_MODE['title']} (시험이 끝나면 이 절은 무시)", "",
+                f"- 시험: {EXAM_MODE['facts']}", "",
+                "- 먼저 열 문서:"]
+        for fname in EXAM_MODE["docs"]:
+            e = by_src.get(fname)
+            if not e:
+                continue
+            urls = " · ".join((f"({k}/{len(e['files'])}) " if len(e["files"]) > 1 else "") + RAW_BASE + f["path"]
+                              for k, f in enumerate(e["files"], 1))
+            out.append(f"  - **{e['title']}** — {urls}")
+        out += ["- 바로 열 요약본 파트: " + " · ".join(f"{label} {RAW_BASE}{path}" for path, label in EXAM_MODE["links"]), "",
+                f"- {EXAM_MODE['rule']}", ""]
+    out += [
         "## 1. 질문 유형별 안내",
         "",
         "| 질문이 이런 경우 | 먼저 열 문서 |",
         "|---|---|",
+        "| 시험 문제를 받았을 때, 예상 질문·답안 핵심·프롬프트·채점 기준 | ★ 시험 모드 절의 세 문서(예상 질문 → 프롬프트 북 → 채점표) |",
+        "| AI로 능형·라쏘를 돌리는 코드·출력 해석 | 프롬프트 북 3절 + 8차시 요약본 §2.16 점검표, 6-4 실습형 |",
         "| 용어의 뜻·정의, 통계학↔기계학습 용어 대응 | 2절 「용어 정리 모음」 |",
         "| 개념을 한 줄로 복습, 여러 개념 비교, 질문/답 형식 | 2절 「핵심 개념 한 장 요약표 모음」 |",
         "| 시험 문제 연습, 예상문제, 모범답안, 채점 | 2절 「예상 시험 문제와 모범 답안 모음」 |",
@@ -1124,7 +1187,7 @@ def _build_hub(weeks: list[dict], compiled: list[dict], max_len: int) -> str:
                 h2 = re.sub(r"\s*\([^()]*\)\s*$", "", h2).strip()  # 차시마다 조금씩 다른 괄호 설명 제거 후 중복 제거
                 if h2 and h2 not in heads:
                     heads.append(h2)
-            if heads and len(heads) <= 10:
+            if heads and len(heads) <= 10 and e.get("method") != "manual":
                 out.append("    절: " + " · ".join(heads[:8]))
     out += ["", "## 3. 차시별 요약본 색인", ""]
     for w in weeks:
@@ -1311,6 +1374,7 @@ def main():
         res = json.loads(pth.read_text(encoding="utf-8"))
         m = meta[w["slug"]]
         res["title"], res["topics"], res["reuse"], res["skip"], res["date"] = m["title"], m["topics"], m.get("reuse", []), m.get("skip", []), m["date"]
+        res["exam_focus"] = m.get("exam_focus", "")
         weeks.append(res)
     CURRENT_WEEKS[:] = weeks
     partition_scope(weeks)

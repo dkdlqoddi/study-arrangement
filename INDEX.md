@@ -1,6 +1,6 @@
 # 전체 문서 인덱스 — 보건학을 위한 기계학습 (2026-2)
 
-> 자동 생성 2026-10-25 (`python3 tools/convert_sources.py --index-only`) · 공개 문서 49개 · 총 425,832 tokens · 파일 하나는 최대 12,000 tokens(ChatGPT 웹에서 한 번에 읽히는 크기) · 공개 범위: 시험대비 학습자료 **요약본**과 **모아보기**만 (전체판·강의노트·슬라이드·받아쓰기·논문과제는 비공개)
+> 자동 생성 2026-10-25 (`python3 tools/convert_sources.py --index-only`) · 공개 문서 53개 · 총 459,274 tokens · 파일 하나는 최대 12,000 tokens(ChatGPT 웹에서 한 번에 읽히는 크기) · 공개 범위: 시험대비 학습자료 **요약본**과 **모아보기**만 (전체판·강의노트·슬라이드·받아쓰기·논문과제는 비공개)
 
 > **ChatGPT에는 URL 하나만**: `https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/llms.txt` 를 주면 그 안의 색인을 보고 알맞은 문서를 찾아 읽습니다(README의 질문 템플릿 참고).
 
@@ -8,6 +8,9 @@
 
 | 문서 | 내용 | 파트 |
 |---|---|---|
+| **예상 시험 질문 Top 42 (답안 핵심·근거·프롬프트)** | 2026-10-28 중간고사 대비. 등급(A/B/C)별 예상 질문 42개와 각 질문의 답안 핵심·흔한 실수·근거 차시 §·프롬프트 번호. 유형별 답안 틀, 3일 공부 순서, 자주 여는 URL. AI 정리본(교수님 말씀 아님). | [목차](docs/compiled/exam_predictions.md) · [1부](docs/compiled/exam_predictions_part01.md) · [2부](docs/compiled/exam_predictions_part02.md) |
+| **시험용 프롬프트 북 (P0 세션 설정·유형별 템플릿·코드·AI 사용 리포트)** | ChatGPT에 그대로 붙여 넣는 프롬프트: 세션 설정 P0, 유형별 템플릿 P1~P9, 예상 질문별 한 줄 프롬프트 Q1~Q42, 능형·라쏘 CV 코드 프롬프트(교수님 점검 항목 내장), AI 사용 리포트 템플릿, 문제 상황 대처. AI 정리본. | [prompt_book.md](docs/compiled/prompt_book.md) |
+| **답안 채점표와 모의고사 (평가 기준·AI 답 검증·모의고사 A/B)** | 서술형 10점 채점 기준과 감점 항목, 유형별 체크리스트, ChatGPT 답변 신뢰도 점검, 모의고사 A(이론 100점)·B(AI 실습 50점)와 채점 포인트, 채점 프롬프트, 기계 채점 도구 안내. AI 정리본. | [rubric.md](docs/compiled/rubric.md) |
 | **전 차시 강의 개요 모음** | 각 차시 학습자료의 '강의 개요' 절만 모았습니다. 학기 흐름을 한눈에 볼 때. | [목차](docs/compiled/overviews.md) · [1부](docs/compiled/overviews_part01.md) · [2부](docs/compiled/overviews_part02.md) |
 | **핵심 개념 한 장 요약표 모음** | 질문/한 줄 답/출처 형식의 요약표. 시험 직전 복습용. | [목차](docs/compiled/summary_tables.md) · [1부](docs/compiled/summary_tables_part01.md) · [2부](docs/compiled/summary_tables_part02.md) · [3부](docs/compiled/summary_tables_part03.md) |
 | **용어 정리 모음 (학기 용어집)** | 각 차시의 용어 정리 절을 모은 학기 용어집. | [목차](docs/compiled/glossary.md) · [1부](docs/compiled/glossary_part01.md) · [2부](docs/compiled/glossary_part02.md) |
@@ -127,6 +130,6 @@
 `https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/` + 위 표의 파일 경로. 예:
 
 ```
-https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/overviews_part01.md
+https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_predictions_part01.md
 ```
 
