@@ -1,0 +1,11 @@
+# python3 -m pip install --user -r tools/requirements.txt
+pymupdf>=1.24
+python-pptx>=1.0
+python-docx>=1.1
+beautifulsoup4>=4.12
+markdownify>=0.13
+tiktoken>=0.7
+rapidocr>=2.0          # 한국어+영어 OCR (PP-OCRv4 korean mobile 모델을 첫 실행 때 내려받음)
+rapidocr-onnxruntime   # rapidocr 가 없을 때의 대체 OCR
+kiwipiepy>=0.18        # 한국어 띄어쓰기 복원
+pillow

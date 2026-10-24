@@ -1,0 +1,82 @@
+# 보건학을 위한 기계학습 (서울대 보건대학원, 2026-2) 학습 문서 모음
+
+> 8차시까지의 시험대비 학습자료 요약본과 학기 모아보기(용어집·예상문제·강조 포인트·체크리스트·요약표·강의 개요)를 Markdown으로 정리한 저장소. 생성 2026-10-24. 파일당 최대 12,000 tokens. 인덱스: https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/INDEX.md , 주제별: https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/TOPICS.md
+
+## 모아보기 (학기 전체)
+
+- [전 차시 강의 개요 모음](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/overviews.md)
+- [핵심 개념 한 장 요약표 모음 (1/3)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/summary_tables_part01.md)
+- [핵심 개념 한 장 요약표 모음 (2/3)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/summary_tables_part02.md)
+- [핵심 개념 한 장 요약표 모음 (3/3)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/summary_tables_part03.md)
+- [용어 정리 모음 (학기 용어집) (1/2)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/glossary_part01.md)
+- [용어 정리 모음 (학기 용어집) (2/2)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/glossary_part02.md)
+- [교수님이 강조한 포인트 모음 (1/5)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/key_points_part01.md)
+- [교수님이 강조한 포인트 모음 (2/5)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/key_points_part02.md)
+- [교수님이 강조한 포인트 모음 (3/5)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/key_points_part03.md)
+- [교수님이 강조한 포인트 모음 (4/5)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/key_points_part04.md)
+- [교수님이 강조한 포인트 모음 (5/5)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/key_points_part05.md)
+- [예상 시험 문제와 모범 답안 모음 (1/7)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_questions_part01.md)
+- [예상 시험 문제와 모범 답안 모음 (2/7)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_questions_part02.md)
+- [예상 시험 문제와 모범 답안 모음 (3/7)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_questions_part03.md)
+- [예상 시험 문제와 모범 답안 모음 (4/7)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_questions_part04.md)
+- [예상 시험 문제와 모범 답안 모음 (5/7)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_questions_part05.md)
+- [예상 시험 문제와 모범 답안 모음 (6/7)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_questions_part06.md)
+- [예상 시험 문제와 모범 답안 모음 (7/7)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_questions_part07.md)
+- [셀프 체크리스트 모음 (1/2)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/checklists_part01.md)
+- [셀프 체크리스트 모음 (2/2)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/checklists_part02.md)
+
+## 1차시 (2026-09-02) 과목 소개 · Chap1 Introduction · Chap2 Part I (Statistical Learning)
+
+- [주차 인덱스](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week01_20260902/README.md)
+- [1차시 시험대비 학습자료 (요약본)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week01_20260902/study_guide_summary.md)
+
+## 2차시 (2026-09-09) Chap2 Part I 복습(f 추정, parametric/non-parametric, KNN·차원의 저주) · Chap2 Part II(MSE, Bias-Variance, Bayes classifier) · Efron 논문 발표
+
+- [주차 인덱스](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week02_20260909/README.md)
+
+## 3차시 (2026-09-16) Chap2 Part II 마무리 · Double descent 발표 · Chap3 Linear Regression(두 관점·likelihood·추론·변수선택·KNN 비교) · 회귀→경사하강→신경망 · Chap4 분류 시작(로지스틱, MLE·cross-entropy)
+
+- [주차 인덱스](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week03_20260916/README.md)
+- [3차시 시험대비 학습자료 (요약본) (1/2)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week03_20260916/study_guide_summary_part01.md)
+- [3차시 시험대비 학습자료 (요약본) (2/2)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week03_20260916/study_guide_summary_part02.md)
+
+## 4차시 (2026-09-23) 로지스틱 회귀 심화(우도·경사법·Newton–Raphson·odds ratio·confounding·환자-대조군) · 다항 로지스틱 · 판별분석의 출발점 · TRIPOD/PROBAST 발표
+
+- [주차 인덱스](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week04_20260923/README.md)
+- [4차시 시험대비 학습자료 (요약본) (1/3)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week04_20260923/study_guide_summary_part01.md)
+- [4차시 시험대비 학습자료 (요약본) (2/3)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week04_20260923/study_guide_summary_part02.md)
+- [4차시 시험대비 학습자료 (요약본) (3/3)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week04_20260923/study_guide_summary_part03.md)
+
+## 5차시 (2026-09-30) 판별분석(LDA, p=1 → p>1) · 다변량 정규분포 · Naive Bayes·Laplace 평활 · 이진 분류기 성능(정확도 함정·임계값·민감도·특이도·ROC·AUC)
+
+- [주차 인덱스](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week05_20260930/README.md)
+- [5차시 시험대비 학습자료 (요약본) (1/3)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week05_20260930/study_guide_summary_part01.md)
+- [5차시 시험대비 학습자료 (요약본) (2/3)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week05_20260930/study_guide_summary_part02.md)
+- [5차시 시험대비 학습자료 (요약본) (3/3)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week05_20260930/study_guide_summary_part03.md)
+
+## 6차시 (2026-10-07) 분류기 성능 심화(c-통계량=AUC 증명·discrimination vs calibration·PPV/NPV) · Naive Bayes 재정리 · Bootstrap(원리·CI·회귀·OOB) · Cross-Validation 시작(검증셋·k-fold·LOOCV)
+
+- [주차 인덱스](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week06_20261007/README.md)
+- [6차시 시험대비 학습자료 (요약본) (1/3)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week06_20261007/study_guide_summary_part01.md)
+- [6차시 시험대비 학습자료 (요약본) (2/3)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week06_20261007/study_guide_summary_part02.md)
+- [6차시 시험대비 학습자료 (요약본) (3/3)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week06_20261007/study_guide_summary_part03.md)
+
+## 7차시 (2026-10-14) Cross-Validation 완결(k-fold·LOOCV 지름길·1-SE 규칙·올바른 CV) · Model Selection(subset selection·Cp/AIC/BIC/adjR²·AIC vs BIC 철학) · 축소법 시작(능형회귀·라쏘)
+
+- [주차 인덱스](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week07_20261014/README.md)
+- [7차시 시험대비 학습자료 (요약본) (1/5)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week07_20261014/study_guide_summary_part01.md)
+- [7차시 시험대비 학습자료 (요약본) (2/5)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week07_20261014/study_guide_summary_part02.md)
+- [7차시 시험대비 학습자료 (요약본) (3/5)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week07_20261014/study_guide_summary_part03.md)
+- [7차시 시험대비 학습자료 (요약본) (4/5)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week07_20261014/study_guide_summary_part04.md)
+- [7차시 시험대비 학습자료 (요약본) (5/5)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week07_20261014/study_guide_summary_part05.md)
+
+## 8차시 (2026-10-21) AIC·BIC 유도(KL 발산·Laplace 근사) · 능형회귀·라쏘 심화(해 경로·표준화·sparse·oracle·soft thresholding) · elastic net·bridge·fused lasso · LLM으로 능형·라쏘 돌릴 때 시험 주의 (Ch7 자료 배포)
+
+- [주차 인덱스](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week08_20261022/README.md)
+- [8차시 시험대비 학습자료 (요약본) (1/7)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week08_20261022/study_guide_summary_part01.md)
+- [8차시 시험대비 학습자료 (요약본) (2/7)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week08_20261022/study_guide_summary_part02.md)
+- [8차시 시험대비 학습자료 (요약본) (3/7)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week08_20261022/study_guide_summary_part03.md)
+- [8차시 시험대비 학습자료 (요약본) (4/7)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week08_20261022/study_guide_summary_part04.md)
+- [8차시 시험대비 학습자료 (요약본) (5/7)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week08_20261022/study_guide_summary_part05.md)
+- [8차시 시험대비 학습자료 (요약본) (6/7)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week08_20261022/study_guide_summary_part06.md)
+- [8차시 시험대비 학습자료 (요약본) (7/7)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week08_20261022/study_guide_summary_part07.md)

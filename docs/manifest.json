@@ -1,0 +1,770 @@
+{
+ "generated": "2026-10-24",
+ "max_tokens": 12000,
+ "scope": "public",
+ "weeks": [
+  {
+   "n": 1,
+   "slug": "week01_20260902",
+   "folder": "20260902",
+   "date": "2026-09-02",
+   "title": "과목 소개 · Chap1 Introduction · Chap2 Part I (Statistical Learning)",
+   "topics": [
+    "통계학 vs 기계학습(Two cultures)",
+    "supervised/unsupervised/reinforcement",
+    "f 추정, Prediction vs Inference",
+    "손실함수와 최적 예측자 E[Y|X]",
+    "Parametric vs Non-parametric",
+    "차원의 저주",
+    "유연성-해석력 trade-off",
+    "수업 운영(중간·기말, 팀 프로젝트, AI 도구 사용 보고)"
+   ],
+   "entries": [
+    {
+     "category": "study_guide_summary",
+     "title": "1차시 시험대비 학습자료 (요약본)",
+     "files": [
+      {
+       "path": "docs/week01_20260902/study_guide_summary.md",
+       "tokens": 10278,
+       "chars": 20495
+      }
+     ],
+     "source": "machine_learning_for_health_science/20260902/1차시 시험대비 학습자료.pdf",
+     "method": "pdf-text",
+     "note": "",
+     "stats": {
+      "pages": 12,
+      "ocr_pages": 0,
+      "tables": 10,
+      "method": "pdf-text"
+     },
+     "public": true
+    }
+   ],
+   "reuse": [],
+   "skip": [
+    [
+     "Int Statistical Rev - 2021 - Efron - Prediction  Estimation  and Attribution.pdf",
+     "학술지 논문 원문(저작권) — docs/common/references.md 의 DOI 링크 참고"
+    ]
+   ],
+   "photos": 0,
+   "audio": 3,
+   "src_bytes": 26650323
+  },
+  {
+   "n": 2,
+   "slug": "week02_20260909",
+   "folder": "20260909",
+   "date": "2026-09-09",
+   "title": "Chap2 Part I 복습(f 추정, parametric/non-parametric, KNN·차원의 저주) · Chap2 Part II(MSE, Bias-Variance, Bayes classifier) · Efron 논문 발표",
+   "topics": [
+    "f를 왜·어떻게 추정하나",
+    "parametric vs non-parametric",
+    "KNN과 차원의 저주",
+    "예측 정확도 vs 해석력",
+    "MSE, training vs test error",
+    "Bias-Variance trade-off",
+    "0-1 loss, Bayes classifier, KNN 분류",
+    "Efron(2020) Prediction·Estimation·Attribution 발표",
+    "Shmueli(2010) To Explain or to Predict? 동료 발표"
+   ],
+   "entries": [],
+   "reuse": [],
+   "skip": [
+    [
+     "Int Statistical Rev - 2021 - Efron - Prediction  Estimation  and Attribution.pdf",
+     "논문 원문(저작권)"
+    ],
+    [
+     "20260909_논문_발표자료_*.pdf",
+     "20260909_발표PPT_v2.1.pptx 의 PDF 출력본과 동일 내용 — pptx 쪽을 변환"
+    ],
+    [
+     "논문읽기과제/20260909_발표PPT_v1.1.pptx",
+     "발표 초안(최종본 v2.1 변환)"
+    ],
+    [
+     "논문읽기과제/20260909_발표PPT_v1.2.pptx",
+     "발표 초안"
+    ],
+    [
+     "논문읽기과제/20260909_발표PPT_v2.1.pptx",
+     "최종본과 다른 중간 버전"
+    ],
+    [
+     "논문읽기과제/20260909_발표PPT_v2.1 - 복사본.pptx",
+     "중복 복사본"
+    ],
+    [
+     "논문읽기과제/발제슬라이드_Efron_2020.pptx",
+     "발표 초안(AI 생성)"
+    ],
+    [
+     "논문읽기과제/발표슬라이드_Efron_2020_5분.pptx",
+     "발표 초안(AI 생성)"
+    ],
+    [
+     "논문읽기과제/template.pptx",
+     "빈 템플릿"
+    ],
+    [
+     "논문읽기과제/Efron_2020_Prediction_Estimation_Attribution_완전요약본.pdf",
+     "같은 내용의 _source.html 을 변환"
+    ],
+    [
+     "논문읽기과제/Efron_2020_Prediction_Estimation_Attribution_요약본_3쪽.pdf",
+     "같은 내용의 _source.html 을 변환"
+    ],
+    [
+     "논문읽기과제/Efron_예측_추정_귀속_논문_해설_요약.pdf",
+     "같은 내용의 .docx 를 변환"
+    ],
+    [
+     "논문읽기과제/발제문_Efron_2020.pdf",
+     "같은 내용의 _source.html 을 변환"
+    ]
+   ],
+   "photos": 0,
+   "audio": 3,
+   "src_bytes": 66893985
+  },
+  {
+   "n": 3,
+   "slug": "week03_20260916",
+   "folder": "20260916",
+   "date": "2026-09-16",
+   "title": "Chap2 Part II 마무리 · Double descent 발표 · Chap3 Linear Regression(두 관점·likelihood·추론·변수선택·KNN 비교) · 회귀→경사하강→신경망 · Chap4 분류 시작(로지스틱, MLE·cross-entropy)",
+   "topics": [
+    "모델 정확도 평가 복습",
+    "Double descent(Belkin 2019)",
+    "선형회귀의 두 관점",
+    "likelihood",
+    "추론·변수선택·R²·KNN 비교",
+    "제곱오차 → 경사하강 → 신경망(One Idea, Many Models)",
+    "분류 문제의 정의와 risk",
+    "선형회귀 vs 로지스틱 회귀(link)",
+    "MLE → cross-entropy, 0-1 loss와 surrogate",
+    "다변량 정규분포 보충 덱"
+   ],
+   "entries": [
+    {
+     "category": "study_guide_summary",
+     "title": "3차시 시험대비 학습자료 (요약본)",
+     "files": [
+      {
+       "path": "docs/week03_20260916/study_guide_summary_part01.md",
+       "tokens": 10344,
+       "chars": 20214
+      },
+      {
+       "path": "docs/week03_20260916/study_guide_summary_part02.md",
+       "tokens": 6029,
+       "chars": 11239
+      }
+     ],
+     "source": "machine_learning_for_health_science/20260916/3차시 시험대비 학습자료.pdf",
+     "method": "pdf-text",
+     "note": "",
+     "stats": {
+      "pages": 13,
+      "ocr_pages": 0,
+      "tables": 5,
+      "method": "pdf-text"
+     },
+     "public": true,
+     "index": "docs/week03_20260916/study_guide_summary.md"
+    }
+   ],
+   "reuse": [
+    [
+     "Chap2_Part2.pdf",
+     "week01_20260902/slides/chap2_part2_assessing_model_accuracy.md"
+    ]
+   ],
+   "skip": [],
+   "photos": 16,
+   "audio": 5,
+   "src_bytes": 88588543
+  },
+  {
+   "n": 4,
+   "slug": "week04_20260923",
+   "folder": "20260923",
+   "date": "2026-09-23",
+   "title": "로지스틱 회귀 심화(우도·경사법·Newton–Raphson·odds ratio·confounding·환자-대조군) · 다항 로지스틱 · 판별분석의 출발점 · TRIPOD/PROBAST 발표",
+   "topics": [
+    "로지스틱 회귀 모형과 링크 함수",
+    "0-1 손실 → 우도 → −log 우도 → 경사법",
+    "표준오차·z·p-value, Newton–Raphson",
+    "odds ratio, confounding",
+    "유병률 vs 환자 비율, 코호트 vs 환자-대조군",
+    "환자-대조군 로지스틱 회귀(선택지표 S)",
+    "다항 로지스틱(baseline category logit)",
+    "판별분석의 출발점(Bayes 정리)",
+    "complete separation",
+    "TRIPOD·PROBAST 논문 발표"
+   ],
+   "entries": [
+    {
+     "category": "study_guide_summary",
+     "title": "4차시 시험대비 학습자료 (요약본)",
+     "files": [
+      {
+       "path": "docs/week04_20260923/study_guide_summary_part01.md",
+       "tokens": 10501,
+       "chars": 17754
+      },
+      {
+       "path": "docs/week04_20260923/study_guide_summary_part02.md",
+       "tokens": 11243,
+       "chars": 19215
+      },
+      {
+       "path": "docs/week04_20260923/study_guide_summary_part03.md",
+       "tokens": 1718,
+       "chars": 2911
+      }
+     ],
+     "source": "machine_learning_for_health_science/20260923/4차시 시험대비 학습자료.pdf",
+     "method": "pdf-text",
+     "note": "",
+     "stats": {
+      "pages": 16,
+      "ocr_pages": 0,
+      "tables": 7,
+      "method": "pdf-text"
+     },
+     "public": true,
+     "index": "docs/week04_20260923/study_guide_summary.md"
+    }
+   ],
+   "reuse": [
+    [
+     "Multivariate_Gaussian_Distribution.pdf",
+     "week03_20260916/slides/multivariate_gaussian_distribution.md"
+    ],
+    [
+     "logistic_to_neural_nets.pdf",
+     "week03_20260916/slides/logistic_to_neural_nets.md"
+    ],
+    [
+     "regression_to_neural_nets.pdf",
+     "week03_20260916/slides/regression_to_neural_nets.md"
+    ]
+   ],
+   "skip": [],
+   "photos": 29,
+   "audio": 3,
+   "src_bytes": 246595131
+  },
+  {
+   "n": 5,
+   "slug": "week05_20260930",
+   "folder": "20260930",
+   "date": "2026-09-30",
+   "title": "판별분석(LDA, p=1 → p>1) · 다변량 정규분포 · Naive Bayes·Laplace 평활 · 이진 분류기 성능(정확도 함정·임계값·민감도·특이도·ROC·AUC)",
+   "topics": [
+    "판별분석: p(Y|X) ⇕ p(X|Y)",
+    "LDA p=1 판별점수·모수 추정",
+    "p>1 다변량 정규, GEE·mixed effect 언급",
+    "Multivariate Gaussian(밀도식, Σ, 기하)",
+    "naive Bayes, Laplace 평활",
+    "K=3 분류, Fisher 붓꽃",
+    "정확도의 함정, 오류 비용, 임계값",
+    "민감도·특이도, ROC, AUC"
+   ],
+   "entries": [
+    {
+     "category": "study_guide_summary",
+     "title": "5차시 시험대비 학습자료 (요약본)",
+     "files": [
+      {
+       "path": "docs/week05_20260930/study_guide_summary_part01.md",
+       "tokens": 11005,
+       "chars": 17571
+      },
+      {
+       "path": "docs/week05_20260930/study_guide_summary_part02.md",
+       "tokens": 9968,
+       "chars": 16063
+      },
+      {
+       "path": "docs/week05_20260930/study_guide_summary_part03.md",
+       "tokens": 2052,
+       "chars": 3444
+      }
+     ],
+     "source": "machine_learning_for_health_science/20260930/5차시 시험대비 학습자료.pdf",
+     "method": "pdf-text",
+     "note": "",
+     "stats": {
+      "pages": 16,
+      "ocr_pages": 0,
+      "tables": 5,
+      "method": "pdf-text"
+     },
+     "public": true,
+     "index": "docs/week05_20260930/study_guide_summary.md"
+    }
+   ],
+   "reuse": [
+    [
+     "Binary_Classifier_Performance.pdf",
+     "week04_20260923/slides/binary_classifier_performance.md"
+    ],
+    [
+     "Multivariate_Gaussian_Distribution.pdf",
+     "week03_20260916/slides/multivariate_gaussian_distribution.md"
+    ],
+    [
+     "logistic_to_neural_nets.pdf",
+     "week03_20260916/slides/logistic_to_neural_nets.md"
+    ],
+    [
+     "regression_to_neural_nets.pdf",
+     "week03_20260916/slides/regression_to_neural_nets.md"
+    ],
+    [
+     "NaiveBayes.txt",
+     "week04_20260923/code/naive_bayes_default.R"
+    ]
+   ],
+   "skip": [
+    [
+     "음성 260930_183439.m4a / 음성 260930_194512.m4a / 음성 260930_204737.m4a",
+     "Quick Share 폴더의 녹음과 동일(중복)"
+    ]
+   ],
+   "photos": 9,
+   "audio": 6,
+   "src_bytes": 352758892
+  },
+  {
+   "n": 6,
+   "slug": "week06_20261007",
+   "folder": "20261007",
+   "date": "2026-10-07",
+   "title": "분류기 성능 심화(c-통계량=AUC 증명·discrimination vs calibration·PPV/NPV) · Naive Bayes 재정리 · Bootstrap(원리·CI·회귀·OOB) · Cross-Validation 시작(검증셋·k-fold·LOOCV)",
+   "topics": [
+    "ROC·AUC 복습",
+    "c-통계량, AUC = c-통계량 증명",
+    "discrimination vs calibration",
+    "AUC의 한계",
+    "민감도·특이도 vs PPV·NPV(유병률)",
+    "학습 손실 vs 평가지표",
+    "naive Bayes 재정리",
+    "부트스트랩 원리·알고리즘·신뢰구간",
+    "회귀에서의 부트스트랩, (1−1/n)ⁿ, OOB",
+    "교차검증 대원칙, 검증셋, k-fold, LOOCV"
+   ],
+   "entries": [
+    {
+     "category": "study_guide_summary",
+     "title": "6차시 시험대비 학습자료 (요약본)",
+     "files": [
+      {
+       "path": "docs/week06_20261007/study_guide_summary_part01.md",
+       "tokens": 9867,
+       "chars": 17058
+      },
+      {
+       "path": "docs/week06_20261007/study_guide_summary_part02.md",
+       "tokens": 11434,
+       "chars": 20215
+      },
+      {
+       "path": "docs/week06_20261007/study_guide_summary_part03.md",
+       "tokens": 10186,
+       "chars": 16374
+      }
+     ],
+     "source": "machine_learning_for_health_science/20261007/6차시 시험대비 학습자료.pdf",
+     "method": "pdf-text",
+     "note": "",
+     "stats": {
+      "pages": 22,
+      "ocr_pages": 0,
+      "tables": 15,
+      "method": "pdf-text"
+     },
+     "public": true,
+     "index": "docs/week06_20261007/study_guide_summary.md"
+    }
+   ],
+   "reuse": [],
+   "skip": [],
+   "photos": 17,
+   "audio": 3,
+   "src_bytes": 226278843
+  },
+  {
+   "n": 7,
+   "slug": "week07_20261014",
+   "folder": "20261014",
+   "date": "2026-10-14",
+   "title": "Cross-Validation 완결(k-fold·LOOCV 지름길·1-SE 규칙·올바른 CV) · Model Selection(subset selection·Cp/AIC/BIC/adjR²·AIC vs BIC 철학) · 축소법 시작(능형회귀·라쏘)",
+   "topics": [
+    "CV의 목적·검증셋 접근",
+    "k-fold CV 식",
+    "LOOCV 지름길 공식(hᵢ), k의 편향–분산",
+    "CV 곡선, 분류 문제의 CV, 1-SE 규칙",
+    "올바른 CV vs 틀린 CV(p=5000, n=50)",
+    "모형 선택 세 방법군, AIC vs BIC 철학",
+    "best subset·forward·backward",
+    "Cp·AIC·BIC·adjusted R²",
+    "자코비안과 변환한 y의 AIC",
+    "축소의 발상, 능형회귀(λ의 CV 선택)",
+    "라쏘(ℓ1, 변수 선택)",
+    "PCR·PLS(교재, 미진행)"
+   ],
+   "entries": [
+    {
+     "category": "study_guide_summary",
+     "title": "7차시 시험대비 학습자료 (요약본)",
+     "files": [
+      {
+       "path": "docs/week07_20261014/study_guide_summary_part01.md",
+       "tokens": 9502,
+       "chars": 16047
+      },
+      {
+       "path": "docs/week07_20261014/study_guide_summary_part02.md",
+       "tokens": 9773,
+       "chars": 17046
+      },
+      {
+       "path": "docs/week07_20261014/study_guide_summary_part03.md",
+       "tokens": 9915,
+       "chars": 18075
+      },
+      {
+       "path": "docs/week07_20261014/study_guide_summary_part04.md",
+       "tokens": 6346,
+       "chars": 10189
+      },
+      {
+       "path": "docs/week07_20261014/study_guide_summary_part05.md",
+       "tokens": 9576,
+       "chars": 16170
+      }
+     ],
+     "source": "machine_learning_for_health_science/20261014/7차시 시험대비 학습자료.pdf",
+     "method": "pdf-text",
+     "note": "",
+     "stats": {
+      "pages": 30,
+      "ocr_pages": 0,
+      "tables": 18,
+      "method": "pdf-text"
+     },
+     "public": true,
+     "index": "docs/week07_20261014/study_guide_summary.md"
+    }
+   ],
+   "reuse": [
+    [
+     "CrossValidation.pdf",
+     "week05_20260930/slides/cross_validation.md"
+    ],
+    [
+     "ModelSelection_Regularization.pdf",
+     "week06_20261007/slides/model_selection_regularization.md"
+    ]
+   ],
+   "skip": [
+    [
+     "20261014-notes.pdf",
+     "다른 과목(Topics in Biochemical Engineering, 2026-10-13) 노트가 잘못 들어온 파일 — 변환 제외"
+    ]
+   ],
+   "photos": 10,
+   "audio": 3,
+   "src_bytes": 219286918
+  },
+  {
+   "n": 8,
+   "slug": "week08_20261022",
+   "folder": "20261022",
+   "date": "2026-10-21",
+   "title": "AIC·BIC 유도(KL 발산·Laplace 근사) · 능형회귀·라쏘 심화(해 경로·표준화·sparse·oracle·soft thresholding) · elastic net·bridge·fused lasso · LLM으로 능형·라쏘 돌릴 때 시험 주의 (Ch7 자료 배포)",
+   "topics": [
+    "AIC·BIC 유도: KL 발산, tr(J⁻¹I) → p, Laplace 근사 → p·log n",
+    "제약 형태 ⟺ 벌점 형태(원과 마름모)",
+    "능형회귀 해·해 경로·표준화",
+    "1차원 능형 β̂ = y/(1+λ)",
+    "라쏘: sparse vs dense, oracle property",
+    "elastic net, 튜닝 파라미터 2개",
+    "bridge 벌점",
+    "soft thresholding",
+    "grouping effect, generalized·fused lasso",
+    "보건 응용과 LLM 시대의 메시지",
+    "시험장 점검표(AI로 능형·라쏘)",
+    "Chap7 Beyond Linearity 슬라이드(배포, 다음 차시)"
+   ],
+   "entries": [
+    {
+     "category": "study_guide_summary",
+     "title": "8차시 시험대비 학습자료 (요약본)",
+     "files": [
+      {
+       "path": "docs/week08_20261022/study_guide_summary_part01.md",
+       "tokens": 10192,
+       "chars": 16622
+      },
+      {
+       "path": "docs/week08_20261022/study_guide_summary_part02.md",
+       "tokens": 10498,
+       "chars": 17524
+      },
+      {
+       "path": "docs/week08_20261022/study_guide_summary_part03.md",
+       "tokens": 10503,
+       "chars": 18441
+      },
+      {
+       "path": "docs/week08_20261022/study_guide_summary_part04.md",
+       "tokens": 8831,
+       "chars": 15501
+      },
+      {
+       "path": "docs/week08_20261022/study_guide_summary_part05.md",
+       "tokens": 8336,
+       "chars": 13272
+      },
+      {
+       "path": "docs/week08_20261022/study_guide_summary_part06.md",
+       "tokens": 8269,
+       "chars": 13592
+      },
+      {
+       "path": "docs/week08_20261022/study_guide_summary_part07.md",
+       "tokens": 6065,
+       "chars": 10118
+      }
+     ],
+     "source": "machine_learning_for_health_science/20261022/8차시 시험대비 학습자료.pdf",
+     "method": "pdf-text",
+     "note": "",
+     "stats": {
+      "pages": 39,
+      "ocr_pages": 0,
+      "tables": 22,
+      "method": "pdf-text"
+     },
+     "public": true,
+     "index": "docs/week08_20261022/study_guide_summary.md"
+    }
+   ],
+   "reuse": [
+    [
+     "AIC_BIC_Derivations.pdf",
+     "week06_20261007/slides/aic_bic_derivations.md"
+    ],
+    [
+     "ModelSelection_Regularization.pdf",
+     "week06_20261007/slides/model_selection_regularization.md"
+    ],
+    [
+     "OtherPenaltyFunctions.pdf",
+     "week06_20261007/slides/other_penalty_functions.md"
+    ]
+   ],
+   "skip": [
+    [
+     "20261022_강의노트.pdf (p.1~235)",
+     "1~7차시 누적 부분은 각 주차의 강의노트와 동일하여 8차시 부분(p.236~)만 변환"
+    ]
+   ],
+   "photos": 36,
+   "audio": 3,
+   "src_bytes": 310545229
+  }
+ ],
+ "compiled": [
+  {
+   "category": "compiled",
+   "title": "전 차시 강의 개요 모음",
+   "files": [
+    {
+     "path": "docs/compiled/overviews.md",
+     "tokens": 10791,
+     "chars": 19325
+    }
+   ],
+   "source": "각 차시 학습자료",
+   "method": "compiled",
+   "note": "각 차시 학습자료의 '강의 개요' 절만 모았습니다. 학기 흐름을 한눈에 볼 때.",
+   "stats": {
+    "weeks": 7
+   },
+   "public": true
+  },
+  {
+   "category": "compiled",
+   "title": "핵심 개념 한 장 요약표 모음",
+   "files": [
+    {
+     "path": "docs/compiled/summary_tables_part01.md",
+     "tokens": 9395,
+     "chars": 16158
+    },
+    {
+     "path": "docs/compiled/summary_tables_part02.md",
+     "tokens": 10269,
+     "chars": 17080
+    },
+    {
+     "path": "docs/compiled/summary_tables_part03.md",
+     "tokens": 6424,
+     "chars": 10537
+    }
+   ],
+   "source": "각 차시 학습자료",
+   "method": "compiled",
+   "note": "질문/한 줄 답/출처 형식의 요약표. 시험 직전 복습용.",
+   "stats": {
+    "weeks": 6
+   },
+   "public": true,
+   "index": "docs/compiled/summary_tables.md"
+  },
+  {
+   "category": "compiled",
+   "title": "용어 정리 모음 (학기 용어집)",
+   "files": [
+    {
+     "path": "docs/compiled/glossary_part01.md",
+     "tokens": 10427,
+     "chars": 21199
+    },
+    {
+     "path": "docs/compiled/glossary_part02.md",
+     "tokens": 8369,
+     "chars": 15408
+    }
+   ],
+   "source": "각 차시 학습자료",
+   "method": "compiled",
+   "note": "각 차시의 용어 정리 절을 모은 학기 용어집.",
+   "stats": {
+    "weeks": 8
+   },
+   "public": true,
+   "index": "docs/compiled/glossary.md"
+  },
+  {
+   "category": "compiled",
+   "title": "교수님이 강조한 포인트 모음",
+   "files": [
+    {
+     "path": "docs/compiled/key_points_part01.md",
+     "tokens": 11345,
+     "chars": 20104
+    },
+    {
+     "path": "docs/compiled/key_points_part02.md",
+     "tokens": 9491,
+     "chars": 17304
+    },
+    {
+     "path": "docs/compiled/key_points_part03.md",
+     "tokens": 7054,
+     "chars": 12738
+    },
+    {
+     "path": "docs/compiled/key_points_part04.md",
+     "tokens": 10451,
+     "chars": 18269
+    },
+    {
+     "path": "docs/compiled/key_points_part05.md",
+     "tokens": 8415,
+     "chars": 14760
+    }
+   ],
+   "source": "각 차시 학습자료",
+   "method": "compiled",
+   "note": "녹음·강의노트에서 교수님이 반복·강조한 내용(시험 관련 발언 포함).",
+   "stats": {
+    "weeks": 8
+   },
+   "public": true,
+   "index": "docs/compiled/key_points.md"
+  },
+  {
+   "category": "compiled",
+   "title": "예상 시험 문제와 모범 답안 모음",
+   "files": [
+    {
+     "path": "docs/compiled/exam_questions_part01.md",
+     "tokens": 10026,
+     "chars": 18110
+    },
+    {
+     "path": "docs/compiled/exam_questions_part02.md",
+     "tokens": 11323,
+     "chars": 18536
+    },
+    {
+     "path": "docs/compiled/exam_questions_part03.md",
+     "tokens": 7133,
+     "chars": 11240
+    },
+    {
+     "path": "docs/compiled/exam_questions_part04.md",
+     "tokens": 11452,
+     "chars": 18299
+    },
+    {
+     "path": "docs/compiled/exam_questions_part05.md",
+     "tokens": 8205,
+     "chars": 13711
+    },
+    {
+     "path": "docs/compiled/exam_questions_part06.md",
+     "tokens": 8295,
+     "chars": 13162
+    },
+    {
+     "path": "docs/compiled/exam_questions_part07.md",
+     "tokens": 11347,
+     "chars": 18495
+    }
+   ],
+   "source": "각 차시 학습자료",
+   "method": "compiled",
+   "note": "객관식·단답·서술형 예상문제와 답. 근거 출처 표시 [노트]/[녹음]/[교재]/[추가].",
+   "stats": {
+    "weeks": 8
+   },
+   "public": true,
+   "index": "docs/compiled/exam_questions.md"
+  },
+  {
+   "category": "compiled",
+   "title": "셀프 체크리스트 모음",
+   "files": [
+    {
+     "path": "docs/compiled/checklists_part01.md",
+     "tokens": 9955,
+     "chars": 18018
+    },
+    {
+     "path": "docs/compiled/checklists_part02.md",
+     "tokens": 5001,
+     "chars": 8768
+    }
+   ],
+   "source": "각 차시 학습자료",
+   "method": "compiled",
+   "note": "☐ 항목으로 된 자가 점검표.",
+   "stats": {
+    "weeks": 8
+   },
+   "public": true,
+   "index": "docs/compiled/checklists.md"
+  }
+ ]
+}
