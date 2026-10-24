@@ -35,7 +35,7 @@
 | 공개(`docs/`) | 요약본(8차시, 27파트) + 모아보기(21파트) = 48개 문서 + 목차 파일 + 주차 README 8 + manifest. 2차시 요약본은 전체판에서 작성한 Markdown 원본(3파트) |
 | 비공개(`private/`) | 전체판 100파트, 강의노트 11파트, 슬라이드 18, 받아쓰기 38파트, 논문과제 8파트, R 코드 2, 공통 2 + 목차·README·INDEX·manifest·redact.json |
 | 허브 | `llms.txt` 8,129 tokens(한도 10,000). 모아보기 21파트(차시 범위 표기) + 요약본 파트 27개의 절 제목 색인 |
-| GitHub | PUBLIC. 2026-10-24 `e647d76`(공개 74개) · `ac46e7f`(계획) · 2026-10-25 허브 재구축 + 2차시 요약본 커밋(해시는 9절) |
+| GitHub | PUBLIC. 2026-10-24 `e647d76`(공개 74개) · `ac46e7f`(계획) · 2026-10-25 `fd35c16`(허브 재구축 + 2차시 요약본, 공개 문서 48개). raw llms.txt HTTP 200 확인 |
 | 로컬 환경 | WSL2 Ubuntu 22.04, Python 3.10, sudo 없음(pip --user) |
 
 ## 3. 저장소 구조
@@ -108,7 +108,7 @@
 
 - [x] 2차시 요약본 Markdown 검수(7절 구조, 이름 없음, 42,511자) → `--only week02` 변환 → `--index-only` → `check_links.py` 통과(깨진 링크 0, 누출 0, 초과 0).
 - [x] TOPICS.md의 2차시 행 7개를 새 요약본 §2.1~2.7 링크로 교체.
-- [ ] 커밋·푸시 후 `curl -sI …/llms.txt | head -1` → 200, 허브 tokens ≤ 10,000 확인.
+- [x] 커밋 `fd35c16` 푸시(2026-10-25). raw `llms.txt` HTTP 200, 8,129 tokens 확인.
   ```bash
   python3 tools/check_links.py && git add -A docs tools .gitignore README.md INDEX.md TOPICS.md PLAN.md llms.txt
   git commit -m "Rebuild llms.txt as single-URL hub; add week 2 summary" && git push origin main
@@ -162,4 +162,4 @@
 |---|---|
 | 2026-10-24 | 최초 작성. 변환·인덱스·gitignore 완료 |
 | 2026-10-24 | 공개 범위를 요약본+모아보기로 축소, private/ 분리, 이름 치환, 첫 푸시 |
-| 2026-10-25 | 트래커 도입. 단일 URL 허브 재설계(P4), 2차시 요약본 작성·공개(P5) 완료 |
+| 2026-10-25 | 트래커 도입. 단일 URL 허브 재설계(P4), 2차시 요약본 작성·공개(P5) 완료 — 커밋 `fd35c16` |
