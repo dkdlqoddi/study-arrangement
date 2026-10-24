@@ -1,95 +1,52 @@
 <!-- 자동 생성 파일: tools/convert_sources.py 가 원본에서 변환. 직접 수정하지 말고 원본/스크립트를 고치세요. -->
 # 핵심 개념 한 장 요약표 모음 (1/3)
 
-> 원본: `docs/week*/study_guide_*.md` · 변환 방식: compiled · 생성일: 2026-10-24 · 6개 차시
+> 원본: `docs/week*/study_guide_*.md` · 변환 방식: compiled · 생성일: 2026-10-25 · 6개 차시
 > [다음 부분 ▶](summary_tables_part02.md) · [주차 인덱스](../../INDEX.md) · [전체 인덱스](../../INDEX.md)
 
 ---
-> 질문/한 줄 답/출처 형식의 요약표. 시험 직전 복습용. 각 차시 학습자료(요약본, 없으면 전체판)에서 자동 추출 · 생성일 2026-10-24 · [전체 인덱스](../../INDEX.md)
+> 질문/한 줄 답/출처 형식의 요약표. 시험 직전 복습용. 각 차시 학습자료(요약본, 없으면 전체판)에서 자동 추출 · 생성일 2026-10-25 · [전체 인덱스](../../INDEX.md)
 
 
 ## 2차시 (2026-09-09) — Chap2 Part I 복습(f 추정, parametric/non-parametric, KNN·차원의 저주) · Chap2 Part II(MSE, Bias-Variance, Bayes classifier) · Efron 논문 발표
 
-_출처: 시험대비 학습자료(전체판)(비공개, 로컬 private/ 폴더) · [주차 인덱스](../week02_20260909/README.md)_
+_출처: [study_guide_summary_part01.md](../week02_20260909/study_guide_summary_part01.md) · [주차 인덱스](../week02_20260909/README.md)_
 
-### 8. 핵심 개념 한 장 요약표 + 용어표
+### 3. 핵심 개념 한 장 요약표
 
-**추가 설명 (Claude 보충, 교수님 말씀 아님)**
-
-이 장의 출처 — 아래 요약표와 용어표는 제가 1~7장의 내용(교수님 말씀 + 교재)을 시험용으로 압축한 것이다. 개별 문장의 원출처는 1~7장의 색 박스를 따른다. 출처 열의 "노트"는 강의노트 쪽수, "슬"은 슬라이드 번호, "ISLR"은 책 쪽수.
-
-#### 8.1 한 장 요약
+전체판 8.1의 요약표를 옮기고 쪽 나눔으로 반복된 머리행만 합쳤다. 한 줄 답은 1~7장의 교수님 말씀과 교재를 시험용으로 압축한 것[추가]이고, 원출처는 출처 열을 따른다(노트 = 강의노트 쪽수, P1/P2 슬 = Part I/II 슬라이드 번호, 교재 = ISLR 1판 쪽수).
 
 | 질문 | 답 (시험용 한 줄) | 출처 |
-| --- | --- | --- |
-| 회귀함수 f(x)는 무엇이고 왜 "최적"인가? | f(x) = E(Y\|X=x). 제곱오차 E[(Y−g(X))²\|X=x]를 모든 g 중에서 최소화하는 함수 | Part I 슬7, 노트 p.18 |
-| Parametric 방법의 2단계는? | ① f의 함수형 가정(예: 선형 f = β0+β1X1+…+βpXp) ② 훈련자료로 모수 추정(보통 OLS). f 추정이 p+1개 계수 추정으로 축소 | 슬20~21, ISLR p.21 |
+|---|---|---|
+| 회귀함수 f(x)는 무엇이고 왜 "최적"인가? | f(x) = E(Y\|X=x). 제곱오차 E[(Y−g(X))²\|X=x]를 모든 g 중에서 최소화하는 함수 | P1 슬7, 노트 p.18 |
+| Parametric 방법의 2단계는? | ① f의 함수형 가정(예: 선형 f = β0+β1X1+…+βpXp) ② 훈련자료로 모수 추정(보통 OLS). f 추정이 p+1개 계수 추정으로 축소 | P1 슬20~21, 교재 p.21 |
 | "선형"모형이 직선만 뜻하나? | 아니다. 계수에 대해 선형이면 된다. x², log x, √x, 교호항을 넣으면 곡선·곡면도 표현. 단, 그러면 "x1이 1 증가 → y가 β1 증가"식 해석은 깨진다 | 노트 p.19 |
-| ML 관점에서 회귀 문제는? | Ŷ = f(x), L(y,f(x)) = (y−f(x))²의 총합(평균)을 최소화하는 f를 찾는 문제. 손실 함수를 갈아 끼우면 다른 문제가 된다 | 노트 p.19, 30 |
-| Non-parametric 방법의 장단점? | 함수형 가정 없음 → 넓은 형태 적합(장점). 매우 많은 관측치 필요, 고차원에서 취약(단점). 데이터가 많으면 non-parametric | 슬23, 노트 p.21, ISLR p.23 |
+| ML 관점에서 회귀 문제는? | Ŷ = f(x), L(y,f(x)) = (y−f(x))²의 총합(평균)을 최소화하는 f를 찾는 문제. 손실함수를 갈아 끼우면 다른 문제가 된다 | 노트 p.19, 30 |
+| Non-parametric 방법의 장단점? | 함수형 가정 없음 → 넓은 형태 적합(장점). 매우 많은 관측치 필요, 고차원에서 취약(단점). 데이터가 많으면 non-parametric | P1 슬23, 노트 p.21, 교재 p.23 |
 | 왜 non-parametric이 결국 선형모형처럼 표현되나? | 함수가 매끄러우면 Taylor 전개 f(x) ≈ f(0)+f'(0)x+f''(0)x²/2+…로 적절한 차수의 다항식(=선형모형)으로 근사되기 때문 | 노트 p.21 |
-| KNN 회귀란? | x에서 가장 가까운 k개 관측의 y 평균으로 E(Y\|X=x)를 추정: f̂(x) = Ave(Y\|X∈N(x)). k는 hyperparameter(tuning parameter) | 슬25, 노트 p.22~23 |
-| k가 작을 때/클 때? | k=1: 점을 잇는 지그재그(과적합, low bias·high variance). k=n: 전체 평균의 평평한 선(high bias·low variance) | 노트 p.23, ISLR p.40 |
-| 차원의 저주란? | p가 크면 "가까운 이웃"이 local하지 않다. 단위 입방체에서 자료의 r 비율을 잡으려면 변의 길이 r^(1/p): r=0.1, p=2→0.32, p=3→0.46, p=10→0.79, p=100→0.98 | 슬26~27, 노트 p.23~24 |
-| 고차원에서 거리·각도는? | 성분이 N(0,1)이면 d(X,0)≈√p, d(X,Y)≈√(2p), 두 벡터는 거의 직교(90°). LLN(과 CLT)로 설명. 모든 점이 비슷하게 멀어 이웃 평균이 부담 | 슬28, 노트 p.25 |
-| 유연한 방법을 항상 쓰지 않는 두 이유? | ① 해석력: 선형모형의 βⱼ = 다른 변수 고정 시 Xⱼ 1단위 증가당 Y 평균 증가 ② 예측만 목적이어도 단순 모형이 더 정확할 수 있음(과적합·표본 수) | 슬29~30, 노트 p.26~28, ISLR p.25~26 |
-| 유연성–해석력 지도 순서? | Subset selection·Lasso(해석↑) → Least squares → GAM·Trees → Bagging·Boosting → SVM(유연↑). 딥러닝은 더 오른쪽 | 슬31, 노트 p.27 |
+| KNN 회귀란? | x에서 가장 가까운 k개 관측의 y 평균으로 E(Y\|X=x)를 추정: f̂(x) = Ave(Y\|X∈N(x)). k는 hyperparameter(tuning parameter) | P1 슬25, 노트 p.22~23 |
+| k가 작을 때/클 때? | k=1: 점을 잇는 지그재그(과적합, low bias·high variance). k=n: 전체 평균의 평평한 선(high bias·low variance) | 노트 p.23, 교재 p.40 |
+| 차원의 저주란? | p가 크면 "가까운 이웃"이 local하지 않다. 단위 입방체에서 자료의 r 비율을 잡으려면 변의 길이 r^(1/p): r=0.1, p=2→0.32, p=3→0.46, p=10→0.79, p=100→0.98 | P1 슬26~27, 노트 p.23~24 |
+| 고차원에서 거리·각도는? | 성분이 N(0,1)이면 d(X,0)≈√p, d(X,Y)≈√(2p), 두 벡터는 거의 직교(90°). LLN(과 CLT)로 설명. 모든 점이 비슷하게 멀어 이웃 평균이 부담 | P1 슬28, 노트 p.25 |
+| 유연한 방법을 항상 쓰지 않는 두 이유? | ① 해석력: 선형모형의 βⱼ = 다른 변수 고정 시 Xⱼ 1단위 증가당 Y 평균 증가 ② 예측만 목적이어도 단순 모형이 더 정확할 수 있음(과적합·표본 수) | P1 슬29~30, 노트 p.26~28, 교재 p.25~26 |
+| 유연성–해석력 지도 순서? | Subset selection·Lasso(해석↑) → Least squares → GAM·Trees → Bagging·Boosting → SVM(유연↑). 딥러닝은 더 오른쪽 | P1 슬31, 노트 p.27 |
 | 교수님이 강조한 표본 수 이야기? | 표본 수에 따라 허용되는 모형 복잡도가 제한된다. 50~100개면 유연한 모형은 돌아가도 성능 기대 못 함. 암·희귀질환처럼 표본이 적으면 단순 모형이 잘 작동할 때가 많다 | 노트 p.28 |
-| 통계학 vs ML이 보는 회귀의 차이? | Stat: βⱼ, β,̂ s.e., 신뢰구간. ML: Ŷ = xβ(̂예측) | 노트 p.29 |
+| 통계학 vs ML이 보는 회귀의 차이? | Stat: βⱼ, β̂, s.e., 신뢰구간. ML: Ŷ = xβ̂(예측) | 노트 p.29 |
 | 문헌을 읽을 때 가장 먼저 볼 것? | Loss function. 연구자가 어떤 오차를 줄이려 하는지, 문제를 어떻게 정의했는지가 거기 있다 | 노트 p.30 |
-
-
-| 질문 | 답 (시험용 한 줄) | 출처 |
-| --- | --- | --- |
-| MSE 정의와 training/test 구분? | MSE = (1/n)Σ(yᵢ−f̂(xᵢ))². 훈련자료로 계산하면 training MSE. 정말 중요한 것은 훈련에 쓰지 않은 (x0,y0)에 대한 test MSE = Ave(y0−f̂(x0))² | 슬3~4, ISLR p.29~30 |
+| MSE 정의와 training/test 구분? | MSE = (1/n)Σ(yᵢ−f̂(xᵢ))². 훈련자료로 계산하면 training MSE. 정말 중요한 것은 훈련에 쓰지 않은 (x0,y0)에 대한 test MSE = Ave(y0−f̂(x0))² | P2 슬3~4, 교재 p.29~30 |
 | Generalization vs generalizability(교수님 용어)? | Generalization: 같은 분포의 자료를 나눠 훈련/시험했을 때 잘 되는 것. Generalizability: 다른 시기·다른 인구집단(2026→2027년, 한국→미국)에서도 잘 되는 것. 후자는 훨씬 어렵고 weighting·modification 전략이 필요 | 노트 p.30 |
-| 유연성이 커질 때 training/test MSE? | training MSE는 단조 감소(변수를 늘리면 0까지 가능, interpolation). test MSE는 U자: 처음 감소 후 다시 증가. 최소점이 best prediction, 그 위치를 hyperparameter로 찾는 것이 과제 | 슬5~6, 노트 p.31~32, ISLR p.31~32 |
-| Overfitting이란? | 교수님: 훈련자료를 너무 따라가 오차 ε까지 적합한 것. 교재: training MSE 는 작은데 test MSE가 큰 상태, 특히 덜 유연한 모형이 더 작은 test MSE를 줬을 경우 | 노트 p.32, ISLR p.32 |
-| 세 예(그림 2.9~2.11)의 교훈? | 참 f가 거의 선형이면 선형회귀가 최선, 매우 비선형이면 유연한 모형이 최선. test MSE 최소점의 유연성은 자료마다 다르다 → 실제로는 교차검증(5 장)으로 추정 | 슬6~8, 노트 p.33, ISLR p.33 |
-| Bias와 variance 정의? | Bias: 복잡한 실제 문제를 단순 모형으로 근사해 생기는 오차(유연할수록↓). Variance: 훈련자료가 바뀔 때 f̂이 변하는 정도(유연할수록↑) | 슬10~11, ISLR p.34~35 |
-| 기대 test MSE 분해식? | E(y0−f̂(x0))² = [Bias(f̂(x0))]² + Var(f̂(x0)) + Var(ε). ε이 f̂과 독립·평균 0이라 교차항 0. test MSE는 Var(ε) 아래로 못 내려감. 교수님: "꼭 유도해 보라" | 슬12, 노트 p.36, ISLR p.34 |
-| U자가 생기는 이유? | 유연성↑ 초기에는 bias가 variance 증가보다 빨리 줄어 test MSE↓, 이후 bias는 거의 안 줄고 variance가 크게 늘어 test MSE↑. "U shape은 universal" | 노트 p.34, 36, ISLR p.35 |
-| 분류에서 정확도 척도? | Error rate = (1/n)ΣI(yᵢ≠ŷᵢ) (0-1 loss의 평균). 틀리면 1점 벌점. 미분 불가하지만 직관적. 문제 맥락에 맞는 loss를 고르는 것이 중요 | 슬14, 노트 p.37, ISLR p.37 |
-| Bayes classifier와 Bayes error rate? | P(Y=j\|X=x0)가 가장 큰 범주로 분류(이진이면 P(Y=1\|x) > 1/2 → 1). 0-1 손실의 기대값을 최소화. 그 오류율 1−E[maxⱼP(Y=j\|X)]이 Bayes error rate(=분류판 irreducible error). 실제로는 계산 불가한 금본위. "베이즈 통계와는 상관없다" | 슬15~16, 노트 p.38, ISLR p.37~39 |
+| 유연성이 커질 때 training/test MSE? | training MSE는 단조 감소(변수를 늘리면 0까지 가능, interpolation). test MSE는 U자: 처음 감소 후 다시 증가. 최소점이 best prediction, 그 위치를 hyperparameter로 찾는 것이 과제 | P2 슬5~6, 노트 p.31~32, 교재 p.31~32 |
+| Overfitting이란? | 교수님: 훈련자료를 너무 따라가 오차 ε까지 적합한 것. 교재: training MSE는 작은데 test MSE가 큰 상태, 특히 덜 유연한 모형이 더 작은 test MSE를 줬을 경우 | 노트 p.32, 교재 p.32 |
+| 세 예(그림 2.9~2.11)의 교훈? | 참 f가 거의 선형이면 선형회귀가 최선, 매우 비선형이면 유연한 모형이 최선. test MSE 최소점의 유연성은 자료마다 다르다 → 실제로는 교차검증(5장)으로 추정 | P2 슬6~8, 노트 p.33, 교재 p.33 |
+| Bias와 variance 정의? | Bias: 복잡한 실제 문제를 단순 모형으로 근사해 생기는 오차(유연할수록↓). Variance: 훈련자료가 바뀔 때 f̂이 변하는 정도(유연할수록↑) | P2 슬10~11, 교재 p.34~35 |
+| 기대 test MSE 분해식? | E(y0−f̂(x0))² = [Bias(f̂(x0))]² + Var(f̂(x0)) + Var(ε). ε이 f̂과 독립·평균 0이라 교차항 0. test MSE는 Var(ε) 아래로 못 내려감. 교수님: "꼭 유도해 보라" | P2 슬12, 노트 p.36, 교재 p.34 |
+| U자가 생기는 이유? | 유연성↑ 초기에는 bias가 variance 증가보다 빨리 줄어 test MSE↓, 이후 bias는 거의 안 줄고 variance가 크게 늘어 test MSE↑. "U shape은 universal" | 노트 p.34, 36, 교재 p.35 |
+| 분류에서 정확도 척도? | Error rate = (1/n)ΣI(yᵢ≠ŷᵢ) (0-1 loss의 평균). 틀리면 1점 벌점. 미분 불가하지만 직관적. 문제 맥락에 맞는 loss를 고르는 것이 중요 | P2 슬14, 노트 p.37, 교재 p.37 |
+| Bayes classifier와 Bayes error rate? | P(Y=j\|X=x0)가 가장 큰 범주로 분류(이진이면 P(Y=1\|x) > 1/2 → 1). 0-1 손실의 기대값을 최소화. 그 오류율 1−E[maxⱼP(Y=j\|X)]이 Bayes error rate(=분류판 irreducible error). 실제로는 계산 불가한 금본위. "베이즈 통계와는 상관없다" | P2 슬15~16, 노트 p.38, 교재 p.37~39 |
 | 확률 추정 vs 결정경계 추정? | 확률 P(Y=1\|x)를 모형화하는 쪽(로지스틱 회귀와 그 변형) vs 경계만 찾는 쪽(SVM, 확률 해석 없음). "큰 역사의 분기점" | 노트 p.38 |
-| KNN 분류란? | x0의 최근접 K개 중 범주 j의 비율로 P(Y=j\|x0)를 추정하고 다수결(k=5에서 1이 3개면 1). K가 작을수록 유연. K=1이면 훈련오류 0이지만 test error는 높을 수 있음 | 슬17~20, 노트 p.39, ISLR p.39~40 |
-| 근본적인 그림 (fundamental picture)? | 가로 모형 복잡도, 세로 예측오차. 훈련오차는 계속 감소, 시험오차는 U자 (왼쪽 high bias·low variance, 오른쪽 low bias·high variance). "더 복잡한 것이 항상 더 좋지는 않다" | 슬21~22, 노트 p.37, 43 |
-| 현대판(2019) trade-off? | Belkin 외: interpolation threshold(훈련오차 0)를 넘어 더 과모수화하면 test risk가 다시 내려가는 double descent. 교수님: "2019년에 (고전적 그림이) 깨짐, technical함" | 슬23, 노트 p.32, 44 |
-
-#### 8.2 용어표
-
-| 용어 | 뜻 | 출처 |
-| --- | --- | --- |
-| Training data (훈련자료) | f를 추정(train, 통계용어로 estimation)하는 데 쓰는 {(x1,y1),…,(xn,yn)} | 슬18, 노트 p.30, ISLR p.21 |
-
-
-| 용어 | 뜻 | 출처 |
-| --- | --- | --- |
-| Test data (시험자료) | f̂을 구할 때 쓰지 않은 새 자료 (x0,y0); 노트에서는 별표(*)로 표시 | 슬4, 노트 p.30 |
-| Parametric / Non-parametric | f의 함수형을 가정하고 모수를 추정 / 함수형을 가정하지 않고 데이터를 따라감 | 슬20, 23 |
-| OLS (ordinary least squares) | 잔차 제곱합을 최소화해 선형모형 계수를 구하는 가장 흔한 방법 | 슬21 |
-| L2 loss, squared error loss | L(y,f(x)) = (y−f(x))². 회귀의 표준 손실 | 노트 p.19 |
-| Loss function (손실함수) | 예측이 틀렸을 때의 벌점을 정의하는 함수. 연구자가 문제를 정의하는 곳. 문헌에서 가장 먼저 확인 | 노트 p.30, 37 |
-| Hyperparameter / tuning parameter | KNN의 k, spline의 매끄러움처럼 모형 복잡도를 조절하는 값. 기분이 아니라 test MSE 최소화로 정함 | 노트 p.23, 32 |
-| Neighborhood N(x) | x 근방의 관측 집합. KNN에서는 가장 가까운 k개 | 슬25 |
-| Curse of dimensionality (차원의 저주) | p가 크면 국소 이웃이 더 이상 local하지 않고, 거리·각도가 모두 비슷해지는 현상 | 슬26~28, 노트 p.23~25 |
-| LLN / CLT | 큰수의 법칙(표본평균→기댓값) / 중심극한정리. 교수님: "둘은 알아두라" | 노트 p.25 |
-| Interpretability (해석력) | 변수 변화가 Y에 주는 효과를 사람이 읽을 수 있는 정도. 공식 정의는 없음(교수님) | 슬29, 노트 p.27 |
-| Explainable AI, LIME | 유연한 모형의 예측을 국소적으로 설명하는 기법. LIME은 특정 점 근처에서 lasso 등 단순 모형을 적합 | 노트 p.28 |
-| MSE (mean squared error) | (1/n)Σ(yᵢ−ŷᵢ)². training MSE와 test MSE를 구분 | 슬3, ISLR p.29 |
-| Overfitting (과적합) | 오차까지 적합해 새 자료를 못 맞히는 상태; training MSE 작고 test MSE 큼 | 노트 p.32, ISLR p.32 |
-| Interpolation (내삽) | f̂이 모든 훈련점을 정확히 지나 training MSE = 0이 된 상태 | 노트 p.32, 슬23 |
-| Generalization / Generalizability | 같은 분포 안에서의 일반화 / 다른 시기·집단으로의 이전 가능성 (교수님 구분) | 노트 p.30 |
-| Bias / Variance | 단순화에서 오는 체계적 오차 / 훈련자료 변화에 따른 f̂의 변동 | 슬10~11 |
-| Irreducible error Var(ε) | f를 완벽히 알아도 남는 오차. test MSE의 하한(점선) | 슬6, 12, ISLR p.18, 34 |
-| Error rate (오분류율) | (1/n)ΣI(yᵢ≠ŷᵢ). 0-1 loss의 평균 | 슬14 |
-| 0-1 loss | 틀리면 1, 맞으면 0. 미분 불가. 표준적이지만 유일한 선택은 아님 | 노트 p.37 |
-| Bayes classifier / Bayes decision boundary / Bayes error rate | 조건부확률 최대 범주로 분류 / P=1/2인 점들의 경계 / 그때의 최소 오류율 | 슬15~16, ISLR p.37~39 |
-| Decision boundary | 두 범주의 예측이 갈리는 경계. SVM 등은 확률 없이 경계만 추정 | 노트 p.38 |
-| KNN (K-nearest neighbors) | 회귀: 이웃 평균 / 분류: 이웃 다수결. K가 작을수록 유연 | 슬17, 25 |
-| Double descent | 보간 임계점 이후 test risk가 다시 감소하는 현대적 현상 (Belkin 외 2019) | 슬23 |
-
-
+| KNN 분류란? | x0의 최근접 K개 중 범주 j의 비율로 P(Y=j\|x0)를 추정하고 다수결(k=5에서 1이 3개면 1). K가 작을수록 유연. K=1이면 훈련오류 0이지만 test error는 높을 수 있음 | P2 슬17~20, 노트 p.39, 교재 p.39~40 |
+| 근본적인 그림(fundamental picture)? | 가로 모형 복잡도, 세로 예측오차. 훈련오차는 계속 감소, 시험오차는 U자(왼쪽 high bias·low variance, 오른쪽 low bias·high variance). "더 복잡한 것이 항상 더 좋지는 않다" | P2 슬21~22, 노트 p.37, 43 |
+| 현대판(2019) trade-off? | Belkin 외: interpolation threshold(훈련오차 0)를 넘어 더 과모수화하면 test risk가 다시 내려가는 double descent. 교수님: "2019년에 (고전적 그림이) 깨짐, technical함" | P2 슬23, 노트 p.32, 44 |
 
 
 ## 4차시 (2026-09-23) — 로지스틱 회귀 심화(우도·경사법·Newton–Raphson·odds ratio·confounding·환자-대조군) · 다항 로지스틱 · 판별분석의 출발점 · TRIPOD/PROBAST 발표

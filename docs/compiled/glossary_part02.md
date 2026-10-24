@@ -1,77 +1,10 @@
 <!-- 자동 생성 파일: tools/convert_sources.py 가 원본에서 변환. 직접 수정하지 말고 원본/스크립트를 고치세요. -->
 # 용어 정리 모음 (학기 용어집) (2/2)
 
-> 원본: `docs/week*/study_guide_*.md` · 변환 방식: compiled · 생성일: 2026-10-24 · 8개 차시
+> 원본: `docs/week*/study_guide_*.md` · 변환 방식: compiled · 생성일: 2026-10-25 · 8개 차시
 > [◀ 이전 부분](glossary_part01.md) · [주차 인덱스](../../INDEX.md) · [전체 인덱스](../../INDEX.md)
 
 ---
-## 6차시 (2026-10-07) — 분류기 성능 심화(c-통계량=AUC 증명·discrimination vs calibration·PPV/NPV) · Naive Bayes 재정리 · Bootstrap(원리·CI·회귀·OOB) · Cross-Validation 시작(검증셋·k-fold·LOOCV)
-
-_출처: [study_guide_summary_part01.md](../week06_20261007/study_guide_summary_part01.md) · [주차 인덱스](../week06_20261007/README.md)_
-
-### 4. 용어 정리
-
-| 용어 | 뜻 | 등장 |
-| --- | --- | --- |
-| score S / threshold t | 모형의 연속 출력(확률·바이오마커·선형예측값) / S ≥ t이면 1 로 판정하는 절단값 | B04, 노트 p.19·25 |
-| confusion matrix(혼동행렬) | 실제 × 예측 2×2 표(TN, FP, FN, TP) | S36, ISLR Table 4.4·4.6 |
-| sensitivity(민감도) = TPR = recall | P(Ŷ=1∣Y=1) = TP/P = 1 − FNR | S37, 노트 p.29 |
-| specificity(특이도) = 1 − FPR | P(Ŷ=0∣Y=0) = TN/N | S37, 노트 p.29 |
-
-
-| 용어 | 뜻 | 등장 |
-| --- | --- | --- |
-| PPV(precision) / NPV | P(Y=1∣Ŷ=1) = TP/P / P(Y=0∣Ŷ=0) = TN/N — 분모가 예측 클래스, 유병률에 의존 | 노트 p.29, 판서 19:06, ISLR Table 4.7 |
-| prevalence(유병률) π | P(Y=1); PPV 계산에서 Bayes 정리의 사전확률 | 판서 19:08, 노트 p.29 |
-| ROC curve | 임계값을 훑으며 (FPR, TPR)을 이은 곡선 | S39, B05 |
-| AUC | ROC 아래 면적, 0.5~1; 모든 임계값에 걸친 요약 | S39, B05 |
-| c-statistic / concordance index | P(S D > S D)̄ + ½P(S D = S D̄); Harrell이 보급; AUC와 동일 _ _ _ _ | B07, 노트 p.25–26 |
-| concordant pair(일치 쌍) | 환자–비환자 쌍 중 환자 점수가 큰 쌍; 표본 c = 일치 쌍/(n₁n₀) | B07·B10, 노트 p.26 |
-| Mann–Whitney U / Wilcoxon rank-sum | 두 집단 순위 검정 통계량; ĉ = U/(n₁n₀) | B10, 노트 p.27 |
-| discrimination(판별) | 발병자와 비발병자를 분리하는 능력 — AUC가 재는 유일한 것 | B11–B12, 노트 p.28 |
-| calibration(보정) | 예측확률이 관측 빈도와 맞는지("눈금을 잘 조정") | B14, 노트 p.28–29 |
-| calibration plot / intercept /slope | 10등분 구간별 예측 vs 관측; 절편(calibration-in-the-large)·기울기 | B17, 노트 p.29 |
-| partial AUC | 임상적으로 쓰이는 FPR 범위에서만 적분한 면적 | B15·B17, 노트 p.29 |
-| rank-based measure | 점수의 단조변환(+5, ×2)에 불변인 지표 — AUC의 본질 | 노트 p.26·28 |
-| Brier score | 예측확률의 평균제곱오차 (1/n)Σ(pᵢ−yᵢ)²; 판별+보정을 한 숫자에 | B17 |
-| log-loss / cross-entropy | −Σ[y log p + (1−y) log(1−p)]; 이항 우도의 음의 로그 = 로지 스틱 회귀의 학습 손실 | 노트 p.30, 판서 19:20 |
-| 0–1 loss | 틀리면 1, 맞으면 0; 분류가 원래 목표로 하는 손실(불연속이라 직접 최소화 어려움) | 노트 p.30, 판서 19:20 |
-| NRI / IDI | 재분류 개선 지표; 보정 불량에 부풀려져 주의 | B17 |
-| decision curve analysis / net benefit | 임계확률 t에서 순이익 = TP − FP·t/(1−t); '모두 치료'·'치료 안 함'과 비교 | B18 |
-| TRIPOD+AI | 예측모형 보고 지침 — 하위집단(특정 환자군)별 성능 보고 권고 | B17, 노트 p.30 |
-| naive Bayes / Laplace smoothing | 클래스 안 성분 독립 가정; 빈도 0 범주에 (빈도+α)/(n+α·범주수) | S40·S42, 노트 p.21 |
-| QDA | 클래스별 Σ k → 이차 경계 _ | S41, ISLR p.149 |
-| KNN | 비모수 분류기; K는 CV로 선택 | S44, V22 |
-| bootstrap(부트스트랩) | F̂ₙ에서 복원추출해 통계량을 B번 재계산 → s.e.·편향·CI (Efron 1979) | T01–T02, 노트 p.31 |
-| empirical distribution F̂ₙ(경험분포함수) | (1/n)Σ 1(Xᵢ ≤ x); 1/n씩 뛰는 계단 CDF | T03, 노트 p.32, 판서 20:20 |
-| Glivenko–Cantelli / DKW | sup∣F̂ₙ−F∣ → 0(균등수렴) / 유한표본 확률 한계 | T03, 노트 p.32 |
-| statistical functional / plug-in | θ = T(F); 추정량 T(F̂ₙ)(표본평균·표본분위수 등) | T04 |
-| sampling distribution(표본분포) | 같은 크기 표본을 반복해 얻는 θ̂의 분포; 퍼짐 = standard error | 노트 p.31, 판서 20:20 |
-| sampling with replacement(복원추출) | 뽑은 공을 항아리에 다시 넣고 뽑음 — 같은 자료가 중복 가능 | 노트 p.32, ISLR p.189 |
-
-
-| 용어 | 뜻 | 등장 |
-| --- | --- | --- |
-| bootstrap replicate θ̂ᵇ, B | b번째 재표본의 통계량; 복제 수(보통 1000) | T06, 노트 p.33 |
-| ŝe boot _ | 복제값의 표본표준편차 √[Σ(θ̂ᵇ−θ)̄²/(B−1)] | T06, ISLR (5.8) |
-| bias boot _ | θ̄ B − θ̂; 보정 추정량 2θ̂ − θ̄ B(분산 증가 주의) _ _ | T07 |
-| normal interval / percentile interval | θ̂ ± z·ŝe boot / 복제값의 2.5·97.5 백분위(25번째·975번째) _ | T09–T10, 노트 p.35 |
-| resampling unit(재표집 단위) | 항아리에 넣는 한 단위 — 회귀에서는 (xᵢ, yᵢ) 쌍 | 노트 p.37 |
-| pairs vs residual bootstrap | 쌍 재표집(강건) / 잔차 재표집(모형이 맞을 때 효율) | T12·T15 |
-| leverage hᵢ | 관측 i가 자기 적합값에 미치는 영향(1/n~1); LOOCV 항등식의 분모 | V14, ISLR p.180 |
-| out-of-bag(OOB) | 부트스트랩 표본에 안 뽑힌 약 36.8%로 평가 | T16–T17, 노트 p.38 |
-| .632 estimator / optimism correction | 0.368·훈련오차 + 0.632·OOB; Harrell의 낙관 보정 | T17 |
-| test error / training error | 새 관측의 평균 오차 / 학습 자료의 오차(과소추정) | V03, ISLR p.176 |
-| model assessment / model selection | 성능 평가 / 유연성(모형) 선택 — CV의 두 용도 | ISLR p.175 |
-| validation(hold-out) set approach | 무작위 반분 후 검증셋 MSE로 검정오차 추정 | V04, ISLR p.176 |
-| k-fold CV / LOOCV | K조각 교차 / n-fold(한 점씩 제외) | V09·V12, 노트 p.44 |
-| CV (K), Err k _ _ | Σ(n k/n)MSE k / 분류의 오분류율 _ _ | V10·V18 |
-| AIC / BIC(information criteria) | 한 번의 적합으로 검정오차를 근사하는 기준; AIC ≈ LOOCV | 노트 p.42·46 |
-| bias–variance trade-off of k | k↑ 편향↓ 분산↑; k = 5·10 절충 | ISLR p.183–184 |
-| Bayes error rate | 참 경계를 알 때의 최소 오류(예: 0.133) — 어떤 분류기도 못 내려감 | V19, ISLR p.184 |
-| nested CV / 변수 선별 in the loop | 변수 선택·튜닝을 fold 안에서 반복해야 검정오차가 정직함 | V23 |
-
-
 ## 7차시 (2026-10-14) — Cross-Validation 완결(k-fold·LOOCV 지름길·1-SE 규칙·올바른 CV) · Model Selection(subset selection·Cp/AIC/BIC/adjR²·AIC vs BIC 철학) · 축소법 시작(능형회귀·라쏘)
 
 _출처: [study_guide_summary_part01.md](../week07_20261014/study_guide_summary_part01.md) · [주차 인덱스](../week07_20261014/README.md)_

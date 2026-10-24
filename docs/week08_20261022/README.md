@@ -1,6 +1,6 @@
 # 8차시 (2026-10-21) — AIC·BIC 유도(KL 발산·Laplace 근사) · 능형회귀·라쏘 심화(해 경로·표준화·sparse·oracle·soft thresholding) · elastic net·bridge·fused lasso · LLM으로 능형·라쏘 돌릴 때 시험 주의 (Ch7 자료 배포)
 
-> 변환 생성일 2026-10-24 · [전체 인덱스](../../INDEX.md) · [주제별 찾기](../../TOPICS.md) · [모아보기](../compiled/)
+> 변환 생성일 2026-10-25 · [전체 인덱스](../../INDEX.md) · [주제별 찾기](../../TOPICS.md) · [모아보기](../compiled/)
 
 ## 이번 차시 키워드
 

@@ -1,7 +1,7 @@
 <!-- 자동 생성 목차 파일: tools/convert_sources.py -->
 # 3차시 시험대비 학습자료 (요약본) — 목차
 
-> 이 문서는 2부로 나뉘어 있습니다(파일당 최대 12,000 tokens). 아래 표에서 필요한 절이 들어 있는 부를 고르세요. ChatGPT에는 raw URL 열의 주소를 그대로 붙여 넣으면 됩니다. 원본: `machine_learning_for_health_science/20260916/3차시 시험대비 학습자료.pdf` · 생성일 2026-10-24 · [전체 인덱스](../../INDEX.md)
+> 이 문서는 2부로 나뉘어 있습니다(파일당 최대 12,000 tokens). 아래 표에서 필요한 절이 들어 있는 부를 고르세요. ChatGPT에는 raw URL 열의 주소를 그대로 붙여 넣으면 됩니다. 원본: `machine_learning_for_health_science/20260916/3차시 시험대비 학습자료.pdf` · 생성일 2026-10-25 · [전체 인덱스](../../INDEX.md)
 
 | 부 | 포함된 절(제목) | tokens | raw URL |
 |---|---|---|---|

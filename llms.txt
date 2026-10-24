@@ -1,82 +1,176 @@
-# 보건학을 위한 기계학습 (서울대 보건대학원, 2026-2) 학습 문서 모음
+# 보건학을 위한 기계학습 (서울대 보건대학원 2026-2) — 학습 문서 허브 (llms.txt)
 
-> 8차시까지의 시험대비 학습자료 요약본과 학기 모아보기(용어집·예상문제·강조 포인트·체크리스트·요약표·강의 개요)를 Markdown으로 정리한 저장소. 생성 2026-10-24. 파일당 최대 12,000 tokens. 인덱스: https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/INDEX.md , 주제별: https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/TOPICS.md
+> 이 파일 하나만 알려 주면 AI 어시스턴트가 질문에 맞는 문서를 스스로 찾아 읽을 수 있게 만든 안내서입니다. 생성 2026-10-25 · 저장소 https://github.com/dkdlqoddi/study-arrangement · 모든 문서는 Markdown, 파일당 12,000 tokens 이하 · 모든 URL은 `https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/` 로 시작합니다.
 
-## 모아보기 (학기 전체)
+## 0. AI 어시스턴트 사용 규칙
 
-- [전 차시 강의 개요 모음](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/overviews.md)
-- [핵심 개념 한 장 요약표 모음 (1/3)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/summary_tables_part01.md)
-- [핵심 개념 한 장 요약표 모음 (2/3)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/summary_tables_part02.md)
-- [핵심 개념 한 장 요약표 모음 (3/3)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/summary_tables_part03.md)
-- [용어 정리 모음 (학기 용어집) (1/2)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/glossary_part01.md)
-- [용어 정리 모음 (학기 용어집) (2/2)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/glossary_part02.md)
-- [교수님이 강조한 포인트 모음 (1/5)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/key_points_part01.md)
-- [교수님이 강조한 포인트 모음 (2/5)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/key_points_part02.md)
-- [교수님이 강조한 포인트 모음 (3/5)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/key_points_part03.md)
-- [교수님이 강조한 포인트 모음 (4/5)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/key_points_part04.md)
-- [교수님이 강조한 포인트 모음 (5/5)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/key_points_part05.md)
-- [예상 시험 문제와 모범 답안 모음 (1/7)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_questions_part01.md)
-- [예상 시험 문제와 모범 답안 모음 (2/7)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_questions_part02.md)
-- [예상 시험 문제와 모범 답안 모음 (3/7)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_questions_part03.md)
-- [예상 시험 문제와 모범 답안 모음 (4/7)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_questions_part04.md)
-- [예상 시험 문제와 모범 답안 모음 (5/7)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_questions_part05.md)
-- [예상 시험 문제와 모범 답안 모음 (6/7)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_questions_part06.md)
-- [예상 시험 문제와 모범 답안 모음 (7/7)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_questions_part07.md)
-- [셀프 체크리스트 모음 (1/2)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/checklists_part01.md)
-- [셀프 체크리스트 모음 (2/2)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/checklists_part02.md)
+1. 질문을 읽고 아래 「1. 질문 유형별 안내」와 「3. 차시별 요약본 색인」에서 가장 맞는 문서를 1~3개 고른다. 어느 차시인지 모르면 색인의 절 제목(§)과 키워드로 찾고, 그래도 모르면 모아보기(용어집·요약표)를 먼저 연다.
+2. 고른 문서의 raw URL을 열어 본문을 끝까지 읽는다. (k/n)으로 나뉜 문서는 색인에 적힌 절 제목을 보고 필요한 부(part)만 연다.
+3. 읽은 내용을 근거로 답하고, 끝에 출처를 "N차시 요약본 §2.3 제목" 또는 "용어집 (1/2)" 형식으로 밝힌다.
+4. 문서에 없는 내용은 추측하지 말고 "제공된 자료에 없음"이라고 말한다. 전체판·강의노트·녹음 받아쓰기·슬라이드 원문은 비공개여서 여기에 없다.
+5. 요약본의 출처 표기: [노트]=강의노트, [녹음k mm:ss]=녹음 시각, [교재 p.N]=ISLR 1판 쪽수, [추가]=AI 보충(교수님 말씀 아님).
 
-## 1차시 (2026-09-02) 과목 소개 · Chap1 Introduction · Chap2 Part I (Statistical Learning)
+> For AI assistants (English): this is a routing index. Pick the matching entries below, open their raw URLs, read fully, answer only from that text, and cite week/section. Each file is ≤12k tokens. Private materials (full guides, lecture notes, transcripts, slides) are not available here.
 
-- [주차 인덱스](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week01_20260902/README.md)
-- [1차시 시험대비 학습자료 (요약본)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week01_20260902/study_guide_summary.md)
+## 1. 질문 유형별 안내
 
-## 2차시 (2026-09-09) Chap2 Part I 복습(f 추정, parametric/non-parametric, KNN·차원의 저주) · Chap2 Part II(MSE, Bias-Variance, Bayes classifier) · Efron 논문 발표
+| 질문이 이런 경우 | 먼저 열 문서 |
+|---|---|
+| 용어의 뜻·정의, 통계학↔기계학습 용어 대응 | 2절 「용어 정리 모음」 |
+| 개념을 한 줄로 복습, 여러 개념 비교, 질문/답 형식 | 2절 「핵심 개념 한 장 요약표 모음」 |
+| 시험 문제 연습, 예상문제, 모범답안, 채점 | 2절 「예상 시험 문제와 모범 답안 모음」 |
+| 교수님이 강조한 것, 시험·평가 관련 발언 | 2절 「교수님이 강조한 포인트 모음」 |
+| 공부했는지 자가 점검 | 2절 「셀프 체크리스트 모음」 |
+| 학기 흐름, 어느 차시에 무엇을 배웠나 | 2절 「전 차시 강의 개요 모음」 |
+| 특정 개념의 자세한 설명·유도·예시·교재 쪽수 | 3절 색인에서 절 제목이 맞는 차시 요약본 파트 |
+| 특정 차시 전체 내용 | 3절 해당 차시의 모든 파트를 순서대로 |
 
-- [주차 인덱스](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week02_20260909/README.md)
+## 2. 모아보기 문서 (학기 전체)
 
-## 3차시 (2026-09-16) Chap2 Part II 마무리 · Double descent 발표 · Chap3 Linear Regression(두 관점·likelihood·추론·변수선택·KNN 비교) · 회귀→경사하강→신경망 · Chap4 분류 시작(로지스틱, MLE·cross-entropy)
+- **전 차시 강의 개요 모음** — 각 차시 학습자료의 '강의 개요' 절만 모았습니다. 학기 흐름을 한눈에 볼 때.
+  - (1/2) 1·2·3·4·5·6·7차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/overviews_part01.md
+  - (2/2) 8차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/overviews_part02.md
+- **핵심 개념 한 장 요약표 모음** — 질문/한 줄 답/출처 형식의 요약표. 시험 직전 복습용.
+  - (1/3) 2·4·5차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/summary_tables_part01.md
+  - (2/3) 6·7차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/summary_tables_part02.md
+  - (3/3) 8차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/summary_tables_part03.md
+- **용어 정리 모음 (학기 용어집)** — 각 차시의 용어 정리 절을 모은 학기 용어집.
+  - (1/2) 1·2·3·4·5·6차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/glossary_part01.md
+  - (2/2) 7·8차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/glossary_part02.md
+- **교수님이 강조한 포인트 모음** — 녹음·강의노트에서 교수님이 반복·강조한 내용(시험 관련 발언 포함).
+  - (1/5) 1·2·3·4·5·6차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/key_points_part01.md
+  - (2/5) 6·7차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/key_points_part02.md
+  - (3/5) 7·8차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/key_points_part03.md
+  - (4/5) 8차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/key_points_part04.md
+  - (5/5) 8차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/key_points_part05.md
+- **예상 시험 문제와 모범 답안 모음** — 객관식·단답·서술형 예상문제와 답. 근거 출처 표시 [노트]/[녹음]/[교재]/[추가].
+  - (1/7) 1·2·3차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_questions_part01.md
+  - (2/7) 3·4·5차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_questions_part02.md
+  - (3/7) 5·6차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_questions_part03.md
+  - (4/7) 6·7차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_questions_part04.md
+  - (5/7) 7·8차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_questions_part05.md
+  - (6/7) 8차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_questions_part06.md
+  - (7/7) 8차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/exam_questions_part07.md
+- **셀프 체크리스트 모음** — ☐ 항목으로 된 자가 점검표.
+  - (1/2) 1·2·3·4·5·6차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/checklists_part01.md
+  - (2/2) 7·8차시 → https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/checklists_part02.md
 
-- [주차 인덱스](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week03_20260916/README.md)
-- [3차시 시험대비 학습자료 (요약본) (1/2)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week03_20260916/study_guide_summary_part01.md)
-- [3차시 시험대비 학습자료 (요약본) (2/2)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week03_20260916/study_guide_summary_part02.md)
+## 3. 차시별 요약본 색인
 
-## 4차시 (2026-09-23) 로지스틱 회귀 심화(우도·경사법·Newton–Raphson·odds ratio·confounding·환자-대조군) · 다항 로지스틱 · 판별분석의 출발점 · TRIPOD/PROBAST 발표
+### 1차시 (2026-09-02) — 과목 소개 · Chap1 Introduction · Chap2 Part I (Statistical Learning)
 
-- [주차 인덱스](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week04_20260923/README.md)
-- [4차시 시험대비 학습자료 (요약본) (1/3)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week04_20260923/study_guide_summary_part01.md)
-- [4차시 시험대비 학습자료 (요약본) (2/3)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week04_20260923/study_guide_summary_part02.md)
-- [4차시 시험대비 학습자료 (요약본) (3/3)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week04_20260923/study_guide_summary_part03.md)
+키워드: 통계학 vs 기계학습(Two cultures) · supervised/unsupervised/reinforcement · f 추정, Prediction vs Inference · 손실함수와 최적 예측자 E[Y|X] · Parametric vs Non-parametric · 차원의 저주 · 유연성-해석력 trade-off · 수업 운영(중간·기말, 팀 프로젝트, AI 도구 사용 보고)
 
-## 5차시 (2026-09-30) 판별분석(LDA, p=1 → p>1) · 다변량 정규분포 · Naive Bayes·Laplace 평활 · 이진 분류기 성능(정확도 함정·임계값·민감도·특이도·ROC·AUC)
+- https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week01_20260902/study_guide_summary.md
+  절: 1. 강의 개요 · 2. 핵심 개념 정리 · 2.1 통계학 vs 기계학습 (Two cultures) · 2.2 보건학에서 기계학습이 주목받는 이유와 주의점 · 2.3 Chap1: 학습의 세 유형 · 2.4 Chap2 Part I: 통계적 학습이란 — f를 추정하는 것 · 2.5 f를 왜 추정하나: Prediction vs Inference · 2.6 손실함수와 최적 예측자 E[Y|X] · 2.7 f 추정 방법: Parametric vs Non-parametric · 2.8 차원의 저주 (curse of dimensionality) · 2.9 예측 정확도 vs 해석력 trade-off · 3. 용어 정리 · 4. 교수님이 강조한 포인트 (녹음 기반) · 5. 예상 시험 문제와 모범 답안 · 6. 셀프 체크리스트
 
-- [주차 인덱스](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week05_20260930/README.md)
-- [5차시 시험대비 학습자료 (요약본) (1/3)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week05_20260930/study_guide_summary_part01.md)
-- [5차시 시험대비 학습자료 (요약본) (2/3)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week05_20260930/study_guide_summary_part02.md)
-- [5차시 시험대비 학습자료 (요약본) (3/3)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week05_20260930/study_guide_summary_part03.md)
+### 2차시 (2026-09-09) — Chap2 Part I 복습(f 추정, parametric/non-parametric, KNN·차원의 저주) · Chap2 Part II(MSE, Bias-Variance, Bayes classifier) · Efron 논문 발표
 
-## 6차시 (2026-10-07) 분류기 성능 심화(c-통계량=AUC 증명·discrimination vs calibration·PPV/NPV) · Naive Bayes 재정리 · Bootstrap(원리·CI·회귀·OOB) · Cross-Validation 시작(검증셋·k-fold·LOOCV)
+키워드: f를 왜·어떻게 추정하나 · parametric vs non-parametric · KNN과 차원의 저주 · 예측 정확도 vs 해석력 · MSE, training vs test error · Bias-Variance trade-off · 0-1 loss, Bayes classifier, KNN 분류 · Efron(2020) Prediction·Estimation·Attribution 발표 · Shmueli(2010) To Explain or to Predict? 동료 발표
 
-- [주차 인덱스](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week06_20261007/README.md)
-- [6차시 시험대비 학습자료 (요약본) (1/3)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week06_20261007/study_guide_summary_part01.md)
-- [6차시 시험대비 학습자료 (요약본) (2/3)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week06_20261007/study_guide_summary_part02.md)
-- [6차시 시험대비 학습자료 (요약본) (3/3)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week06_20261007/study_guide_summary_part03.md)
+- (1/3) https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week02_20260909/study_guide_summary_part01.md
+  절: 1. 강의 개요 · 2. 핵심 개념 정리 · 2.1 통계적 학습과 f를 추정하는 이유 — 1차시 복습 · 2.2 f를 어떻게 추정하나: parametric vs non-parametric · 2.3 KNN 회귀와 차원의 저주 · 2.4 예측 정확도와 해석력의 trade-off · 2.5 모형 정확도 평가: MSE, training vs test, overfitting · 2.6 Bias-variance trade-off와 기대 test MSE 분해 · 2.7 분류: 0-1 loss, Bayes classifier, KNN, double descent
 
-## 7차시 (2026-10-14) Cross-Validation 완결(k-fold·LOOCV 지름길·1-SE 규칙·올바른 CV) · Model Selection(subset selection·Cp/AIC/BIC/adjR²·AIC vs BIC 철학) · 축소법 시작(능형회귀·라쏘)
+- (2/3) https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week02_20260909/study_guide_summary_part02.md
+  절: 3. 핵심 개념 한 장 요약표 · 4. 용어 정리 · 5. 교수님이 강조한 포인트 (녹음·강의노트 기반) · 6. 예상 시험 문제와 모범 답안 · 6.1 객관식 · 6.2 단답형 · 6.3 서술형
 
-- [주차 인덱스](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week07_20261014/README.md)
-- [7차시 시험대비 학습자료 (요약본) (1/5)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week07_20261014/study_guide_summary_part01.md)
-- [7차시 시험대비 학습자료 (요약본) (2/5)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week07_20261014/study_guide_summary_part02.md)
-- [7차시 시험대비 학습자료 (요약본) (3/5)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week07_20261014/study_guide_summary_part03.md)
-- [7차시 시험대비 학습자료 (요약본) (4/5)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week07_20261014/study_guide_summary_part04.md)
-- [7차시 시험대비 학습자료 (요약본) (5/5)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week07_20261014/study_guide_summary_part05.md)
+- (3/3) https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week02_20260909/study_guide_summary_part03.md
+  절: 7. 셀프 체크리스트
 
-## 8차시 (2026-10-21) AIC·BIC 유도(KL 발산·Laplace 근사) · 능형회귀·라쏘 심화(해 경로·표준화·sparse·oracle·soft thresholding) · elastic net·bridge·fused lasso · LLM으로 능형·라쏘 돌릴 때 시험 주의 (Ch7 자료 배포)
+### 3차시 (2026-09-16) — Chap2 Part II 마무리 · Double descent 발표 · Chap3 Linear Regression(두 관점·likelihood·추론·변수선택·KNN 비교) · 회귀→경사하강→신경망 · Chap4 분류 시작(로지스틱, MLE·cross-entropy)
 
-- [주차 인덱스](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week08_20261022/README.md)
-- [8차시 시험대비 학습자료 (요약본) (1/7)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week08_20261022/study_guide_summary_part01.md)
-- [8차시 시험대비 학습자료 (요약본) (2/7)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week08_20261022/study_guide_summary_part02.md)
-- [8차시 시험대비 학습자료 (요약본) (3/7)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week08_20261022/study_guide_summary_part03.md)
-- [8차시 시험대비 학습자료 (요약본) (4/7)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week08_20261022/study_guide_summary_part04.md)
-- [8차시 시험대비 학습자료 (요약본) (5/7)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week08_20261022/study_guide_summary_part05.md)
-- [8차시 시험대비 학습자료 (요약본) (6/7)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week08_20261022/study_guide_summary_part06.md)
-- [8차시 시험대비 학습자료 (요약본) (7/7)](https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week08_20261022/study_guide_summary_part07.md)
+키워드: 모델 정확도 평가 복습 · Double descent(Belkin 2019) · 선형회귀의 두 관점 · likelihood · 추론·변수선택·R²·KNN 비교 · 제곱오차 → 경사하강 → 신경망(One Idea, Many Models) · 분류 문제의 정의와 risk · 선형회귀 vs 로지스틱 회귀(link) · MLE → cross-entropy, 0-1 loss와 surrogate · 다변량 정규분포 보충 덱
+
+- (1/2) https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week03_20260916/study_guide_summary_part01.md
+  절: 1. 강의 개요 · 2. 핵심 개념 정리 · 2.1 Chap.2 Part II 복습 — 모델 정확도 평가 · 2.2 Double descent — Belkin et al. (PNAS 2019) · 2.3 선형회귀를 보는 두 관점 · 2.4 Likelihood — 통계학의 핵심 엔진 · 2.5 Ch.3 나머지 — 추론·변수선택·R²·KNN 비교 · 2.6 One Idea, Many Models — 제곱오차에서 경사하강, 신경망까지 · 2.7 분류 문제의 정의와 risk · 2.8 선형회귀 vs 로지스틱 회귀 — link와 해석 · 2.9 MLE → cross-entropy, 0-1 loss와 surrogate · 2.10 이번 차시에 다루지 않은 Ch.4 후반 (S090–S121) — 교재 요약 [교재] · 3. 용어 정리 · 4. 교수님이 강조한 포인트 (녹음 기반 · 시험/평가 관련 발언 포함) · 4.1 수업 운영·평가 관련 · 4.2 학술적 강조점 (중요도 순, 녹음·노트 근거)
+
+- (2/2) https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week03_20260916/study_guide_summary_part02.md
+  절: 5. 예상 시험 문제와 모범 답안 · 5.1 객관식 · 5.2 단답형 · 5.3 서술형 · 6. 셀프 체크리스트
+
+### 4차시 (2026-09-23) — 로지스틱 회귀 심화(우도·경사법·Newton–Raphson·odds ratio·confounding·환자-대조군) · 다항 로지스틱 · 판별분석의 출발점 · TRIPOD/PROBAST 발표
+
+키워드: 로지스틱 회귀 모형과 링크 함수 · 0-1 손실 → 우도 → −log 우도 → 경사법 · 표준오차·z·p-value, Newton–Raphson · odds ratio, confounding · 유병률 vs 환자 비율, 코호트 vs 환자-대조군 · 환자-대조군 로지스틱 회귀(선택지표 S) · 다항 로지스틱(baseline category logit) · 판별분석의 출발점(Bayes 정리) · complete separation · TRIPOD·PROBAST 논문 발표
+
+- (1/3) https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week04_20260923/study_guide_summary_part01.md
+  절: 1. 강의 개요 · 2. 핵심 개념 정리 · 2.1 로지스틱 회귀 모형과 링크 함수 · 2.2 0-1 손실 → 우도 → −log 우도 → 경사법 · 2.3 표준오차·z·p-value와 Newton–Raphson · 2.4 예측, odds ratio, confounding · 2.5 남아공 심장병 자료 — 유병률 vs 환자 비율, 코호트 vs 환자-대조군 · 2.6 선택지표 S로 증명하는 환자-대조군 로지스틱 회귀 · 2.7 다항 로지스틱 — baseline category logit · 2.8 판별분석의 출발점 — Bayes 정리로 뒤집기, 최고 밀도 분류 · 2.9 왜 판별분석인가 — complete separation · 2.10 이번 차시에 다루지 않은 Ch.4 후반 (S27–S45) — 교재 요약 [교재] · 2.11 논문발표 — TRIPOD와 PROBAST · 3. 핵심 개념 한 장 요약표
+
+- (2/3) https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week04_20260923/study_guide_summary_part02.md
+  절: 4. 용어 정리 · 5. 교수님이 강조한 포인트 (녹음 기반) · 5-1. 반복·강조한 개념 · 5-2. 학생에게 던진 질문 (시험 문제로 변환될 가능성이 높은 것) · 5-3. 집에서 해 보라고 한 연습 · 5-4. 시험·평가·과제 관련 발언 · 6. 예상 시험 문제와 모범 답안 · 6-1. 객관식 (정답 하나) · 6-2. 단답형 · 6-3. 서술형
+
+- (3/3) https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week04_20260923/study_guide_summary_part03.md
+  절: 7. 셀프 체크리스트 (괄호 = 해당 슬라이드)
+
+### 5차시 (2026-09-30) — 판별분석(LDA, p=1 → p>1) · 다변량 정규분포 · Naive Bayes·Laplace 평활 · 이진 분류기 성능(정확도 함정·임계값·민감도·특이도·ROC·AUC)
+
+키워드: 판별분석: p(Y|X) ⇕ p(X|Y) · LDA p=1 판별점수·모수 추정 · p>1 다변량 정규, GEE·mixed effect 언급 · Multivariate Gaussian(밀도식, Σ, 기하) · naive Bayes, Laplace 평활 · K=3 분류, Fisher 붓꽃 · 정확도의 함정, 오류 비용, 임계값 · 민감도·특이도, ROC, AUC
+
+- (1/3) https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week05_20260930/study_guide_summary_part01.md
+  절: 1. 강의 개요 · 2. 핵심 개념 정리 · 2.1 판별분석의 출발점 — likelihood 유추, p(Y|X) ⇕ p(X|Y) · 2.2 LDA p=1 — 정규밀도 대입과 항 상쇄, 판별점수, 모수 추정 · 2.3 p>1 — 왜 다변량 정규인가, GEE와 mixed effect · 2.4 보충 덱 「Multivariate Gaussian」 — 밀도식, Σ, 기하, 성질 · 2.5 "가장 힘든 파트는 Σ" → naive Bayes → Laplace 평활 · 2.6 K=3 땅따먹기, Fisher의 붓꽃, 확률로의 변환 · 2.7 이진 분류기 성능 — 정확도의 함정, 오류 비용, 임계값 · 2.8 민감도·특이도, ROC, AUC, 임계값 선택 · 2.9 이번 차시에 다루지 않은 S40–S45 — 교재 요약과 이미 설명된 곳 [교재][추가] · 3. 핵심 개념 한 장 요약표
+
+- (2/3) https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week05_20260930/study_guide_summary_part02.md
+  절: 4. 용어 정리 · 5. 교수님이 강조한 포인트 (녹음 기반) · 5-1. 반복·강조한 개념 · 5-2. 학생에게 던진 질문 (시험 문제로 변환될 가능성이 높은 것) · 5-3. 집에서 해 보라고 한 것 · 5-4. 시험·평가·과제 관련 발언 · 6. 예상 시험 문제와 모범 답안 · 6-1. 객관식 (정답 하나) · 6-2. 단답형 · 6-3. 서술형
+
+- (3/3) https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week05_20260930/study_guide_summary_part03.md
+  절: 7. 셀프 체크리스트 (괄호 = 해당 슬라이드)
+
+### 6차시 (2026-10-07) — 분류기 성능 심화(c-통계량=AUC 증명·discrimination vs calibration·PPV/NPV) · Naive Bayes 재정리 · Bootstrap(원리·CI·회귀·OOB) · Cross-Validation 시작(검증셋·k-fold·LOOCV)
+
+키워드: ROC·AUC 복습 · c-통계량, AUC = c-통계량 증명 · discrimination vs calibration · AUC의 한계 · 민감도·특이도 vs PPV·NPV(유병률) · 학습 손실 vs 평가지표 · naive Bayes 재정리 · 부트스트랩 원리·알고리즘·신뢰구간 · 회귀에서의 부트스트랩, (1−1/n)ⁿ, OOB · 교차검증 대원칙, 검증셋, k-fold, LOOCV
+
+- (1/3) https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week06_20261007/study_guide_summary_part01.md
+  절: 1. 강의 개요 · 2. 핵심 개념 정리 · 2.1 복습 — 점수·임계값·2×2표·ROC·AUC · 2.2 c-통계량 — 쌍의 확률, 동점 ½, 순위 불변 · 2.3 AUC = c-통계량 증명 — 구분구적법 · 2.4 판별(discrimination) vs 보정(calibration) · 2.5 AUC의 네 가지 한계 · 2.6 민감도·특이도 vs PPV·NPV — 유병률의 힘 · 2.7 학습 손실 vs 평가지표, 보고 세트 · 2.8 naive Bayes 재정리 · 2.9 부트스트랩의 원리 — F를 모르니 F̂을 넣는다 · 2.10 알고리즘, B = 1000, 두 가지 신뢰구간 · 2.11 회귀에서의 부트스트랩 — resampling unit · 2.12 부트스트랩으로 예측오차? — (1−1/n)ⁿ, OOB, 결론 · 2.13 교차검증 — 대원칙, 검증셋 접근, 모델 선택 · 2.14 k-fold, LOOCV, 항등식과 AIC, 10-fold의 안정성
+
+- (2/3) https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week06_20261007/study_guide_summary_part02.md
+  절: 3. 핵심 개념 한 장 요약표 · 4. 용어 정리 · 5. 교수님이 강조한 포인트 (녹음 기반) · 5-0. 시험·평가·과제 관련 발언 (가장 먼저 볼 것) · 5-1. 강의 1 (이진 분류기 성능, 녹음1) — 반복·강조한 개념 · 5-2. 논문발표·강의 2 (부트스트랩, 녹음2) — 반복·강조한 개념 · 5-3. 강의 3 (부트스트랩 마무리·교차검증, 녹음3) — 반복·강조한 개념
+
+- (3/3) https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week06_20261007/study_guide_summary_part03.md
+  절: 6. 예상 시험 문제와 모범 답안 · 6-1. 객관식 (정답 하나) · 6-2. 단답형 · 6-3. 서술형 · 7. 셀프 체크리스트 (괄호 = 해당 슬라이드)
+
+### 7차시 (2026-10-14) — Cross-Validation 완결(k-fold·LOOCV 지름길·1-SE 규칙·올바른 CV) · Model Selection(subset selection·Cp/AIC/BIC/adjR²·AIC vs BIC 철학) · 축소법 시작(능형회귀·라쏘)
+
+키워드: CV의 목적·검증셋 접근 · k-fold CV 식 · LOOCV 지름길 공식(hᵢ), k의 편향–분산 · CV 곡선, 분류 문제의 CV, 1-SE 규칙 · 올바른 CV vs 틀린 CV(p=5000, n=50) · 모형 선택 세 방법군, AIC vs BIC 철학 · best subset·forward·backward · Cp·AIC·BIC·adjusted R² · 자코비안과 변환한 y의 AIC · 축소의 발상, 능형회귀(λ의 CV 선택) · 라쏘(ℓ1, 변수 선택) · PCR·PLS(교재, 미진행)
+
+- (1/5) https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week07_20261014/study_guide_summary_part01.md
+  절: 1. 강의 개요 · 2. 핵심 개념 정리 · 2.1 교차검증의 목적·대원칙과 검증셋 접근 · 2.2 k-fold CV와 CV₍ₖ₎ 식 · 2.3 LOOCV, 지름길 공식(hᵢ), k의 편향–분산 · 2.4 CV 곡선 vs 참 검정곡선, 분류 문제의 CV와 1-SE 규칙 · 2.5 올바른 CV와 틀린 CV — p = 5000, n = 50 · 2.6 왜 모형 선택인가 — 세 방법군, AIC vs BIC의 철학 · 2.7 부분집합 선택 — best subset·forward·backward · 2.8 RSS·R²로 고르면 안 되는 이유, 검정오차 추정의 두 접근 · 2.9 Cp·AIC·BIC·adjusted R² — 식, d, 2 vs log n, Credit 결과 · 2.10 CV의 장점, 변환한 y의 AIC와 자코비안, Credit의 CV와 1-SE · 2.11 축소의 발상 — 편향을 내주고 분산을 줄인다 · 2.12 능형회귀 — 제약 ⇔ 벌점(라그랑지안), λ의 CV 선택 · 2.13 라쏘 — ℓ1 벌점, 정확한 0과 변수 선택
+
+- (2/5) https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week07_20261014/study_guide_summary_part02.md
+  절: 2.14 라쏘의 기하·λ 선택, 차원축소 PCR·PLS — M34–M53 (이번 차시 미진행 — 교재 기준) · 3. 핵심 개념 한 장 요약표 · 4. 용어 정리 · 5. 교수님이 강조한 포인트 (녹음 기반) · 5-0. 시험·평가·과제 관련 발언 (가장 먼저 볼 것)
+
+- (3/5) https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week07_20261014/study_guide_summary_part03.md
+  절: 5-1. 강의 1 (교차검증, 녹음1) — 반복·강조한 개념 · 5-2. 강의 2 (모델 선택, 녹음2) — 반복·강조한 개념 · 5-3. 녹음3 (발표·강의 3 축소 방법) — 반복·강조한 개념 · 6. 예상 시험 문제와 모범 답안
+
+- (4/5) https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week07_20261014/study_guide_summary_part04.md
+  절: 6-1. 객관식 (정답 하나) · 6-2. 단답형
+
+- (5/5) https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week07_20261014/study_guide_summary_part05.md
+  절: 6-3. 서술형 · 7. 셀프 체크리스트 (괄호 = 해당 슬라이드)
+
+### 8차시 (2026-10-21) — AIC·BIC 유도(KL 발산·Laplace 근사) · 능형회귀·라쏘 심화(해 경로·표준화·sparse·oracle·soft thresholding) · elastic net·bridge·fused lasso · LLM으로 능형·라쏘 돌릴 때 시험 주의 (Ch7 자료 배포)
+
+키워드: AIC·BIC 유도: KL 발산, tr(J⁻¹I) → p, Laplace 근사 → p·log n · 제약 형태 ⟺ 벌점 형태(원과 마름모) · 능형회귀 해·해 경로·표준화 · 1차원 능형 β̂ = y/(1+λ) · 라쏘: sparse vs dense, oracle property · elastic net, 튜닝 파라미터 2개 · bridge 벌점 · soft thresholding · grouping effect, generalized·fused lasso · 보건 응용과 LLM 시대의 메시지 · 시험장 점검표(AI로 능형·라쏘) · Chap7 Beyond Linearity 슬라이드(배포, 다음 차시)
+
+- (1/7) https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week08_20261022/study_guide_summary_part01.md
+  절: 1. 강의 개요 · 시험·과제 공지 · 이 요약본의 구성 · 2. 핵심 개념 정리 · 2.1 M14–M23 복습 — adjusted R²는 2가 빠진 AIC, CV가 가장 일반적 · 2.2 AIC·BIC 유도의 출발 — 설정과 KL 발산 · 2.3 AIC — 편향 tr(J⁻¹I) → p, 그리고 해석 · 2.4 BIC — 사후 모형확률의 Laplace 근사 → p·log n · 2.5 축소의 발상 — 제약 형태 ⟺ 벌점 형태, 원과 마름모 · 2.6 능형회귀의 해·해 경로·척도와 표준화 · 2.7 AI(LLM)로 능형·라쏘를 돌릴 때 — "시험 볼 때 주의하세요" · 2.8 1차원 능형 β̂ = y/(1 + λ) — 편향은 늘고 분산은 준다 · 2.9 라쏘 — ℓ1 벌점, sparse vs dense, oracle property · 2.10 elastic net, 튜닝 파라미터 2개의 비용, CV vs AIC · 2.11 bridge 벌점 — 더 움푹하게 만들면? · 2.12 1차원 라쏘의 해 — soft thresholding (범위 밖일 수 있음) · 2.13 elastic net·grouping effect, generalized·fused lasso (범위 밖일 수 있음) · 2.14 보건 응용과 LLM 시대의 메시지 (범위 밖일 수 있음) · 2.15 차원축소 PCR·PLS (범위 밖일 수 있음)
+
+- (2/7) https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week08_20261022/study_guide_summary_part02.md
+  절: 2.16 시험장 점검표 — AI로 능형·라쏘를 돌릴 때 · 3. 핵심 개념 한 장 요약표 · 4. 용어 정리 · 5. 교수님이 강조한 포인트 (녹음 기반)
+
+- (3/7) https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week08_20261022/study_guide_summary_part03.md
+  절: 5-0. 시험·평가·과제·AI 사용 관련 발언 (가장 먼저 볼 것) · 5-1. 강의 1 (녹음1: 모형 선택 복습 → AIC·BIC 유도 → 축소 제약) — 반복·강조한 개념
+
+- (4/7) https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week08_20261022/study_guide_summary_part04.md
+  절: 5-2. 강의 2 (녹음2: 능형 해 경로·척도·AI 경고·sparse/dense·elastic net·bridge) — 반… · 5-3. 강의 3 (녹음3: soft thresholding·elastic net·generalized/fused lasso… · 6. 예상 시험 문제와 모범 답안
+
+- (5/7) https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week08_20261022/study_guide_summary_part05.md
+  절: 6-1. 객관식 (정답 하나) · 6-2. 단답형
+
+- (6/7) https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week08_20261022/study_guide_summary_part06.md
+  절: 6-3. 서술형
+
+- (7/7) https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/week08_20261022/study_guide_summary_part07.md
+  절: 6-4. 실습형 (AI 사용 시험 대비) · 7. 셀프 체크리스트 (괄호 = 해당 슬라이드)
+
+## 4. 사람용 목록
+
+- GitHub에서 보기: https://github.com/dkdlqoddi/study-arrangement
+- 전체 인덱스(상대 링크): https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/INDEX.md · 주제별 색인: https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/TOPICS.md · 사용법: https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/README.md

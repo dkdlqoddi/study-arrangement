@@ -76,7 +76,8 @@ WEEKS = [
         n=2, folder="20260909", date="2026-09-09", slug="week02_20260909",
         title="Chap2 Part I 복습(f 추정, parametric/non-parametric, KNN·차원의 저주) · Chap2 Part II(MSE, Bias-Variance, Bayes classifier) · Efron 논문 발표",
         topics=["f를 왜·어떻게 추정하나", "parametric vs non-parametric", "KNN과 차원의 저주", "예측 정확도 vs 해석력", "MSE, training vs test error", "Bias-Variance trade-off", "0-1 loss, Bayes classifier, KNN 분류", "Efron(2020) Prediction·Estimation·Attribution 발표", "Shmueli(2010) To Explain or to Predict? 동료 발표"],
-        summary_pdf=None, full_pdf="2차시 시험대비 학습자료(전체판).pdf",
+        summary_pdf=None, summary_md="2차시 시험대비 학습자료(요약본).md",  # 전체판에서 새로 작성한 Markdown 요약본
+        full_pdf="2차시 시험대비 학습자료(전체판).pdf",
         notes=[("20260909.pdf", None)],
         slides=[("Chap03_Lec.pdf", "chap3_linear_regression", "ISLR Ch.3"),
                 ("Ch04-Classification.pdf", "chap4_classification", "ISLR Ch.4 (이미지 위주 → OCR)"),
@@ -511,6 +512,21 @@ def process_week(w: dict, use_ocr: bool, max_tokens: int) -> dict:
                           extra_meta=f"원본 {st['pages']}쪽")
         add("study_guide_summary", f"{w['n']}차시 시험대비 학습자료 (요약본)", files, rel(src), st["method"], stats=st)
 
+    # 시험대비 학습자료(요약본) — Markdown 원본(전체판에서 직접 작성한 경우)
+    if w.get("summary_md"):
+        src = folder / w["summary_md"]
+        if not src.exists():
+            log("경고: Markdown 요약본 없음", src.name)
+        else:
+            log("요약본(md)", src.name)
+            body = src.read_text(encoding="utf-8").strip() + "\n"
+            # 제목 단계를 한 단계 내려 PDF 변환 결과(문서 제목 ##, 절 ###, 소절 ####)와 맞춤
+            body = re.sub(r"^(#{1,5})\s", lambda m: "#" * (len(m.group(1)) + 1) + " ", body, flags=re.M)
+            files = write_doc(body, wdir / "study_guide_summary.md", f"{w['n']}차시 시험대비 학습자료 (요약본)", rel(src),
+                              "markdown", week_readme, max_tokens=max_tokens, extra_meta="Markdown 원본(전체판 기반 작성)")
+            add("study_guide_summary", f"{w['n']}차시 시험대비 학습자료 (요약본)", files, rel(src), "markdown",
+                stats={"method": "markdown", "pages": 0})
+
     # 시험대비 학습자료(전체판)
     if w.get("full_pdf"):
         src = folder / w["full_pdf"]
@@ -928,6 +944,7 @@ def write_index(weeks: list[dict], common: list[dict], compiled: list[dict]):
            f"> 자동 생성 {TODAY} (`python3 tools/convert_sources.py --index-only`) · 공개 문서 {len(pub_files)}개 · 총 {sum(f['tokens'] for f in pub_files):,} tokens · "
            f"파일 하나는 최대 {MAX_TOKENS:,} tokens(ChatGPT 웹에서 한 번에 읽히는 크기) · 공개 범위: 시험대비 학습자료 **요약본**과 **모아보기**만 "
            f"(전체판·강의노트·슬라이드·받아쓰기·논문과제는 비공개)", "",
+           f"> **ChatGPT에는 URL 하나만**: `{RAW_BASE}llms.txt` 를 주면 그 안의 색인을 보고 알맞은 문서를 찾아 읽습니다(README의 질문 템플릿 참고).", "",
            "## 0. 모아보기 (학기 전체를 한 파일로)", "", "| 문서 | 내용 | 파트 |", "|---|---|---|"]
     for e in compiled:
         out.append(f"| **{e['title']}** | {e['note']} | {files_cell(e['files'], '', e.get('index'))} |")
@@ -997,22 +1014,126 @@ def write_index(weeks: list[dict], common: list[dict], compiled: list[dict]):
     (PRIV / "INDEX.md").write_text(scrub_pii("\n".join(out) + "\n"), encoding="utf-8")
 
 
-def write_llms_txt(weeks: list[dict], compiled: list[dict]):
-    out = ["# 보건학을 위한 기계학습 (서울대 보건대학원, 2026-2) 학습 문서 모음", "",
-           f"> {weeks[-1]['n'] if weeks else 0}차시까지의 시험대비 학습자료 요약본과 학기 모아보기(용어집·예상문제·강조 포인트·체크리스트·요약표·강의 개요)를 Markdown으로 정리한 저장소. "
-           f"생성 {TODAY}. 파일당 최대 {MAX_TOKENS:,} tokens. 인덱스: {RAW_BASE}INDEX.md , 주제별: {RAW_BASE}TOPICS.md", "",
-           "## 모아보기 (학기 전체)", ""]
+HUB_BUDGET_TOKENS = 10000   # 허브 파일 자체가 한 번에 읽히도록
+_TRAILING_REF = re.compile(r"\s*\([^()]*\d[^()]*\)\s*$")   # 끝의 (S22–S25, 칠판 18:37) 같은 참조 괄호
+
+
+def _hub_headings(path: str, max_len: int) -> list[str]:
+    heads = []
+    for ln in (ROOT / path).read_text(encoding="utf-8").splitlines():
+        m = re.match(r"^(#{3,4})\s+(.*)", ln)
+        if not m:
+            continue
+        t = m.group(2).strip()
+        if "시험 대비 학습자료" in t or "시험대비 학습자료" in t:
+            continue
+        t = _TRAILING_REF.sub("", t)
+        t = re.sub(r"\s*[—–-]\s*$", "", t).strip()
+        if len(t) > max_len:
+            t = t[: max_len - 1] + "…"
+        if t:
+            heads.append(t)
+    return heads
+
+
+def _compiled_coverage(files: list[dict]) -> list[str]:
+    """모아보기 각 부에 들어 있는 차시 목록. 앞 부에서 이어지는 차시(부 머리에 ## 제목이 없는 경우)도 포함."""
+    out = []
+    last = None
+    for f in files:
+        body = _strip_part_header((ROOT / f["path"]).read_text(encoding="utf-8"))
+        ws = re.findall(r"^## (\d+)차시", body, flags=re.M)
+        first_line = next((ln for ln in body.splitlines() if ln.strip()), "")
+        cont = last if (last and not re.match(r"^## \d+차시", first_line)) else None
+        cover = ([cont] if cont else []) + [w for w in ws if w != cont]
+        out.append("·".join(cover) + "차시" if cover else "")
+        if ws:
+            last = ws[-1]
+    return out
+
+
+def _build_hub(weeks: list[dict], compiled: list[dict], max_len: int) -> str:
+    repo_url = f"https://github.com/{GITHUB_REPO}"
+    out = [
+        "# 보건학을 위한 기계학습 (서울대 보건대학원 2026-2) — 학습 문서 허브 (llms.txt)",
+        "",
+        f"> 이 파일 하나만 알려 주면 AI 어시스턴트가 질문에 맞는 문서를 스스로 찾아 읽을 수 있게 만든 안내서입니다. "
+        f"생성 {TODAY} · 저장소 {repo_url} · 모든 문서는 Markdown, 파일당 {MAX_TOKENS:,} tokens 이하 · "
+        f"모든 URL은 `{RAW_BASE}` 로 시작합니다.",
+        "",
+        "## 0. AI 어시스턴트 사용 규칙",
+        "",
+        "1. 질문을 읽고 아래 「1. 질문 유형별 안내」와 「3. 차시별 요약본 색인」에서 가장 맞는 문서를 1~3개 고른다. 어느 차시인지 모르면 색인의 절 제목(§)과 키워드로 찾고, 그래도 모르면 모아보기(용어집·요약표)를 먼저 연다.",
+        "2. 고른 문서의 raw URL을 열어 본문을 끝까지 읽는다. (k/n)으로 나뉜 문서는 색인에 적힌 절 제목을 보고 필요한 부(part)만 연다.",
+        "3. 읽은 내용을 근거로 답하고, 끝에 출처를 \"N차시 요약본 §2.3 제목\" 또는 \"용어집 (1/2)\" 형식으로 밝힌다.",
+        "4. 문서에 없는 내용은 추측하지 말고 \"제공된 자료에 없음\"이라고 말한다. 전체판·강의노트·녹음 받아쓰기·슬라이드 원문은 비공개여서 여기에 없다.",
+        "5. 요약본의 출처 표기: [노트]=강의노트, [녹음k mm:ss]=녹음 시각, [교재 p.N]=ISLR 1판 쪽수, [추가]=AI 보충(교수님 말씀 아님).",
+        "",
+        "> For AI assistants (English): this is a routing index. Pick the matching entries below, open their raw URLs, read fully, answer only from that text, and cite week/section. Each file is ≤12k tokens. Private materials (full guides, lecture notes, transcripts, slides) are not available here.",
+        "",
+        "## 1. 질문 유형별 안내",
+        "",
+        "| 질문이 이런 경우 | 먼저 열 문서 |",
+        "|---|---|",
+        "| 용어의 뜻·정의, 통계학↔기계학습 용어 대응 | 2절 「용어 정리 모음」 |",
+        "| 개념을 한 줄로 복습, 여러 개념 비교, 질문/답 형식 | 2절 「핵심 개념 한 장 요약표 모음」 |",
+        "| 시험 문제 연습, 예상문제, 모범답안, 채점 | 2절 「예상 시험 문제와 모범 답안 모음」 |",
+        "| 교수님이 강조한 것, 시험·평가 관련 발언 | 2절 「교수님이 강조한 포인트 모음」 |",
+        "| 공부했는지 자가 점검 | 2절 「셀프 체크리스트 모음」 |",
+        "| 학기 흐름, 어느 차시에 무엇을 배웠나 | 2절 「전 차시 강의 개요 모음」 |",
+        "| 특정 개념의 자세한 설명·유도·예시·교재 쪽수 | 3절 색인에서 절 제목이 맞는 차시 요약본 파트 |",
+        "| 특정 차시 전체 내용 | 3절 해당 차시의 모든 파트를 순서대로 |",
+        "",
+        "## 2. 모아보기 문서 (학기 전체)",
+        "",
+    ]
     for e in compiled:
-        for k, f in enumerate(e["files"]):
-            suffix = f" ({k+1}/{len(e['files'])})" if len(e["files"]) > 1 else ""
-            out.append(f"- [{e['title']}{suffix}]({RAW_BASE}{f['path']})")
+        out.append(f"- **{e['title']}** — {e['note']}")
+        coverage = _compiled_coverage(e["files"])
+        for k, f in enumerate(e["files"], 1):
+            cov = coverage[k - 1]
+            tag = f"({k}/{len(e['files'])}) " if len(e["files"]) > 1 else ""
+            out.append(f"  - {tag}{cov + ' → ' if cov else ''}{RAW_BASE}{f['path']}")
+    out += ["", "## 3. 차시별 요약본 색인", ""]
     for w in weeks:
-        out += ["", f"## {w['n']}차시 ({w['date']}) {w['title']}", "", f"- [주차 인덱스]({RAW_BASE}docs/{w['slug']}/README.md)"]
-        for e in [e for e in w["entries"] if e.get("public")]:
-            for k, f in enumerate(e["files"]):
-                suffix = f" ({k+1}/{len(e['files'])})" if len(e["files"]) > 1 else ""
-                out.append(f"- [{e['title']}{suffix}]({RAW_BASE}{f['path']})")
-    (ROOT / "llms.txt").write_text(scrub_pii("\n".join(out) + "\n"), encoding="utf-8")
+        pub = [e for e in w["entries"] if e.get("public") and e["category"] == "study_guide_summary"]
+        out.append(f"### {w['n']}차시 ({w['date']}) — {w['title']}")
+        out.append("")
+        out.append("키워드: " + " · ".join(w["topics"]))
+        if not pub:
+            out.append("")
+            out.append("- 요약본 없음. 2절 모아보기 문서의 해당 차시 절을 보세요.")
+            out.append("")
+            continue
+        for e in pub:
+            n = len(e["files"])
+            for k, f in enumerate(e["files"], 1):
+                tag = f"({k}/{n}) " if n > 1 else ""
+                heads = _hub_headings(f["path"], max_len)
+                out.append("")
+                out.append(f"- {tag}{RAW_BASE}{f['path']}")
+                if heads:
+                    out.append("  절: " + " · ".join(heads))
+        out.append("")
+    out += [
+        "## 4. 사람용 목록",
+        "",
+        f"- GitHub에서 보기: {repo_url}",
+        f"- 전체 인덱스(상대 링크): {RAW_BASE}INDEX.md · 주제별 색인: {RAW_BASE}TOPICS.md · 사용법: {RAW_BASE}README.md",
+        "",
+    ]
+    return "\n".join(out)
+
+
+def write_llms_txt(weeks: list[dict], compiled: list[dict]):
+    """llms.txt = 단일 진입 URL 허브. 허브 자체가 HUB_BUDGET_TOKENS 안에 들도록 절 제목 길이를 조절."""
+    text = ""
+    for max_len in (70, 56, 44, 34, 26):
+        text = _build_hub(weeks, compiled, max_len)
+        if tokens(text) <= HUB_BUDGET_TOKENS:
+            break
+    (ROOT / "llms.txt").write_text(scrub_pii(text), encoding="utf-8")
+    print(f"허브(llms.txt): {tokens(text):,} tokens, 절 제목 최대 {max_len}자")
 
 
 # ---------------------------------------------------------------------------
@@ -1049,6 +1170,8 @@ def rescrub_all():
         if not root.exists():
             continue
         for f in root.rglob("*"):
+            if f.name == "redact.json":
+                continue  # 치환 목록 자체는 건드리지 않음
             if f.is_file() and f.suffix in (".md", ".json", ".txt", ".R"):
                 t = f.read_text(encoding="utf-8", errors="replace")
                 t2 = scrub_pii(t)

@@ -1,6 +1,6 @@
 # 주제별 찾기 — 키워드 → 어느 차시, 어느 문서
 
-> 각 차시 「시험대비 학습자료(요약본)」의 절 번호(§)를 기준으로 정리했습니다. 2차시는 요약본이 없어 전체판의 장 번호인데, 전체판·슬라이드·코드 등 **(비공개)** 표시 자료는 GitHub에 없고 로컬 `private/` 폴더에만 있습니다. 2차시 내용은 [모아보기](docs/compiled/)의 2차시 절에서 찾을 수 있습니다. 학기 전체를 한 파일로 보려면 [docs/compiled/](docs/compiled/)(용어집·예상문제·강조 포인트·체크리스트·요약표)를 쓰세요. 작성 2026-10-24.
+> 각 차시 「시험대비 학습자료(요약본)」의 절 번호(§)를 기준으로 정리했습니다. 2차시 요약본은 전체판에서 새로 작성한 것(2026-10-25)입니다. 전체판·슬라이드·코드 등 **(비공개)** 표시 자료는 GitHub에 없고 로컬 `private/` 폴더에만 있습니다. ChatGPT에 물을 때는 [llms.txt](llms.txt) URL 하나만 주면 됩니다. 학기 전체를 한 파일로 보려면 [docs/compiled/](docs/compiled/)(용어집·예상문제·강조 포인트·체크리스트·요약표)를 쓰세요. 작성 2026-10-24.
 
 표기: `요약본 §2.3` = 해당 주차 `study_guide_summary.md`의 2.3절 · `전체판` = `study_guide_full/` · `S0xx/M0x/B0x/T0x/V0x/AB0x/OP0x` = 전체판의 슬라이드 번호(S=Ch.4, M=Ch.6 ModelSelection, B=Binary classifier, T=Bootstrap, V=CV, AB=AIC/BIC, OP=Other penalties)
 
@@ -11,14 +11,14 @@
 | 통계학 vs 기계학습, Two cultures, Breiman | 1 | [요약본 §2.1](docs/week01_20260902/study_guide_summary.md) | Intro 슬라이드 (비공개) |
 | 보건학에서 ML이 주목받는 이유, 공정성·프라이버시 | 1 | [요약본 §2.2](docs/week01_20260902/study_guide_summary.md) | |
 | supervised / unsupervised / reinforcement learning | 1 | [요약본 §2.3](docs/week01_20260902/study_guide_summary.md) | Chap1 슬라이드 (비공개) |
-| 통계적 학습 = f 추정, Prediction vs Inference | 1 · 2 | [1차시 요약본 §2.4–2.5](docs/week01_20260902/study_guide_summary.md) · 2차시 전체판 1장 (비공개) | Chap2 Part1 슬라이드 (비공개) |
+| 통계적 학습 = f 추정, Prediction vs Inference | 1 · 2 | [1차시 요약본 §2.4–2.5](docs/week01_20260902/study_guide_summary.md) · [2차시 요약본 §2.1](docs/week02_20260909/study_guide_summary.md) | Chap2 Part1 슬라이드 (비공개) |
 | 손실함수, 최적 예측자 E[Y\|X] | 1 | [요약본 §2.6](docs/week01_20260902/study_guide_summary.md) | |
-| Parametric vs Non-parametric | 1 · 2 | [1차시 요약본 §2.7](docs/week01_20260902/study_guide_summary.md) · 2차시 전체판 2장 (비공개) | |
-| KNN 회귀, 차원의 저주(curse of dimensionality) | 1 · 2 | [1차시 요약본 §2.8](docs/week01_20260902/study_guide_summary.md) · 2차시 전체판 3장 (비공개) | R: KNN 회귀 데모 (비공개) |
-| 예측 정확도 vs 해석력 trade-off | 1 · 2 | [1차시 요약본 §2.9](docs/week01_20260902/study_guide_summary.md) · 2차시 전체판 4장 (비공개) | |
-| MSE, training vs test error, overfitting | 2 · 3 | 2차시 전체판 5장 (비공개) · [3차시 요약본 §2.1](docs/week03_20260916/study_guide_summary.md) | Chap2 Part2 슬라이드 (비공개) |
-| Bias–Variance trade-off, 분해식 | 2 · 3 | 2차시 전체판 6장 (비공개) · [3차시 요약본 §2.1](docs/week03_20260916/study_guide_summary.md) | |
-| 0-1 loss, Bayes classifier, Bayes error, KNN 분류 | 2 | 2차시 전체판 7장 (비공개) | |
+| Parametric vs Non-parametric | 1 · 2 | [1차시 요약본 §2.7](docs/week01_20260902/study_guide_summary.md) · [2차시 요약본 §2.2](docs/week02_20260909/study_guide_summary.md) | |
+| KNN 회귀, 차원의 저주(curse of dimensionality) | 1 · 2 | [1차시 요약본 §2.8](docs/week01_20260902/study_guide_summary.md) · [2차시 요약본 §2.3](docs/week02_20260909/study_guide_summary.md) | R: KNN 회귀 데모 (비공개) |
+| 예측 정확도 vs 해석력 trade-off | 1 · 2 | [1차시 요약본 §2.9](docs/week01_20260902/study_guide_summary.md) · [2차시 요약본 §2.4](docs/week02_20260909/study_guide_summary.md) | |
+| MSE, training vs test error, overfitting | 2 · 3 | [2차시 요약본 §2.5](docs/week02_20260909/study_guide_summary.md) · [3차시 요약본 §2.1](docs/week03_20260916/study_guide_summary.md) | Chap2 Part2 슬라이드 (비공개) |
+| Bias–Variance trade-off, 분해식 | 2 · 3 | [2차시 요약본 §2.6](docs/week02_20260909/study_guide_summary.md) · [3차시 요약본 §2.1](docs/week03_20260916/study_guide_summary.md) | |
+| 0-1 loss, Bayes classifier, Bayes error, KNN 분류 | 2 | [2차시 요약본 §2.7](docs/week02_20260909/study_guide_summary.md) | |
 | Double descent (Belkin et al. 2019) | 3 | [요약본 §2.2](docs/week03_20260916/study_guide_summary.md) | 참고 링크 (비공개) |
 
 ## 2. 선형회귀 (ISLR Ch.3)

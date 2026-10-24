@@ -1,7 +1,7 @@
 <!-- 자동 생성 파일: tools/convert_sources.py 가 원본에서 변환. 직접 수정하지 말고 원본/스크립트를 고치세요. -->
 # 교수님이 강조한 포인트 모음 (3/5)
 
-> 원본: `docs/week*/study_guide_*.md` · 변환 방식: compiled · 생성일: 2026-10-24 · 8개 차시
+> 원본: `docs/week*/study_guide_*.md` · 변환 방식: compiled · 생성일: 2026-10-25 · 8개 차시
 > [◀ 이전 부분](key_points_part02.md) · [다음 부분 ▶](key_points_part04.md) · [주차 인덱스](../../INDEX.md) · [전체 인덱스](../../INDEX.md)
 
 ---

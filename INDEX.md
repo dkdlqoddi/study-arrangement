@@ -1,12 +1,14 @@
 # 전체 문서 인덱스 — 보건학을 위한 기계학습 (2026-2)
 
-> 자동 생성 2026-10-24 (`python3 tools/convert_sources.py --index-only`) · 공개 문서 44개 · 총 397,599 tokens · 파일 하나는 최대 12,000 tokens(ChatGPT 웹에서 한 번에 읽히는 크기) · 공개 범위: 시험대비 학습자료 **요약본**과 **모아보기**만 (전체판·강의노트·슬라이드·받아쓰기·논문과제는 비공개)
+> 자동 생성 2026-10-25 (`python3 tools/convert_sources.py --index-only`) · 공개 문서 48개 · 총 420,605 tokens · 파일 하나는 최대 12,000 tokens(ChatGPT 웹에서 한 번에 읽히는 크기) · 공개 범위: 시험대비 학습자료 **요약본**과 **모아보기**만 (전체판·강의노트·슬라이드·받아쓰기·논문과제는 비공개)
+
+> **ChatGPT에는 URL 하나만**: `https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/llms.txt` 를 주면 그 안의 색인을 보고 알맞은 문서를 찾아 읽습니다(README의 질문 템플릿 참고).
 
 ## 0. 모아보기 (학기 전체를 한 파일로)
 
 | 문서 | 내용 | 파트 |
 |---|---|---|
-| **전 차시 강의 개요 모음** | 각 차시 학습자료의 '강의 개요' 절만 모았습니다. 학기 흐름을 한눈에 볼 때. | [overviews.md](docs/compiled/overviews.md) |
+| **전 차시 강의 개요 모음** | 각 차시 학습자료의 '강의 개요' 절만 모았습니다. 학기 흐름을 한눈에 볼 때. | [목차](docs/compiled/overviews.md) · [1부](docs/compiled/overviews_part01.md) · [2부](docs/compiled/overviews_part02.md) |
 | **핵심 개념 한 장 요약표 모음** | 질문/한 줄 답/출처 형식의 요약표. 시험 직전 복습용. | [목차](docs/compiled/summary_tables.md) · [1부](docs/compiled/summary_tables_part01.md) · [2부](docs/compiled/summary_tables_part02.md) · [3부](docs/compiled/summary_tables_part03.md) |
 | **용어 정리 모음 (학기 용어집)** | 각 차시의 용어 정리 절을 모은 학기 용어집. | [목차](docs/compiled/glossary.md) · [1부](docs/compiled/glossary_part01.md) · [2부](docs/compiled/glossary_part02.md) |
 | **교수님이 강조한 포인트 모음** | 녹음·강의노트에서 교수님이 반복·강조한 내용(시험 관련 발언 포함). | [목차](docs/compiled/key_points.md) · [1부](docs/compiled/key_points_part01.md) · [2부](docs/compiled/key_points_part02.md) · [3부](docs/compiled/key_points_part03.md) · [4부](docs/compiled/key_points_part04.md) · [5부](docs/compiled/key_points_part05.md) |
@@ -18,7 +20,7 @@
 | 차시 | 날짜 | 주제 | 요약본 | tokens |
 |---|---|---|---|---|
 | [1차시](docs/week01_20260902/README.md) | 2026-09-02 | 과목 소개 · Chap1 Introduction · Chap2 Part I (Statistical Learning) | [요약본](docs/week01_20260902/study_guide_summary.md) | 10,278 |
-| [2차시](docs/week02_20260909/README.md) | 2026-09-09 | Chap2 Part I 복습(f 추정, parametric/non-parametric, KNN·차원의 저주) · Chap2 Part II(MSE, Bias-Variance, Bayes classifier) · Efron 논문 발표 | 요약본 없음 (모아보기 참고) | — |
+| [2차시](docs/week02_20260909/README.md) | 2026-09-09 | Chap2 Part I 복습(f 추정, parametric/non-parametric, KNN·차원의 저주) · Chap2 Part II(MSE, Bias-Variance, Bayes classifier) · Efron 논문 발표 | [3부](docs/week02_20260909/study_guide_summary.md) | 23,934 |
 | [3차시](docs/week03_20260916/README.md) | 2026-09-16 | Chap2 Part II 마무리 · Double descent 발표 · Chap3 Linear Regression(두 관점·likelihood·추론·변수선택·KNN 비교) · 회귀→경사하강→신경망 · Chap4 분류 시작(로지스틱, MLE·cross-entropy) | [2부](docs/week03_20260916/study_guide_summary.md) | 16,373 |
 | [4차시](docs/week04_20260923/README.md) | 2026-09-23 | 로지스틱 회귀 심화(우도·경사법·Newton–Raphson·odds ratio·confounding·환자-대조군) · 다항 로지스틱 · 판별분석의 출발점 · TRIPOD/PROBAST 발표 | [3부](docs/week04_20260923/study_guide_summary.md) | 23,462 |
 | [5차시](docs/week05_20260930/README.md) | 2026-09-30 | 판별분석(LDA, p=1 → p>1) · 다변량 정규분포 · Naive Bayes·Laplace 평활 · 이진 분류기 성능(정확도 함정·임계값·민감도·특이도·ROC·AUC) | [3부](docs/week05_20260930/study_guide_summary.md) | 23,025 |
@@ -42,7 +44,11 @@
 키워드: f를 왜·어떻게 추정하나 · parametric vs non-parametric · KNN과 차원의 저주 · 예측 정확도 vs 해석력 · MSE, training vs test error · Bias-Variance trade-off · 0-1 loss, Bayes classifier, KNN 분류 · Efron(2020) Prediction·Estimation·Attribution 발표 · Shmueli(2010) To Explain or to Predict? 동료 발표  
 주차 인덱스: [docs/week02_20260909/README.md](docs/week02_20260909/README.md)
 
-공개 파일 없음(요약본 미작성). 모아보기 문서의 해당 차시 절을 보세요.
+| 문서 | 파일 | tokens |
+|---|---|---|
+| 2차시 시험대비 학습자료 (요약본) | [study_guide_summary_part01.md](docs/week02_20260909/study_guide_summary_part01.md) | 10,935 |
+| 2차시 시험대비 학습자료 (요약본) | [study_guide_summary_part02.md](docs/week02_20260909/study_guide_summary_part02.md) | 11,271 |
+| 2차시 시험대비 학습자료 (요약본) | [study_guide_summary_part03.md](docs/week02_20260909/study_guide_summary_part03.md) | 1,728 |
 
 ### 3차시 (2026-09-16) — Chap2 Part II 마무리 · Double descent 발표 · Chap3 Linear Regression(두 관점·likelihood·추론·변수선택·KNN 비교) · 회귀→경사하강→신경망 · Chap4 분류 시작(로지스틱, MLE·cross-entropy)
 
@@ -120,6 +126,6 @@
 `https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/` + 위 표의 파일 경로. 예:
 
 ```
-https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/overviews.md
+https://raw.githubusercontent.com/dkdlqoddi/study-arrangement/main/docs/compiled/overviews_part01.md
 ```
 

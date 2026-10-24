@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-24",
+ "generated": "2026-10-25",
  "max_tokens": 12000,
  "scope": "public",
  "weeks": [
@@ -70,7 +70,38 @@
     "Efron(2020) Prediction·Estimation·Attribution 발표",
     "Shmueli(2010) To Explain or to Predict? 동료 발표"
    ],
-   "entries": [],
+   "entries": [
+    {
+     "category": "study_guide_summary",
+     "title": "2차시 시험대비 학습자료 (요약본)",
+     "files": [
+      {
+       "path": "docs/week02_20260909/study_guide_summary_part01.md",
+       "tokens": 10935,
+       "chars": 20156
+      },
+      {
+       "path": "docs/week02_20260909/study_guide_summary_part02.md",
+       "tokens": 11271,
+       "chars": 20232
+      },
+      {
+       "path": "docs/week02_20260909/study_guide_summary_part03.md",
+       "tokens": 1728,
+       "chars": 3211
+      }
+     ],
+     "source": "machine_learning_for_health_science/20260909/2차시 시험대비 학습자료(요약본).md",
+     "method": "markdown",
+     "note": "",
+     "stats": {
+      "method": "markdown",
+      "pages": 0
+     },
+     "public": true,
+     "index": "docs/week02_20260909/study_guide_summary.md"
+    }
+   ],
    "reuse": [],
    "skip": [
     [
@@ -128,7 +159,7 @@
    ],
    "photos": 0,
    "audio": 3,
-   "src_bytes": 66893985
+   "src_bytes": 66968472
   },
   {
    "n": 3,
@@ -588,18 +619,24 @@
    "title": "전 차시 강의 개요 모음",
    "files": [
     {
-     "path": "docs/compiled/overviews.md",
-     "tokens": 10791,
-     "chars": 19325
+     "path": "docs/compiled/overviews_part01.md",
+     "tokens": 9935,
+     "chars": 18187
+    },
+    {
+     "path": "docs/compiled/overviews_part02.md",
+     "tokens": 2444,
+     "chars": 4174
     }
    ],
    "source": "각 차시 학습자료",
    "method": "compiled",
    "note": "각 차시 학습자료의 '강의 개요' 절만 모았습니다. 학기 흐름을 한눈에 볼 때.",
    "stats": {
-    "weeks": 7
+    "weeks": 8
    },
-   "public": true
+   "public": true,
+   "index": "docs/compiled/overviews.md"
   },
   {
    "category": "compiled",
@@ -607,8 +644,8 @@
    "files": [
     {
      "path": "docs/compiled/summary_tables_part01.md",
-     "tokens": 9395,
-     "chars": 16158
+     "tokens": 8322,
+     "chars": 13949
     },
     {
      "path": "docs/compiled/summary_tables_part02.md",
@@ -636,13 +673,13 @@
    "files": [
     {
      "path": "docs/compiled/glossary_part01.md",
-     "tokens": 10427,
-     "chars": 21199
+     "tokens": 10601,
+     "chars": 21808
     },
     {
      "path": "docs/compiled/glossary_part02.md",
-     "tokens": 8369,
-     "chars": 15408
+     "tokens": 6070,
+     "chars": 11044
     }
    ],
    "source": "각 차시 학습자료",
@@ -660,8 +697,8 @@
    "files": [
     {
      "path": "docs/compiled/key_points_part01.md",
-     "tokens": 11345,
-     "chars": 20104
+     "tokens": 11699,
+     "chars": 20817
     },
     {
      "path": "docs/compiled/key_points_part02.md",
@@ -699,8 +736,8 @@
    "files": [
     {
      "path": "docs/compiled/exam_questions_part01.md",
-     "tokens": 10026,
-     "chars": 18110
+     "tokens": 10237,
+     "chars": 18409
     },
     {
      "path": "docs/compiled/exam_questions_part02.md",
@@ -748,8 +785,8 @@
    "files": [
     {
      "path": "docs/compiled/checklists_part01.md",
-     "tokens": 9955,
-     "chars": 18018
+     "tokens": 10072,
+     "chars": 18228
     },
     {
      "path": "docs/compiled/checklists_part02.md",

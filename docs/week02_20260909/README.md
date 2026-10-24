@@ -1,6 +1,6 @@
 # 2차시 (2026-09-09) — Chap2 Part I 복습(f 추정, parametric/non-parametric, KNN·차원의 저주) · Chap2 Part II(MSE, Bias-Variance, Bayes classifier) · Efron 논문 발표
 
-> 변환 생성일 2026-10-24 · [전체 인덱스](../../INDEX.md) · [주제별 찾기](../../TOPICS.md) · [모아보기](../compiled/)
+> 변환 생성일 2026-10-25 · [전체 인덱스](../../INDEX.md) · [주제별 찾기](../../TOPICS.md) · [모아보기](../compiled/)
 
 ## 이번 차시 키워드
 
@@ -8,7 +8,9 @@
 
 ## 공개 문서 (시험대비 학습자료 요약본)
 
-이 차시에는 요약본이 없습니다(전체판만 작성됨). 핵심 내용은 [모아보기](../compiled/)의 각 문서에서 `2차시` 절을 보세요.
+| 유형 | 문서 | 파트 | 분량(tokens) | 원본 | 비고 |
+|---|---|---|---|---|---|
+| 시험대비 학습자료(요약본) | 2차시 시험대비 학습자료 (요약본) | [목차](study_guide_summary.md) · [1부](study_guide_summary_part01.md) · [2부](study_guide_summary_part02.md) · [3부](study_guide_summary_part03.md) | 23,934 | `2차시 시험대비 학습자료(요약본).md` |  |
 
 ## 비공개 자료
 

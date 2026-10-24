@@ -1,11 +1,11 @@
 <!-- 자동 생성 파일: tools/convert_sources.py 가 원본에서 변환. 직접 수정하지 말고 원본/스크립트를 고치세요. -->
 # 용어 정리 모음 (학기 용어집) (1/2)
 
-> 원본: `docs/week*/study_guide_*.md` · 변환 방식: compiled · 생성일: 2026-10-24 · 8개 차시
+> 원본: `docs/week*/study_guide_*.md` · 변환 방식: compiled · 생성일: 2026-10-25 · 8개 차시
 > [다음 부분 ▶](glossary_part02.md) · [주차 인덱스](../../INDEX.md) · [전체 인덱스](../../INDEX.md)
 
 ---
-> 각 차시의 용어 정리 절을 모은 학기 용어집. 각 차시 학습자료(요약본, 없으면 전체판)에서 자동 추출 · 생성일 2026-10-24 · [전체 인덱스](../../INDEX.md)
+> 각 차시의 용어 정리 절을 모은 학기 용어집. 각 차시 학습자료(요약본, 없으면 전체판)에서 자동 추출 · 생성일 2026-10-25 · [전체 인덱스](../../INDEX.md)
 
 
 ## 1차시 (2026-09-02) — 과목 소개 · Chap1 Introduction · Chap2 Part I (Statistical Learning)
@@ -78,86 +78,50 @@ _출처: [study_guide_summary.md](../week01_20260902/study_guide_summary.md) · 
 
 ## 2차시 (2026-09-09) — Chap2 Part I 복습(f 추정, parametric/non-parametric, KNN·차원의 저주) · Chap2 Part II(MSE, Bias-Variance, Bayes classifier) · Efron 논문 발표
 
-_출처: 시험대비 학습자료(전체판)(비공개, 로컬 private/ 폴더) · [주차 인덱스](../week02_20260909/README.md)_
+_출처: [study_guide_summary_part01.md](../week02_20260909/study_guide_summary_part01.md) · [주차 인덱스](../week02_20260909/README.md)_
 
-### 8. 핵심 개념 한 장 요약표 + 용어표
+### 4. 용어 정리
 
-**추가 설명 (Claude 보충, 교수님 말씀 아님)**
+전체판 8.2의 용어표를 옮기고, 전체판에 나온 통계학↔기계학습 표현 대응을 앞에 따로 모았다.
 
-이 장의 출처 — 아래 요약표와 용어표는 제가 1~7장의 내용(교수님 말씀 + 교재)을 시험용으로 압축한 것이다. 개별 문장의 원출처는 1~7장의 색 박스를 따른다. 출처 열의 "노트"는 강의노트 쪽수, "슬"은 슬라이드 번호, "ISLR"은 책 쪽수.
+**통계학 ↔ 기계학습 표현 대응**
 
-#### 8.1 한 장 요약
+| 통계학 | 기계학습 | 뜻 / 교수님 설명 | 출처 |
+|---|---|---|---|
+| Estimation (추정) | Training (학습) | 훈련자료로 f̂을 구하는 과정. "통계에서는 estimation을 한다고 보통 얘기합니다 … 같은 말" | 노트 p.30, 녹음2 08:26 |
+| 관측치와 선 사이의 잔차(residue)를 가장 줄이는 방법(OLS) | L2 loss L(y, f(x)) = (y − f(x))²의 총합 최소화 | "계산 방식은 똑같음" | 노트 p.19~20 |
+| 회귀계수의 causal meaning("x1이 1 증가하면 y가 β1 증가") | Linear model = 함수 형태를 제안하고 L2 loss를 최소화하는 방법 | ML sense에서는 계수의 의미에 "관심이 없음" | 노트 p.19 |
+| 관심: βⱼ, β̂, s.e., C.I. | 관심: Ŷ = xβ̂ (예측) | 같은 회귀식을 보는 초점의 차이. "통계(하는 사람)은 β에 … 관심이 많아요" | 노트 p.29, 녹음2 00:05 |
 
-| 질문 | 답 (시험용 한 줄) | 출처 |
-| --- | --- | --- |
-| 회귀함수 f(x)는 무엇이고 왜 "최적"인가? | f(x) = E(Y\|X=x). 제곱오차 E[(Y−g(X))²\|X=x]를 모든 g 중에서 최소화하는 함수 | Part I 슬7, 노트 p.18 |
-| Parametric 방법의 2단계는? | ① f의 함수형 가정(예: 선형 f = β0+β1X1+…+βpXp) ② 훈련자료로 모수 추정(보통 OLS). f 추정이 p+1개 계수 추정으로 축소 | 슬20~21, ISLR p.21 |
-| "선형"모형이 직선만 뜻하나? | 아니다. 계수에 대해 선형이면 된다. x², log x, √x, 교호항을 넣으면 곡선·곡면도 표현. 단, 그러면 "x1이 1 증가 → y가 β1 증가"식 해석은 깨진다 | 노트 p.19 |
-| ML 관점에서 회귀 문제는? | Ŷ = f(x), L(y,f(x)) = (y−f(x))²의 총합(평균)을 최소화하는 f를 찾는 문제. 손실 함수를 갈아 끼우면 다른 문제가 된다 | 노트 p.19, 30 |
-| Non-parametric 방법의 장단점? | 함수형 가정 없음 → 넓은 형태 적합(장점). 매우 많은 관측치 필요, 고차원에서 취약(단점). 데이터가 많으면 non-parametric | 슬23, 노트 p.21, ISLR p.23 |
-| 왜 non-parametric이 결국 선형모형처럼 표현되나? | 함수가 매끄러우면 Taylor 전개 f(x) ≈ f(0)+f'(0)x+f''(0)x²/2+…로 적절한 차수의 다항식(=선형모형)으로 근사되기 때문 | 노트 p.21 |
-| KNN 회귀란? | x에서 가장 가까운 k개 관측의 y 평균으로 E(Y\|X=x)를 추정: f̂(x) = Ave(Y\|X∈N(x)). k는 hyperparameter(tuning parameter) | 슬25, 노트 p.22~23 |
-| k가 작을 때/클 때? | k=1: 점을 잇는 지그재그(과적합, low bias·high variance). k=n: 전체 평균의 평평한 선(high bias·low variance) | 노트 p.23, ISLR p.40 |
-| 차원의 저주란? | p가 크면 "가까운 이웃"이 local하지 않다. 단위 입방체에서 자료의 r 비율을 잡으려면 변의 길이 r^(1/p): r=0.1, p=2→0.32, p=3→0.46, p=10→0.79, p=100→0.98 | 슬26~27, 노트 p.23~24 |
-| 고차원에서 거리·각도는? | 성분이 N(0,1)이면 d(X,0)≈√p, d(X,Y)≈√(2p), 두 벡터는 거의 직교(90°). LLN(과 CLT)로 설명. 모든 점이 비슷하게 멀어 이웃 평균이 부담 | 슬28, 노트 p.25 |
-| 유연한 방법을 항상 쓰지 않는 두 이유? | ① 해석력: 선형모형의 βⱼ = 다른 변수 고정 시 Xⱼ 1단위 증가당 Y 평균 증가 ② 예측만 목적이어도 단순 모형이 더 정확할 수 있음(과적합·표본 수) | 슬29~30, 노트 p.26~28, ISLR p.25~26 |
-| 유연성–해석력 지도 순서? | Subset selection·Lasso(해석↑) → Least squares → GAM·Trees → Bagging·Boosting → SVM(유연↑). 딥러닝은 더 오른쪽 | 슬31, 노트 p.27 |
-| 교수님이 강조한 표본 수 이야기? | 표본 수에 따라 허용되는 모형 복잡도가 제한된다. 50~100개면 유연한 모형은 돌아가도 성능 기대 못 함. 암·희귀질환처럼 표본이 적으면 단순 모형이 잘 작동할 때가 많다 | 노트 p.28 |
-| 통계학 vs ML이 보는 회귀의 차이? | Stat: βⱼ, β,̂ s.e., 신뢰구간. ML: Ŷ = xβ(̂예측) | 노트 p.29 |
-| 문헌을 읽을 때 가장 먼저 볼 것? | Loss function. 연구자가 어떤 오차를 줄이려 하는지, 문제를 어떻게 정의했는지가 거기 있다 | 노트 p.30 |
-
-
-| 질문 | 답 (시험용 한 줄) | 출처 |
-| --- | --- | --- |
-| MSE 정의와 training/test 구분? | MSE = (1/n)Σ(yᵢ−f̂(xᵢ))². 훈련자료로 계산하면 training MSE. 정말 중요한 것은 훈련에 쓰지 않은 (x0,y0)에 대한 test MSE = Ave(y0−f̂(x0))² | 슬3~4, ISLR p.29~30 |
-| Generalization vs generalizability(교수님 용어)? | Generalization: 같은 분포의 자료를 나눠 훈련/시험했을 때 잘 되는 것. Generalizability: 다른 시기·다른 인구집단(2026→2027년, 한국→미국)에서도 잘 되는 것. 후자는 훨씬 어렵고 weighting·modification 전략이 필요 | 노트 p.30 |
-| 유연성이 커질 때 training/test MSE? | training MSE는 단조 감소(변수를 늘리면 0까지 가능, interpolation). test MSE는 U자: 처음 감소 후 다시 증가. 최소점이 best prediction, 그 위치를 hyperparameter로 찾는 것이 과제 | 슬5~6, 노트 p.31~32, ISLR p.31~32 |
-| Overfitting이란? | 교수님: 훈련자료를 너무 따라가 오차 ε까지 적합한 것. 교재: training MSE 는 작은데 test MSE가 큰 상태, 특히 덜 유연한 모형이 더 작은 test MSE를 줬을 경우 | 노트 p.32, ISLR p.32 |
-| 세 예(그림 2.9~2.11)의 교훈? | 참 f가 거의 선형이면 선형회귀가 최선, 매우 비선형이면 유연한 모형이 최선. test MSE 최소점의 유연성은 자료마다 다르다 → 실제로는 교차검증(5 장)으로 추정 | 슬6~8, 노트 p.33, ISLR p.33 |
-| Bias와 variance 정의? | Bias: 복잡한 실제 문제를 단순 모형으로 근사해 생기는 오차(유연할수록↓). Variance: 훈련자료가 바뀔 때 f̂이 변하는 정도(유연할수록↑) | 슬10~11, ISLR p.34~35 |
-| 기대 test MSE 분해식? | E(y0−f̂(x0))² = [Bias(f̂(x0))]² + Var(f̂(x0)) + Var(ε). ε이 f̂과 독립·평균 0이라 교차항 0. test MSE는 Var(ε) 아래로 못 내려감. 교수님: "꼭 유도해 보라" | 슬12, 노트 p.36, ISLR p.34 |
-| U자가 생기는 이유? | 유연성↑ 초기에는 bias가 variance 증가보다 빨리 줄어 test MSE↓, 이후 bias는 거의 안 줄고 variance가 크게 늘어 test MSE↑. "U shape은 universal" | 노트 p.34, 36, ISLR p.35 |
-| 분류에서 정확도 척도? | Error rate = (1/n)ΣI(yᵢ≠ŷᵢ) (0-1 loss의 평균). 틀리면 1점 벌점. 미분 불가하지만 직관적. 문제 맥락에 맞는 loss를 고르는 것이 중요 | 슬14, 노트 p.37, ISLR p.37 |
-| Bayes classifier와 Bayes error rate? | P(Y=j\|X=x0)가 가장 큰 범주로 분류(이진이면 P(Y=1\|x) > 1/2 → 1). 0-1 손실의 기대값을 최소화. 그 오류율 1−E[maxⱼP(Y=j\|X)]이 Bayes error rate(=분류판 irreducible error). 실제로는 계산 불가한 금본위. "베이즈 통계와는 상관없다" | 슬15~16, 노트 p.38, ISLR p.37~39 |
-| 확률 추정 vs 결정경계 추정? | 확률 P(Y=1\|x)를 모형화하는 쪽(로지스틱 회귀와 그 변형) vs 경계만 찾는 쪽(SVM, 확률 해석 없음). "큰 역사의 분기점" | 노트 p.38 |
-| KNN 분류란? | x0의 최근접 K개 중 범주 j의 비율로 P(Y=j\|x0)를 추정하고 다수결(k=5에서 1이 3개면 1). K가 작을수록 유연. K=1이면 훈련오류 0이지만 test error는 높을 수 있음 | 슬17~20, 노트 p.39, ISLR p.39~40 |
-| 근본적인 그림 (fundamental picture)? | 가로 모형 복잡도, 세로 예측오차. 훈련오차는 계속 감소, 시험오차는 U자 (왼쪽 high bias·low variance, 오른쪽 low bias·high variance). "더 복잡한 것이 항상 더 좋지는 않다" | 슬21~22, 노트 p.37, 43 |
-| 현대판(2019) trade-off? | Belkin 외: interpolation threshold(훈련오차 0)를 넘어 더 과모수화하면 test risk가 다시 내려가는 double descent. 교수님: "2019년에 (고전적 그림이) 깨짐, technical함" | 슬23, 노트 p.32, 44 |
-
-#### 8.2 용어표
+**개념 용어**
 
 | 용어 | 뜻 | 출처 |
-| --- | --- | --- |
-| Training data (훈련자료) | f를 추정(train, 통계용어로 estimation)하는 데 쓰는 {(x1,y1),…,(xn,yn)} | 슬18, 노트 p.30, ISLR p.21 |
-
-
-| 용어 | 뜻 | 출처 |
-| --- | --- | --- |
-| Test data (시험자료) | f̂을 구할 때 쓰지 않은 새 자료 (x0,y0); 노트에서는 별표(*)로 표시 | 슬4, 노트 p.30 |
-| Parametric / Non-parametric | f의 함수형을 가정하고 모수를 추정 / 함수형을 가정하지 않고 데이터를 따라감 | 슬20, 23 |
-| OLS (ordinary least squares) | 잔차 제곱합을 최소화해 선형모형 계수를 구하는 가장 흔한 방법 | 슬21 |
+|---|---|---|
+| X / Y의 여러 이름 | X: feature, input, predictor, independent variable / Y: response, target, dependent variable | P1 슬4, 교재 p.15~16 |
+| Training data (훈련자료) | f를 추정(train, 통계용어로 estimation)하는 데 쓰는 {(x1,y1),…,(xn,yn)} | P1 슬18, 노트 p.30, 교재 p.21 |
+| Test data (시험자료) | f̂을 구할 때 쓰지 않은 새 자료 (x0,y0); 노트에서는 별표(*)로 표시 | P2 슬4, 노트 p.30 |
+| Parametric / Non-parametric | f의 함수형을 가정하고 모수를 추정 / 함수형을 가정하지 않고 데이터를 따라감 | P1 슬20, 23 |
+| OLS (ordinary least squares) | 잔차 제곱합을 최소화해 선형모형 계수를 구하는 가장 흔한 방법 | P1 슬21 |
 | L2 loss, squared error loss | L(y,f(x)) = (y−f(x))². 회귀의 표준 손실 | 노트 p.19 |
 | Loss function (손실함수) | 예측이 틀렸을 때의 벌점을 정의하는 함수. 연구자가 문제를 정의하는 곳. 문헌에서 가장 먼저 확인 | 노트 p.30, 37 |
 | Hyperparameter / tuning parameter | KNN의 k, spline의 매끄러움처럼 모형 복잡도를 조절하는 값. 기분이 아니라 test MSE 최소화로 정함 | 노트 p.23, 32 |
-| Neighborhood N(x) | x 근방의 관측 집합. KNN에서는 가장 가까운 k개 | 슬25 |
-| Curse of dimensionality (차원의 저주) | p가 크면 국소 이웃이 더 이상 local하지 않고, 거리·각도가 모두 비슷해지는 현상 | 슬26~28, 노트 p.23~25 |
+| Neighborhood N(x) | x 근방의 관측 집합. KNN에서는 가장 가까운 k개 | P1 슬25 |
+| Curse of dimensionality (차원의 저주) | p가 크면 국소 이웃이 더 이상 local하지 않고, 거리·각도가 모두 비슷해지는 현상 | P1 슬26~28, 노트 p.23~25 |
 | LLN / CLT | 큰수의 법칙(표본평균→기댓값) / 중심극한정리. 교수님: "둘은 알아두라" | 노트 p.25 |
-| Interpretability (해석력) | 변수 변화가 Y에 주는 효과를 사람이 읽을 수 있는 정도. 공식 정의는 없음(교수님) | 슬29, 노트 p.27 |
+| Interpretability (해석력) | 변수 변화가 Y에 주는 효과를 사람이 읽을 수 있는 정도. 공식 정의는 없음(교수님) | P1 슬29, 노트 p.27 |
 | Explainable AI, LIME | 유연한 모형의 예측을 국소적으로 설명하는 기법. LIME은 특정 점 근처에서 lasso 등 단순 모형을 적합 | 노트 p.28 |
-| MSE (mean squared error) | (1/n)Σ(yᵢ−ŷᵢ)². training MSE와 test MSE를 구분 | 슬3, ISLR p.29 |
-| Overfitting (과적합) | 오차까지 적합해 새 자료를 못 맞히는 상태; training MSE 작고 test MSE 큼 | 노트 p.32, ISLR p.32 |
-| Interpolation (내삽) | f̂이 모든 훈련점을 정확히 지나 training MSE = 0이 된 상태 | 노트 p.32, 슬23 |
+| MSE (mean squared error) | (1/n)Σ(yᵢ−ŷᵢ)². training MSE와 test MSE를 구분 | P2 슬3, 교재 p.29 |
+| Overfitting (과적합) | 오차까지 적합해 새 자료를 못 맞히는 상태; training MSE 작고 test MSE 큼 | 노트 p.32, 교재 p.32 |
+| Interpolation (내삽) | f̂이 모든 훈련점을 정확히 지나 training MSE = 0이 된 상태 | 노트 p.32, P2 슬23 |
 | Generalization / Generalizability | 같은 분포 안에서의 일반화 / 다른 시기·집단으로의 이전 가능성 (교수님 구분) | 노트 p.30 |
-| Bias / Variance | 단순화에서 오는 체계적 오차 / 훈련자료 변화에 따른 f̂의 변동 | 슬10~11 |
-| Irreducible error Var(ε) | f를 완벽히 알아도 남는 오차. test MSE의 하한(점선) | 슬6, 12, ISLR p.18, 34 |
-| Error rate (오분류율) | (1/n)ΣI(yᵢ≠ŷᵢ). 0-1 loss의 평균 | 슬14 |
+| Bias / Variance | 단순화에서 오는 체계적 오차 / 훈련자료 변화에 따른 f̂의 변동 | P2 슬10~11 |
+| Irreducible error Var(ε) | f를 완벽히 알아도 남는 오차. test MSE의 하한(점선) | P2 슬6, 12, 교재 p.18, 34 |
+| Error rate (오분류율) | (1/n)ΣI(yᵢ≠ŷᵢ). 0-1 loss의 평균 | P2 슬14 |
 | 0-1 loss | 틀리면 1, 맞으면 0. 미분 불가. 표준적이지만 유일한 선택은 아님 | 노트 p.37 |
-| Bayes classifier / Bayes decision boundary / Bayes error rate | 조건부확률 최대 범주로 분류 / P=1/2인 점들의 경계 / 그때의 최소 오류율 | 슬15~16, ISLR p.37~39 |
+| Bayes classifier / Bayes decision boundary / Bayes error rate | 조건부확률 최대 범주로 분류 / P=1/2인 점들의 경계 / 그때의 최소 오류율 | P2 슬15~16, 교재 p.37~39 |
 | Decision boundary | 두 범주의 예측이 갈리는 경계. SVM 등은 확률 없이 경계만 추정 | 노트 p.38 |
-| KNN (K-nearest neighbors) | 회귀: 이웃 평균 / 분류: 이웃 다수결. K가 작을수록 유연 | 슬17, 25 |
-| Double descent | 보간 임계점 이후 test risk가 다시 감소하는 현대적 현상 (Belkin 외 2019) | 슬23 |
-
-
+| KNN (K-nearest neighbors) | 회귀: 이웃 평균 / 분류: 이웃 다수결. K가 작을수록 유연 | P2 슬17, P1 슬25 |
+| Double descent | 보간 임계점 이후 test risk가 다시 감소하는 현대적 현상 (Belkin 외 2019) | P2 슬23 |
 
 
 ## 3차시 (2026-09-16) — Chap2 Part II 마무리 · Double descent 발표 · Chap3 Linear Regression(두 관점·likelihood·추론·변수선택·KNN 비교) · 회귀→경사하강→신경망 · Chap4 분류 시작(로지스틱, MLE·cross-entropy)
@@ -329,3 +293,70 @@ _출처: [study_guide_summary_part01.md](../week05_20260930/study_guide_summary_
 | KNN | 비모수 분류기; 경계가 매우 비선형일 때 유리, 계수 표 없음 | S44 |
 | Charlson comorbidity index(CCI) | 동반질환 보정 지수 — 질환마다 처리 방식이 다르다는 예로 언급 | 녹음1 49:21 |
 | quick and dirty | "더티하고 빠른 방법으로 윤곽부터" — naive Bayes가 선도주자 | 녹음1 27:17, 녹음 2 18:55 |
+
+
+## 6차시 (2026-10-07) — 분류기 성능 심화(c-통계량=AUC 증명·discrimination vs calibration·PPV/NPV) · Naive Bayes 재정리 · Bootstrap(원리·CI·회귀·OOB) · Cross-Validation 시작(검증셋·k-fold·LOOCV)
+
+_출처: [study_guide_summary_part01.md](../week06_20261007/study_guide_summary_part01.md) · [주차 인덱스](../week06_20261007/README.md)_
+
+### 4. 용어 정리
+
+| 용어 | 뜻 | 등장 |
+| --- | --- | --- |
+| score S / threshold t | 모형의 연속 출력(확률·바이오마커·선형예측값) / S ≥ t이면 1 로 판정하는 절단값 | B04, 노트 p.19·25 |
+| confusion matrix(혼동행렬) | 실제 × 예측 2×2 표(TN, FP, FN, TP) | S36, ISLR Table 4.4·4.6 |
+| sensitivity(민감도) = TPR = recall | P(Ŷ=1∣Y=1) = TP/P = 1 − FNR | S37, 노트 p.29 |
+| specificity(특이도) = 1 − FPR | P(Ŷ=0∣Y=0) = TN/N | S37, 노트 p.29 |
+
+
+| 용어 | 뜻 | 등장 |
+| --- | --- | --- |
+| PPV(precision) / NPV | P(Y=1∣Ŷ=1) = TP/P / P(Y=0∣Ŷ=0) = TN/N — 분모가 예측 클래스, 유병률에 의존 | 노트 p.29, 판서 19:06, ISLR Table 4.7 |
+| prevalence(유병률) π | P(Y=1); PPV 계산에서 Bayes 정리의 사전확률 | 판서 19:08, 노트 p.29 |
+| ROC curve | 임계값을 훑으며 (FPR, TPR)을 이은 곡선 | S39, B05 |
+| AUC | ROC 아래 면적, 0.5~1; 모든 임계값에 걸친 요약 | S39, B05 |
+| c-statistic / concordance index | P(S D > S D)̄ + ½P(S D = S D̄); Harrell이 보급; AUC와 동일 _ _ _ _ | B07, 노트 p.25–26 |
+| concordant pair(일치 쌍) | 환자–비환자 쌍 중 환자 점수가 큰 쌍; 표본 c = 일치 쌍/(n₁n₀) | B07·B10, 노트 p.26 |
+| Mann–Whitney U / Wilcoxon rank-sum | 두 집단 순위 검정 통계량; ĉ = U/(n₁n₀) | B10, 노트 p.27 |
+| discrimination(판별) | 발병자와 비발병자를 분리하는 능력 — AUC가 재는 유일한 것 | B11–B12, 노트 p.28 |
+| calibration(보정) | 예측확률이 관측 빈도와 맞는지("눈금을 잘 조정") | B14, 노트 p.28–29 |
+| calibration plot / intercept /slope | 10등분 구간별 예측 vs 관측; 절편(calibration-in-the-large)·기울기 | B17, 노트 p.29 |
+| partial AUC | 임상적으로 쓰이는 FPR 범위에서만 적분한 면적 | B15·B17, 노트 p.29 |
+| rank-based measure | 점수의 단조변환(+5, ×2)에 불변인 지표 — AUC의 본질 | 노트 p.26·28 |
+| Brier score | 예측확률의 평균제곱오차 (1/n)Σ(pᵢ−yᵢ)²; 판별+보정을 한 숫자에 | B17 |
+| log-loss / cross-entropy | −Σ[y log p + (1−y) log(1−p)]; 이항 우도의 음의 로그 = 로지 스틱 회귀의 학습 손실 | 노트 p.30, 판서 19:20 |
+| 0–1 loss | 틀리면 1, 맞으면 0; 분류가 원래 목표로 하는 손실(불연속이라 직접 최소화 어려움) | 노트 p.30, 판서 19:20 |
+| NRI / IDI | 재분류 개선 지표; 보정 불량에 부풀려져 주의 | B17 |
+| decision curve analysis / net benefit | 임계확률 t에서 순이익 = TP − FP·t/(1−t); '모두 치료'·'치료 안 함'과 비교 | B18 |
+| TRIPOD+AI | 예측모형 보고 지침 — 하위집단(특정 환자군)별 성능 보고 권고 | B17, 노트 p.30 |
+| naive Bayes / Laplace smoothing | 클래스 안 성분 독립 가정; 빈도 0 범주에 (빈도+α)/(n+α·범주수) | S40·S42, 노트 p.21 |
+| QDA | 클래스별 Σ k → 이차 경계 _ | S41, ISLR p.149 |
+| KNN | 비모수 분류기; K는 CV로 선택 | S44, V22 |
+| bootstrap(부트스트랩) | F̂ₙ에서 복원추출해 통계량을 B번 재계산 → s.e.·편향·CI (Efron 1979) | T01–T02, 노트 p.31 |
+| empirical distribution F̂ₙ(경험분포함수) | (1/n)Σ 1(Xᵢ ≤ x); 1/n씩 뛰는 계단 CDF | T03, 노트 p.32, 판서 20:20 |
+| Glivenko–Cantelli / DKW | sup∣F̂ₙ−F∣ → 0(균등수렴) / 유한표본 확률 한계 | T03, 노트 p.32 |
+| statistical functional / plug-in | θ = T(F); 추정량 T(F̂ₙ)(표본평균·표본분위수 등) | T04 |
+| sampling distribution(표본분포) | 같은 크기 표본을 반복해 얻는 θ̂의 분포; 퍼짐 = standard error | 노트 p.31, 판서 20:20 |
+| sampling with replacement(복원추출) | 뽑은 공을 항아리에 다시 넣고 뽑음 — 같은 자료가 중복 가능 | 노트 p.32, ISLR p.189 |
+
+
+| 용어 | 뜻 | 등장 |
+| --- | --- | --- |
+| bootstrap replicate θ̂ᵇ, B | b번째 재표본의 통계량; 복제 수(보통 1000) | T06, 노트 p.33 |
+| ŝe boot _ | 복제값의 표본표준편차 √[Σ(θ̂ᵇ−θ)̄²/(B−1)] | T06, ISLR (5.8) |
+| bias boot _ | θ̄ B − θ̂; 보정 추정량 2θ̂ − θ̄ B(분산 증가 주의) _ _ | T07 |
+| normal interval / percentile interval | θ̂ ± z·ŝe boot / 복제값의 2.5·97.5 백분위(25번째·975번째) _ | T09–T10, 노트 p.35 |
+| resampling unit(재표집 단위) | 항아리에 넣는 한 단위 — 회귀에서는 (xᵢ, yᵢ) 쌍 | 노트 p.37 |
+| pairs vs residual bootstrap | 쌍 재표집(강건) / 잔차 재표집(모형이 맞을 때 효율) | T12·T15 |
+| leverage hᵢ | 관측 i가 자기 적합값에 미치는 영향(1/n~1); LOOCV 항등식의 분모 | V14, ISLR p.180 |
+| out-of-bag(OOB) | 부트스트랩 표본에 안 뽑힌 약 36.8%로 평가 | T16–T17, 노트 p.38 |
+| .632 estimator / optimism correction | 0.368·훈련오차 + 0.632·OOB; Harrell의 낙관 보정 | T17 |
+| test error / training error | 새 관측의 평균 오차 / 학습 자료의 오차(과소추정) | V03, ISLR p.176 |
+| model assessment / model selection | 성능 평가 / 유연성(모형) 선택 — CV의 두 용도 | ISLR p.175 |
+| validation(hold-out) set approach | 무작위 반분 후 검증셋 MSE로 검정오차 추정 | V04, ISLR p.176 |
+| k-fold CV / LOOCV | K조각 교차 / n-fold(한 점씩 제외) | V09·V12, 노트 p.44 |
+| CV (K), Err k _ _ | Σ(n k/n)MSE k / 분류의 오분류율 _ _ | V10·V18 |
+| AIC / BIC(information criteria) | 한 번의 적합으로 검정오차를 근사하는 기준; AIC ≈ LOOCV | 노트 p.42·46 |
+| bias–variance trade-off of k | k↑ 편향↓ 분산↑; k = 5·10 절충 | ISLR p.183–184 |
+| Bayes error rate | 참 경계를 알 때의 최소 오류(예: 0.133) — 어떤 분류기도 못 내려감 | V19, ISLR p.184 |
+| nested CV / 변수 선별 in the loop | 변수 선택·튜닝을 fold 안에서 반복해야 검정오차가 정직함 | V23 |

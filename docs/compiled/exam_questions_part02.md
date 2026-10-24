@@ -1,7 +1,7 @@
 <!-- 자동 생성 파일: tools/convert_sources.py 가 원본에서 변환. 직접 수정하지 말고 원본/스크립트를 고치세요. -->
 # 예상 시험 문제와 모범 답안 모음 (2/7)
 
-> 원본: `docs/week*/study_guide_*.md` · 변환 방식: compiled · 생성일: 2026-10-24 · 8개 차시
+> 원본: `docs/week*/study_guide_*.md` · 변환 방식: compiled · 생성일: 2026-10-25 · 8개 차시
 > [◀ 이전 부분](exam_questions_part01.md) · [다음 부분 ▶](exam_questions_part03.md) · [주차 인덱스](../../INDEX.md) · [전체 인덱스](../../INDEX.md)
 
 ---
