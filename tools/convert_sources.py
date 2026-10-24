@@ -82,7 +82,7 @@ WEEKS = [
         slides=[("Chap03_Lec.pdf", "chap3_linear_regression", "ISLR Ch.3"),
                 ("Ch04-Classification.pdf", "chap4_classification", "ISLR Ch.4 (이미지 위주 → OCR)"),
                 ("To Explain or to Predict*발표자료.pdf", "student_presentation_shmueli_to_explain_or_to_predict",
-                 "동료 학생의 Shmueli(2010) 논문 발표자료 — 공개 전 동의 확인 필요")],
+                 "동료 학생의 Shmueli(2010) 논문 발표자료 — 비공개 보관(공개 범위 밖)")],
         code=[("kNN.txt", "knn_regression_demo.R", "KNN 회귀 vs 선형회귀 R 데모")],
         paper_assignment=True,
         skip=[("Int Statistical Rev - 2021 - Efron - Prediction  Estimation  and Attribution.pdf", "논문 원문(저작권)"),
